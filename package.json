@@ -1,0 +1,23 @@
+{
+  "name": "household-registry-frontend",
+  "version": "1.0.0",
+  "description": "Household registry frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uonafya/household-registry-frontend.git"
+  },
+  "keywords": [
+    "Household",
+    "registry"
+  ],
+  "author": "Newton Mugaya <nmugaya@healthit.uonbi.ac.ke>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uonafya/household-registry-frontend/issues"
+  },
+  "homepage": "https://github.com/uonafya/household-registry-frontend#readme"
+}
