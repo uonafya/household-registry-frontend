@@ -1,5 +1,5 @@
 
-import moh from '../moh.png'
+import moh from '../images/moh.png'
 import '../App.css';
 
 function Home() {
