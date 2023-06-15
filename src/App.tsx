@@ -6,13 +6,17 @@ import SignUp from './pages/Authentication/SignUp';
 import Calendar from './pages/Calendar';
 import Chart from './pages/Chart';
 import ECommerce from './pages/Dashboard/ECommerce';
-import FormElements from './pages/Form/FormElements';
-import FormLayout from './pages/Form/FormLayout';
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
+import HouseHoldRegistration from './pages/Form/HouseHoldRegistration';
+import HouseHoldMemberRegistration from './pages/Form/HouseHoldMemberRegistration';
+import AllHouseHolds from './pages/Form/AllHouseHolds';
+import MigrateHouseHold from './pages/Form/MigrateHouseHold';
+import MuteHouseHold from './pages/Form/MuteHouseHold';
+import VoidHouseHold from './pages/Form/VoidHouseHold';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -38,8 +42,12 @@ function App() {
         <Route path="/" element={<ECommerce />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/forms/form-elements" element={<FormElements />} />
-        <Route path="/forms/form-layout" element={<FormLayout />} />
+        <Route path="/forms/household-reg" element={<HouseHoldRegistration />} />
+        <Route path="/forms/householdmember-reg" element={<HouseHoldMemberRegistration />} />
+        <Route path="/forms/all-households" element={<AllHouseHolds />} />
+        <Route path="/forms/migrate-household" element={<MigrateHouseHold />} />
+        <Route path="/forms/mute-household" element={<MuteHouseHold />} />
+        <Route path="/forms/void-household" element={<VoidHouseHold />} />
         <Route path="/tables" element={<Tables />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/chart" element={<Chart />} />
