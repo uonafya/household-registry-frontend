@@ -1,9 +1,8 @@
-import CountryOptions from '../options/CountryOptions';
 // Client Verification
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
 
-function ClientVerification() {
+function ClientVerification( {isVerfied, setIsVerified, clientRegistryData, setClientRegistryData}) {
   const initialValues = {
     country: '',
     IdentifierType: '',
@@ -36,6 +35,15 @@ function ClientVerification() {
       });
       // Handle the response
       console.log(response.data);
+
+      // Check if the status code is 200
+    if (response.status === 200) {
+      console.log("Request successful");
+      setIsVerified(true);
+      setClientRegistryData(response.data);
+    } else {
+      console.log("Request failed with status code: " + response.status);
+    }
     } catch (error) {
       // Handle the error
       console.error(error);

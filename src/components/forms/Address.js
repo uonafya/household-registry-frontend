@@ -1,7 +1,7 @@
 import CountyToWardOptions from "../options/CountyToWardOptions";
 import CountryOptions from "../options/CountryOptions";
 
-function Address() {
+function Address({householdRegistryData,sethouseholdRegistryData}) {
     return (
       <div>
         
