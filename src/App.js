@@ -13,9 +13,10 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="CreatePerson" element={<PersonDetails />} />
-          <Route path="/LoginForm" element={<LoginForm/>}/>
+          
           <Route path="HouseHoldRegistration" element={<HouseHoldRegistration/>}/>
         </Route>
+        <Route path="/LoginForm" element={<LoginForm/>}/>
       </Routes>
     </BrowserRouter>
   );

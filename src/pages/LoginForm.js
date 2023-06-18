@@ -84,7 +84,6 @@ const LoginForm = () => {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <h2>HouseHold Registry</h2>
     <Grid container component="main" sx={{ height: '100vh' }}>
     <CssBaseline />
     
