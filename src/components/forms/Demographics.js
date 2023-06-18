@@ -3,18 +3,18 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 
 function Demographics({householdRegistryData,setHouseholdRegistryData}) {
   const initialValues = {
-    firstName: 'John',
-    middleName: 'Doe',
-    lastName: 'Smith',
-    dateOfBirth: '1990-01-01',
-    gender: 'Male',
-    country: 'United States',
-    countyOfBirth: 'Los Angeles',
+    firstName: '',
+    middleName: '',
+    lastName: '',
+    dateOfBirth: '',
+    gender: '',
+    country: ' ',
+    countyOfBirth: ' ',
     residence: {
-      county: 'Los Angeles',
-      sub_county: 'ABC',
-      ward: 'XYZ',
-      village: '123',
+      county: ' ',
+      sub_county: '',
+      ward: '',
+      village: '',
     },
   };
 
@@ -46,7 +46,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
 
   return (
     <div>
-      <fieldset>
+      <fieldset style={{ width: '75%' }}>
         <legend>Person Details</legend>
         <div className="flex items-center justify-center h-screen">
           <div className="bg-white p-6 rounded shadow-lg">
@@ -121,7 +121,6 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
           <ErrorMessage name="residence.village" component="div" className="error" />
         </div>
 
-        <button type="submit">Submit</button>
       </Form>
     </Formik>
         </div>

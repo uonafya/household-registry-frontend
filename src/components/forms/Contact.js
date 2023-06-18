@@ -23,8 +23,8 @@ function ContactForm() {
 
   return (
     <div>
-      <fieldset>
-        <legend>Post to Registry/Create Person</legend>
+      <fieldset style={{ width: '75%' }}>
+        <legend>Person Contacts</legend>
         <div className="flex items-center justify-center h-screen">
           <div className="bg-white p-6 rounded shadow-lg">
       <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validateForm}>
@@ -47,7 +47,6 @@ function ContactForm() {
             <ErrorMessage name="email" component="div" className="error-message" />
           </div>
 
-          <button type="submit">Submit</button>
         </Form>
       </Formik>
       </div>

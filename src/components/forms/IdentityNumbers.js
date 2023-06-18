@@ -3,8 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 function IdentificationForm({householdRegistryData,setHouseholdRegistryData}) {
   const initialValues = {
-    identification_type: 'Passport',
-    identification_number: 'ABC123XYZ',
+    identification_type: '',
+    identification_number: '',
   };
 
   const handleSubmit = async (values) => {
@@ -29,7 +29,7 @@ function IdentificationForm({householdRegistryData,setHouseholdRegistryData}) {
 
   return (
     <div>
-      <fieldset>
+      <fieldset style={{ width: '75%' }}>
         <legend>Client verification with Client Registry</legend>
         <div className="flex items-center justify-center h-screen">
           <div className="bg-white p-6 rounded shadow-lg">
@@ -47,7 +47,6 @@ function IdentificationForm({householdRegistryData,setHouseholdRegistryData}) {
           <ErrorMessage name="identification_number" component="div" />
         </div>
 
-        <button type="submit">Submit</button>
       </Form>
     </Formik>
     </div>

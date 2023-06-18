@@ -8,16 +8,25 @@ import ContactForm from '../components/forms/Contact';
 
 function PersonDetails() {
   const [isVerified, setIsVerified] = useState(false);
+  const [showForms, setShowForms] = useState (false);
   const [clientRegistryData, setClientRegistryData] =useState({});
   const [householdRegistryData, setHouseholdRegistryData] =useState({});
+  const clientVerificationProps = {
+    showForms:showForms,
+    setShowForms:setShowForms,
+    setShowFormsisVerified: isVerified,
+    setIsVerified:setIsVerified,
+    clientRegistryData:clientRegistryData,
+    setClientRegistryData:setClientRegistryData,
+  };
 
 
   return (
     <div>
-      <h1><b>Register Patient</b></h1>
-      <ClientVerification isVerified={isVerified} setIsVerified={setIsVerified} clientRegistryData={clientRegistryData} setClientRegistryData={setClientRegistryData}/>
+      <h1><b>Register Person</b></h1>
+      <ClientVerification {...clientVerificationProps}/>
       
-      {!isVerified && (
+      {!showForms && (
         <div>
 
           <Demographics householdRegistryData={householdRegistryData} sethouseholdRegistryData={setHouseholdRegistryData}/>

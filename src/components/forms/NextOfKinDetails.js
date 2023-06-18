@@ -3,13 +3,13 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
   const initialValues = {
-    name: 'Jane Doe',
-    relationship: 'Spouse',
-    residence: 'Los Angeles',
+    name: '',
+    relationship: '',
+    residence: '',
     contact: {
-      primary_phone: '5555555555',
-      secondary_phone: '1111111111',
-      email: 'jane@example.com'
+      primary_phone: '',
+      secondary_phone: '',
+      email: ''
     }
   };
 
@@ -33,8 +33,8 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
 
   return (
     <div>
-      <fieldset>
-        <legend>Client verification with Client Registry</legend>
+      <fieldset style={{ width: '75%' }}>
+        <legend>Next of Kin Details</legend>
         <div className="flex items-center justify-center h-screen">
           <div className="bg-white p-6 rounded shadow-lg">
     <           Formik initialValues={initialValues} onSubmit={handleSubmit}>
@@ -63,7 +63,6 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
                     <Field type="text" id="email" name="contact.email" />
                     <ErrorMessage name="contact.email" component="div" />
 
-                    <button type="submit">Submit</button>
                   </Form>
                 </Formik>
       </div>

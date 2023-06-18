@@ -1,6 +1,38 @@
-import React from 'react';
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
+import moh from '../images/moh.png';
+import { blue } from '@mui/material/colors';
+import Home from './Home';
+
+
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
+const defaultTheme = createTheme();
 
 const LoginForm = () => {
   const initialValues = {
@@ -51,31 +83,105 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="bg-white p-6 rounded shadow-lg">
-        <h2 className="text-2xl mb-4">Login</h2>
+    <ThemeProvider theme={defaultTheme}>
+      <h2>HouseHold Registry</h2>
+    <Grid container component="main" sx={{ height: '100vh' }}>
+    <CssBaseline />
+    
+    <Grid
+        item
+        xs={false}
+        sm={4}
+        md={7}
+        sx={{
+          backgroundImage: 'url(${moh})',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: (t) =>
+            t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+  {/* <img src={moh} alt="MOH" style={{ width: '220px', height: '220px' }} /> */}
+  {/* <Typography variant="body1" component="p">
+    Household Registry.
+  </Typography> */}
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Box
+          sx={{
+            my: 8,
+            mx: 4,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon color='blue'/>
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Login in
+          </Typography>
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validateForm}>
           <Form>
             <div className="mb-4">
               <label htmlFor="username" className="block">Username</label>
-              <Field type="text" name="username" id="username" className="border border-gray-300 px-2 py-1 rounded" />
+                <Field
+                as={TextField}
+                margin="normal"
+                required
+                fullWidth
+                id="username"
+                name="username"
+                autoComplete="username"
+                autoFocus
+              />
               <ErrorMessage name="username" component="div" className="text-red-500" />
             </div>
             <div className="mb-4">
               <label htmlFor="password" className="block">Password</label>
-              <Field type="password" name="password" id="password" className="border border-gray-300 px-2 py-1 rounded" />
+                <Field
+                as={TextField}
+                margin="normal"
+                required
+                fullWidth
+                id="password"
+                name="password"
+                type="password" 
+                autoComplete="current-password"
+                autoFocus
+              />
               <ErrorMessage name="password" component="div" className="text-red-500" />
             </div>
-            <button
-              type="submit"
-              className="bg-blue-500 text-white rounded px-4 py-2 w-full"
-            >
-              Login
-            </button>
-          </Form>
-        </Formik>
-      </div>
-    </div>
+            <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Log in
+              </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link href="#" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
+              </Grid>
+            </Form>
+          </Formik>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 5 }}>
+            Place any additional content here
+          </Typography>
+        </Box>
+      </Grid>
+    </Grid>
+  </ThemeProvider>
   );
 };
 

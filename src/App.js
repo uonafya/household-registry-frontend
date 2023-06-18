@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import PersonDetails from "./pages/PersonDetails";
 import LoginForm from "./pages/LoginForm";
 import Layout from "./components/Layout";
+import HouseHoldRegistration from "./pages/HouseHoldRegistration";
 
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="CreatePerson" element={<PersonDetails />} />
           <Route path="/LoginForm" element={<LoginForm/>}/>
+          <Route path="HouseHoldRegistration" element={<HouseHoldRegistration/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

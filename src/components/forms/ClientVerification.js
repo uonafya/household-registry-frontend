@@ -2,7 +2,14 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
 
-function ClientVerification( {isVerfied, setIsVerified, clientRegistryData, setClientRegistryData}) {
+function ClientVerification({
+  showForms,
+  setShowForms,
+  setShowFormsisVerified,
+  setIsVerified,
+  clientRegistryData,
+  setClientRegistryData
+}){
   const initialValues = {
     country: '',
     IdentifierType: '',
@@ -12,6 +19,8 @@ function ClientVerification( {isVerfied, setIsVerified, clientRegistryData, setC
 
   console.log(localStorage.getItem('token'));
 
+    //sample edpoint:  https://httpstat.us/200
+    // test edpoint: https://afyakenyaapi.health.go.ke/partners/registry/search/KE
   const searchEndpoint = 'https://afyakenyaapi.health.go.ke/partners/registry/search/KE';
 
   const handleSubmit = async (values) => {
@@ -40,6 +49,7 @@ function ClientVerification( {isVerfied, setIsVerified, clientRegistryData, setC
     if (response.status === 200) {
       console.log("Request successful");
       setIsVerified(true);
+      setShowForms(true);
       setClientRegistryData(response.data);
     } else {
       console.log("Request failed with status code: " + response.status);
@@ -66,35 +76,42 @@ function ClientVerification( {isVerfied, setIsVerified, clientRegistryData, setC
 
   return (
     <div>
-      <fieldset>
-        <legend>Client verification with Client Registry</legend>
-        <div className="flex items-center justify-center h-screen">
-          <div className="bg-white p-6 rounded shadow-lg">
-            <Formik initialValues={initialValues} validate={validateForm} onSubmit={handleSubmit}>
-              <Form>
-                <div className="mb-4">
-                  <label htmlFor="IdentifierType">Identifier Type:</label>
-                  <Field type="text" id="IdentifierType" name="IdentifierType" />
-                  <ErrorMessage name="IdentifierType" component="div" className="text-red-500" />
-                  <br />
-                </div>
-                <p />
-                <div className="mb-4">
-                  <label htmlFor="identifierNumber">Identifier Number:</label>
-                  <Field type="text" id="identifierNumber" name="identifierNumber" />
-                  <ErrorMessage name="identifierNumber" component="div" className="text-red-500" />
-                  <br />
-                </div>
-
-                <button type="submit">Submit</button>
-                <p />
-                <button type="reset">Reset</button>
-              </Form>
-            </Formik>
+  <fieldset style={{ width: '75%' }}>
+  <legend>Client verification with Client Registry</legend>
+  <div className="flex items-center justify-center h-screen">
+    <div className="bg-white p-6 rounded shadow-lg">
+      <Formik initialValues={initialValues} validate={validateForm} onSubmit={handleSubmit}>
+        <Form>
+          <div className="mb-4">
+            <label htmlFor="IdentifierType">Identifier Type:</label>
+            <Field as="select" id="IdentifierType" name="IdentifierType">
+              <option value="">Select an option</option>
+              <option value="Birth Certificate">Birth Certificate</option>
+              <option value="ID Number">ID Number</option>
+              <option value="Passport">Passport</option>
+            </Field>
+            <ErrorMessage name="IdentifierType" component="div" className="text-red-500" />
+            <br />
           </div>
-        </div>
-      </fieldset>
+          <p />
+          <div className="mb-4">
+            <label htmlFor="identifierNumber">Identifier Number:</label>
+            <Field type="text" id="identifierNumber" name="identifierNumber" />
+            <ErrorMessage name="identifierNumber" component="div" className="text-red-500" />
+            <br />
+          </div>
+
+          <button type="submit">Submit</button>
+          <p />
+          <button type="reset">Reset</button>
+        </Form>
+      </Formik>
     </div>
+  </div>
+</fieldset>
+
+</div>
+
   );
 }
 

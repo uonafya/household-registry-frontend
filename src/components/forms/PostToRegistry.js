@@ -68,7 +68,7 @@ function PostToRegistry(clientRegistryData, householdRegistryData) {
     }
     return (
       <div>
-      <fieldset>
+      <fieldset style={{ width: '75%' }}>
         <legend>Post to Registry/Create Person</legend>
         <div className="flex items-center justify-center h-screen">
           <div className="bg-white p-6 rounded shadow-lg">
