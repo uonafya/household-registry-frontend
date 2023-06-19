@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import moh from '../images/moh.png';
 import { blue } from '@mui/material/colors';
 import Home from './Home';
@@ -35,6 +36,9 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 const LoginForm = () => {
+
+  const navigate = useNavigate();
+
   const initialValues = {
     username: '',
     password: ''
@@ -53,18 +57,26 @@ const LoginForm = () => {
           }
         }
       );
-
+  
       const { access_token } = response.data;
-
+  
       // Store the token in local storage or any other preferred storage mechanism
       localStorage.setItem('token', access_token);
-      console.log("Username and password:"+values.username + "passssword..."+values.password)
-
-      // Perform any other actions with the token, such as redirecting to a protected route
+      
+      console.log(localStorage.getItem('token'))
+  
+      // Check if the response status is 200
+      if (response.status === 200) {
+        // Redirect to /HouseHoldRegistration
+        
+        navigate('/HouseHoldRegistration');
+      } else {
+        console.log('Login failed');
+      }
     } catch (error) {
       console.log('Login error:', error);
     }
-
+  
     setSubmitting(false);
   };
 

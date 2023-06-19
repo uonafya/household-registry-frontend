@@ -54,11 +54,13 @@ function HouseHoldDetails() {
             <Field type="text" id="household_name" name="household_name" />
             <ErrorMessage name="household_name" component="div" className="error-message" />
           </div>
+          <p/>
           <div>
             <label htmlFor="household_identifier">Household Identifier:</label>
             <Field type="text" id="household_identifier" name="household_identifier" />
             <ErrorMessage name="household_identifier" component="div" className="error-message" />
           </div>
+          <p/>
           <div>
             <label htmlFor="household_type_name">Household Type:</label>
             <Field as="select" id="household_type_name" name="household_type.household_type_name">
@@ -68,7 +70,7 @@ function HouseHoldDetails() {
             </Field>
             <ErrorMessage name="household_type.household_type_name" component="div" className="error-message" />
           </div>
-          
+          <p/>
         </Form>
       </Formik>
       </div>

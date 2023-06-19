@@ -42,27 +42,27 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
                     <label htmlFor="name">Name</label>
                     <Field type="text" id="name" name="name" />
                     <ErrorMessage name="name" component="div" />
-
+                    <p/>
                     <label htmlFor="relationship">Relationship</label>
                     <Field type="text" id="relationship" name="relationship" />
                     <ErrorMessage name="relationship" component="div" />
-
+                    <p/>
                     <label htmlFor="residence">Residence</label>
                     <Field type="text" id="residence" name="residence" />
                     <ErrorMessage name="residence" component="div" />
-
+                    <p/>
                     <label htmlFor="primary_phone">Primary Phone</label>
                     <Field type="text" id="primary_phone" name="contact.primary_phone" />
                     <ErrorMessage name="contact.primary_phone" component="div" />
-
+                    <p/>
                     <label htmlFor="secondary_phone">Secondary Phone</label>
                     <Field type="text" id="secondary_phone" name="contact.secondary_phone" />
                     <ErrorMessage name="contact.secondary_phone" component="div" />
-
+                    <p/>
                     <label htmlFor="email">Email</label>
                     <Field type="text" id="email" name="contact.email" />
                     <ErrorMessage name="contact.email" component="div" />
-
+                    <p/>
                   </Form>
                 </Formik>
       </div>

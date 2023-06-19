@@ -40,13 +40,13 @@ function IdentificationForm({householdRegistryData,setHouseholdRegistryData}) {
           <Field type="text" id="identification_type" name="identification_type" />
           <ErrorMessage name="identification_type" component="div" />
         </div>
-
+        <p/>
         <div>
           <label htmlFor="identification_number">Identification Number</label>
           <Field type="text" id="identification_number" name="identification_number" />
           <ErrorMessage name="identification_number" component="div" />
         </div>
-
+        <p/>
       </Form>
     </Formik>
     </div>

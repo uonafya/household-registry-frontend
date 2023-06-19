@@ -6,7 +6,7 @@ import PersonDetails from "./PersonDetails";
 
 function HouseHoldRegistration(){
     const [householdRegistryData, setHouseholdRegistryData] =useState({});
-    const [addHHMember, setAddHHMember] =useState(false)
+    const [addHHMember, setAddHHMember] =useState(false);
 
 
     return (
@@ -43,10 +43,7 @@ function HouseHoldRegistration(){
         </div>
         } 
         
-        
-        
-        
-           
+    
 
       </div>
     );

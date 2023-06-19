@@ -1,8 +1,12 @@
 import ok from "../../images/ok.png"
 import { Formik, Form} from 'formik';
 import axios from 'axios';
+import {useState} from 'react';
 
 function PostToRegistry(clientRegistryData, householdRegistryData) {
+  const [postedToRegistry, setPostedToRegistry] =useState(false);
+
+
   const initialValuesClientRegistry = { };
 
   const initialValuesLocalRegistry={};
@@ -32,6 +36,9 @@ function PostToRegistry(clientRegistryData, householdRegistryData) {
       });
       // Handle the response
       console.log(response.data);
+
+      // enable post to local registry
+      setPostedToRegistry(true);
 
      
     } catch (error) {
@@ -84,14 +91,14 @@ function PostToRegistry(clientRegistryData, householdRegistryData) {
             </button>
               </Form>
               </Formik>
- 
+              <p/>
       <Formik initialValues={initialValuesLocalRegistry} onSubmit={handleSubmitLocalRegistry}>
           <Form>
               <button
                   type="submit"
                   id="createPatientBtn"
                   className="mr-5 ml-5"
-                  disabled
+                  disabled={postedToRegistry}
                       >
                   <img src={ok} alt="OK" className="mr-2" />
                   Create Patient

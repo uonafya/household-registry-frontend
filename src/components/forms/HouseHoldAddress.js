@@ -36,25 +36,25 @@ function HouseHoldAddress() {
             <Field type="number" id="household_address.area_type_id" name="household_address.area_type_id" />
             <ErrorMessage name="household_address.area_type_id" component="div" className="text-red-500" />
           </div>
-
+          <p/>
           <div>
             <label htmlFor="household_address.area_name">Area Name:</label>
             <Field type="text" id="household_address.area_name" name="household_address.area_name" />
             <ErrorMessage name="household_address.area_name" component="div" className="text-red-500" />
           </div>
-
+          <p/>
           <div>
             <label htmlFor="household_address.area_code">Area Code:</label>
             <Field type="text" id="household_address.area_code" name="household_address.area_code" />
             <ErrorMessage name="household_address.area_code" component="div" className="text-red-500" />
           </div>
-
+          <p/>
           <div>
             <label htmlFor="household_address.parent_area_id">Parent Area ID:</label>
             <Field type="text" id="household_address.parent_area_id" name="household_address.parent_area_id" />
             <ErrorMessage name="household_address.parent_area_id" component="div" className="text-red-500" />
           </div>
-
+          <p/>
         </Form>
       </Formik>
       </div>

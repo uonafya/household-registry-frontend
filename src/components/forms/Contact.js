@@ -34,19 +34,19 @@ function ContactForm() {
             <Field type="text" id="primary_phone" name="primary_phone" />
             <ErrorMessage name="primary_phone" component="div" className="error-message" />
           </div>
-
+          <p/>
           <div>
             <label htmlFor="secondary_phone">Secondary Phone:</label>
             <Field type="text" id="secondary_phone" name="secondary_phone" />
             <ErrorMessage name="secondary_phone" component="div" className="error-message" />
           </div>
-
+          <p/>
           <div>
             <label htmlFor="email">Email:</label>
             <Field type="email" id="email" name="email" />
             <ErrorMessage name="email" component="div" className="error-message" />
           </div>
-
+          <p/>
         </Form>
       </Formik>
       </div>
