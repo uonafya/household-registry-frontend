@@ -20,18 +20,7 @@ import { blue } from '@mui/material/colors';
 import Home from './Home';
 
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
 
 const defaultTheme = createTheme();
 
@@ -95,44 +84,34 @@ const LoginForm = () => {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-    <Grid container component="main" sx={{ height: '100vh' }}>
-    <CssBaseline />
+  
     
-    <Grid
-        item
-        xs={false}
-        sm={4}
-        md={7}
-        sx={{
-          backgroundImage: 'url(${moh})',
-          backgroundRepeat: 'no-repeat',
-          backgroundColor: (t) =>
-            t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
-  {/* <img src={moh} alt="MOH" style={{ width: '220px', height: '220px' }} /> */}
-  {/* <Typography variant="body1" component="p">
-    Household Registry.
-  </Typography> */}
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+  <div  style={{ display: 'flex', height: '100vh' }}>
+
+          <Box
+          sx={{
+            flex: '70%',
+            backgroundColor: 'black',
+            }}
+        />
+
+     {/* Login Form box */}
         <Box
           sx={{
-            my: 8,
-            mx: 4,
+            flex: '30%',
             display: 'flex',
-            flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon color='blue'/>
           </Avatar>
           <Typography component="h1" variant="h5">
             Login in
           </Typography>
+          <p/> */}
+
+          {/* The login form */}
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validateForm}>
           <Form>
             <div className="mb-4">
@@ -190,9 +169,10 @@ const LoginForm = () => {
             Place any additional content here
           </Typography>
         </Box>
-      </Grid>
-    </Grid>
-  </ThemeProvider>
+    
+  </div>
+        
+  
   );
 };
 

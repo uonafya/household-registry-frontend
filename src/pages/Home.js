@@ -9,7 +9,7 @@ function Home() {
        
         <img src={moh} alt="MOH" style={{ width: '220px', height: '220px' }} />
         <p>
-        Household Registry.
+        Ministry of Health.
         </p>
         
       </header>
