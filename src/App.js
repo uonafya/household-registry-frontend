@@ -4,6 +4,8 @@ import PersonDetails from "./pages/PersonDetails";
 import LoginForm from "./pages/LoginForm";
 import Layout from "./components/Layout";
 import HouseHoldRegistration from "./pages/HouseHoldRegistration";
+import PersistentDrawerLeft from "./components/navigation/PersistentDrawer";
+import MyComponent from "./Test";
 
 
 export default function App() {
@@ -17,6 +19,8 @@ export default function App() {
           <Route path="HouseHoldRegistration" element={<HouseHoldRegistration/>}/>
         </Route>
         <Route path="/LoginForm" element={<LoginForm/>}/>
+        <Route path="/PersistentDrawer" element={<PersistentDrawerLeft/>}/>
+        <Route path="/test" element={<MyComponent/>}/>
       </Routes>
     </BrowserRouter>
   );

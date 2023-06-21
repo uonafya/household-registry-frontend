@@ -1,30 +1,32 @@
 // Client Verification
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage,Checkbox } from 'formik';
 import axios from 'axios';
+import CountryOptions from '../options/CountryOptions';
 
-function ClientVerification({
-  showForms,
-  setShowForms,
-  setShowFormsisVerified,
-  setIsVerified,
-  clientRegistryData,
-  setClientRegistryData
-}){
+function ClientVerification({showForms,setShowForms,setShowFormsisVerified,setIsVerified,clientRegistryData,setClientRegistryData}){
   const initialValues = {
     country: '',
     IdentifierType: '',
     identifierNumber: '',
-    selectKenya: false,
+    selectKenya: 'KE',
+  };
+
+  const handleChangeKenya = (event) => {
+    const { name, checked } = event.target;
+    
+    Formik.values.setFieldValue(name, checked ? 'KE' : ''); // Update selectKenya value based on checkbox state
   };
 
   console.log(localStorage.getItem('token'));
 
     //sample edpoint:  https://httpstat.us/200
     // test edpoint: https://afyakenyaapi.health.go.ke/partners/registry/search/KE
-  const searchEndpoint = 'https://afyakenyaapi.health.go.ke/partners/registry/search/KE';
+    
+  const searchEndpoint = 'https://dhpstagingapi.health.go.ke/partners/registry/search';
 
   const handleSubmit = async (values) => {
     const searchData = {
+      selectKenya: values.selectKenya,
       IdentifierType: values.IdentifierType,
       identifierNumber: values.identifierNumber,
     };
@@ -36,10 +38,11 @@ function ClientVerification({
 
       const token = localStorage.getItem('token'); // Retrieve the token from local storage
       console.log(token);
+
       // https://afyakenyaapi.health.go.ke/partners/registry/search/KE/birth-certificate/35541176
-      const response = await axios.options(searchEndpoint, searchData, {
+      const response = await axios.get(`${searchEndpoint}/${searchData.selectKenya}/${searchData.IdentifierType}/${searchData.identifierNumber}`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `OAuth2.0 ${token}`,
         },
       });
       // Handle the response
@@ -84,11 +87,12 @@ function ClientVerification({
         <Form>
           <div className="mb-4">
             <label htmlFor="IdentifierType">Identifier Type:</label>
+            <p/>
             <Field as="select" id="IdentifierType" name="IdentifierType">
               <option value="">Select an option</option>
-              <option value="Birth Certificate">Birth Certificate</option>
-              <option value="ID Number">ID Number</option>
-              <option value="Passport">Passport</option>
+              <option value="birth_certificate">Birth Certificate</option>
+              <option value="national-id">ID Number</option>
+              <option value="passport">Passport</option>
             </Field>
             <ErrorMessage name="IdentifierType" component="div" className="text-red-500" />
             <br />
@@ -96,11 +100,25 @@ function ClientVerification({
           <p />
           <div className="mb-4">
             <label htmlFor="identifierNumber">Identifier Number:</label>
+            <p/>
             <Field type="text" id="identifierNumber" name="identifierNumber" />
             <ErrorMessage name="identifierNumber" component="div" className="text-red-500" />
             <br />
           </div>
 
+          <p/>
+          <CountryOptions/>
+  
+            <label>
+              <Field type="checkbox" 
+              name="selectKenya" 
+              id="selectKenya" 
+              onChange={(event) => handleChangeKenya(event)}/>
+              select Kenya
+            </label>
+          
+      
+          <p/>
           <button type="submit">Submit</button>
           <p />
           <button type="reset">Reset</button>

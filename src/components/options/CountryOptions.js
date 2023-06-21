@@ -10,7 +10,7 @@ function CountryOptions() {
     setValue(value)
   }
 
-  return <Select options={options} value={value} onChange={changeHandler} />
+  return <Select options={options} value={value} onChange={changeHandler} style={{ width: '50px' }} />
 }
 
 export default CountryOptions;

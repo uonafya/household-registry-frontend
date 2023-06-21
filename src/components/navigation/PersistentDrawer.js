@@ -22,6 +22,24 @@ import Home from '../../pages/Home';
 
 const drawerWidth = 240;
 
+
+const handleClickItem = (text) => {
+  // Logic specific to each button
+  if (text === 'Dashboard') {
+    console.log('Dashboard button clicked');
+    // Add your Dashboard button logic here
+  } else if (text === 'Persons') {
+    console.log('Persons button clicked');
+    // Add your Persons button logic here
+  } else if (text === 'Users') {
+    console.log('Users button clicked');
+    // Add your Users button logic here
+  }
+}
+
+
+
+
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -122,27 +140,11 @@ export default function PersistentDrawerLeft() {
 
 
         <Divider />
-        {/* The first list of items on the sidebar-HouseHold */}
-        <List>
-          {['Dashboard', 'Households', 'Persons', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-
-
-        <Divider />
         {/* The second list of items on the sidebar-persons */}
         <List>
           {['Dashboard', 'Persons', 'Users'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={() => handleClickItem(text)}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
