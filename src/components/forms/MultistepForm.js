@@ -5,13 +5,22 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import { lazy, Suspense } from 'react';
 
-const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+
+
+const HouseHoldRegistration = lazy(() => import('../../pages/HouseHoldRegistration'));
+const PersonDetails = lazy(() => import('../../pages/PersonDetails'));
+
+// const steps = ['Client verification', 'ID Numbers', 'Demographics','address','Next of sKin'];
+const steps = ['Household details', 'Household address', 'Household address'];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
+  // set the number step you want to skip
   const isStepOptional = (step) => {
     return step === 1;
   };
@@ -56,6 +65,9 @@ export default function HorizontalLinearStepper() {
 
   return (
     <Box sx={{ width: '100%' }}>
+      <Typography sx={{ mt: 2, mb: 1 }}>
+           <b>Register Household Member</b>
+          </Typography>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
@@ -70,11 +82,19 @@ export default function HorizontalLinearStepper() {
           }
           return (
             <Step key={label} {...stepProps}>
-              <StepLabel {...labelProps}>{label}</StepLabel>
+            <StepLabel {...labelProps}>{label}</StepLabel>
             </Step>
           );
         })}
       </Stepper>
+      
+      <Divider/>
+      <Box sx={{ width: '100%',textAlign: 'center'  }}>
+      <p>can this work</p>
+
+      </Box>
+      
+      {/* check if the active step is on the last step */}
       {activeStep === steps.length ? (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
