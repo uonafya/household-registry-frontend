@@ -1,52 +1,37 @@
-import { useState } from "react";
-import HouseHoldDetails from "../components/forms/HouseHoldDetails";
-import HouseHoldAddress from "../components/forms/HouseHoldAddress";
-import PersonDetails from "./PersonDetails";
+import { Box } from '@mui/material';
+import React, { lazy, Suspense } from 'react';
+
+const HouseHoldDetails = lazy(() => import('../components/forms/HouseHoldDetails'));
+const HouseHoldAddress = lazy(() => import('../components/forms/HouseHoldAddress'));
+const PersonDetails = lazy(() => import('./PersonDetails'));
 
 
-function HouseHoldRegistration(){
-    const [householdRegistryData, setHouseholdRegistryData] =useState({});
-    const [addHHMember, setAddHHMember] =useState(false);
+function HouseHoldRegistration(activestep){
 
+      let DynamicComponent;
 
-    return (
-      <div>
-        <h1><b>Register Household</b></h1>
-
-        <div>
-        <fieldset><legend>step 1:Register HH Head</legend>
-
-        <PersonDetails/>
-        </fieldset>
-        </div>
-
-
-        <div>
-        <fieldset><legend>step 2:Register HH Details</legend>
-        <p/>
-        <HouseHoldDetails householdRegistryData={householdRegistryData} sethouseholdRegistryData={setHouseholdRegistryData}/>
-        <p/>
-        <HouseHoldAddress householdRegistryData={householdRegistryData} sethouseholdRegistryData={setHouseholdRegistryData}/>
-        
-        </fieldset>
-        </div>
-
-        <button onClick={() => setAddHHMember(true)}>Add HH Member</button>
-
-       {
-       addHHMember &&
-        <div>
-        <fieldset><legend>step 3:Register HH Members</legend>
-
-        
-        </fieldset>
-        </div>
-        } 
-        
+      switch (activestep) {
+        case 1:
+          DynamicComponent = HouseHoldAddress;
+          break;
+        case 2:
+          DynamicComponent = HouseHoldDetails;
+          break;
+          case 3:
+          DynamicComponent = PersonDetails;
+          break;
+        default:
+          <p>a comonent goes here</p>
+      }
     
+      return (
+        <Suspense fallback={<div>Loading...</div>}>
+          <DynamicComponent />
+        </Suspense>
+      );
 
-      </div>
-    );
+
+
 
 };
 

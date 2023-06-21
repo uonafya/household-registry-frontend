@@ -19,6 +19,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Home from '../../pages/Home';
+import HorizontalLinearStepper from '../forms/MultistepForm';
 
 const drawerWidth = 240;
 
@@ -158,7 +159,7 @@ export default function PersistentDrawerLeft() {
       {/* The main content of the page */}
       <Main open={open}>
         <DrawerHeader />
-        <Home/>
+        <HorizontalLinearStepper/>
       </Main>
     </Box>
   );
