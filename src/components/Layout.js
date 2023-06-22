@@ -25,7 +25,7 @@ const Layout = () => {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" style={{backgroundColor:'#078080'}}>
                 <Toolbar variant="dense">
                     
                     <IconButton
@@ -59,6 +59,7 @@ const Layout = () => {
                             </MenuItem>
 
                           </Menu>
+                          <Typography>Household registry</Typography>
                 </Toolbar>
             </AppBar>
 

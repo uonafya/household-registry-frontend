@@ -2,6 +2,8 @@
 import { Formik, Field, Form, ErrorMessage,Checkbox } from 'formik';
 import axios from 'axios';
 import CountryOptions from '../options/CountryOptions';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 function ClientVerification({showForms,setShowForms,setShowFormsisVerified,setIsVerified,clientRegistryData,setClientRegistryData}){
   const initialValues = {
@@ -78,11 +80,10 @@ function ClientVerification({showForms,setShowForms,setShowFormsisVerified,setIs
   };
 
   return (
-    <div>
-  <fieldset style={{ width: '75%' }}>
-  <legend>Client verification with Client Registry</legend>
-  <div className="flex items-center justify-center h-screen">
-    <div className="bg-white p-6 rounded shadow-lg">
+    <Box sx={{ width: '100%',textAlign: 'center'  }}>
+        <Typography sx={{ mt: 2, mb: 1 }}>
+           <b>Client Verification</b>
+          </Typography>
       <Formik initialValues={initialValues} validate={validateForm} onSubmit={handleSubmit}>
         <Form>
           <div className="mb-4">
@@ -124,11 +125,7 @@ function ClientVerification({showForms,setShowForms,setShowFormsisVerified,setIs
           <button type="reset">Reset</button>
         </Form>
       </Formik>
-    </div>
-  </div>
-</fieldset>
-
-</div>
+    </Box>
 
   );
 }

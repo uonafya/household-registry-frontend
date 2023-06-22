@@ -6,33 +6,31 @@ const HouseHoldAddress = lazy(() => import('../components/forms/HouseHoldAddress
 const PersonDetails = lazy(() => import('./PersonDetails'));
 
 
-function HouseHoldRegistration(activestep){
+function HouseHoldRegistration(activeStep){
 
       let DynamicComponent;
 
-      switch (activestep) {
-        case 1:
+      switch (activeStep.activeStep) {
+        case 0:
           DynamicComponent = HouseHoldAddress;
           break;
-        case 2:
+        case 1:
           DynamicComponent = HouseHoldDetails;
           break;
-          case 3:
+          case 2:
           DynamicComponent = PersonDetails;
           break;
         default:
-          <p>a comonent goes here</p>
+          DynamicComponent = () => null;
+          
       }
     
       return (
         <Suspense fallback={<div>Loading...</div>}>
           <DynamicComponent />
+          {console.log(activeStep.activeStep)}
         </Suspense>
       );
-
-
-
-
 };
 
 export default HouseHoldRegistration;

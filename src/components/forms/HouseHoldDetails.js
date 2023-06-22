@@ -1,5 +1,7 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 function HouseHoldDetails() {
   const initialValues = {
@@ -41,12 +43,12 @@ function HouseHoldDetails() {
   };
 
   return (
-    <div>
+    
      
-      <fieldset style={{ width: '75%' }}>
-        <legend>Household Details</legend>
-        <div className="flex items-center justify-center h-screen">
-          <div className="bg-white p-6 rounded shadow-lg">
+     <Box sx={{ width: '100%',textAlign: 'center'  }}>
+        <Typography sx={{ mt: 2, mb: 1 }}>
+           <b>Household Details</b>
+          </Typography>
       <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validateForm}>
         <Form>
           <div>
@@ -73,10 +75,7 @@ function HouseHoldDetails() {
           <p/>
         </Form>
       </Formik>
-      </div>
-        </div>
-      </fieldset>
-    </div>
+      </Box>
   );
 }
 

@@ -14,11 +14,13 @@ const HouseHoldRegistration = lazy(() => import('../../pages/HouseHoldRegistrati
 const PersonDetails = lazy(() => import('../../pages/PersonDetails'));
 
 // const steps = ['Client verification', 'ID Numbers', 'Demographics','address','Next of sKin'];
-const steps = ['Household details', 'Household address', 'Household address'];
+const steps = ['Household details', 'Household address', 'Household Heads'];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
+  let DynamicComponent;
+  DynamicComponent = HouseHoldRegistration;
 
   // set the number step you want to skip
   const isStepOptional = (step) => {
@@ -89,10 +91,15 @@ export default function HorizontalLinearStepper() {
       </Stepper>
       
       <Divider/>
-      <Box sx={{ width: '100%',textAlign: 'center'  }}>
-      <p>can this work</p>
+      <React.Fragment>
 
-      </Box>
+      {<Box sx={{ width: '100%',textAlign: 'center'  }}>
+      <Suspense fallback={<div>Loading...</div>}>
+          <DynamicComponent activeStep={activeStep}/>
+        </Suspense>
+      </Box>}
+      </React.Fragment>
+      
       
       {/* check if the active step is on the last step */}
       {activeStep === steps.length ? (
