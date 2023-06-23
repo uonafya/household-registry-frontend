@@ -29,15 +29,15 @@ function PersonDetails() {
       {!showForms && (
         <div>
 
-          <Demographics householdRegistryData={householdRegistryData} sethouseholdRegistryData={setHouseholdRegistryData}/>
+          <Demographics />
           <p />
-          <ContactForm householdRegistryData={householdRegistryData} sethouseholdRegistryData={setHouseholdRegistryData} />
+          <ContactForm  />
           <p />
-          <NextOfKinDetails householdRegistryData={householdRegistryData} sethouseholdRegistryData={setHouseholdRegistryData}/>
+          <NextOfKinDetails />
           <p />
-          <IdentityNumbers householdRegistryData={householdRegistryData} sethouseholdRegistryData={setHouseholdRegistryData}/>
+          <IdentityNumbers />
           <p />
-          <PostToRegistry clientRegistryData={clientRegistryData} householdRegistryData={householdRegistryData}/>
+          <PostToRegistry />
           {console.log("Details fetched from client Registry....")}
         </div>
       )}

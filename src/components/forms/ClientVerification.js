@@ -1,9 +1,11 @@
 // Client Verification
-import { Formik, Field, Form, ErrorMessage,Checkbox } from 'formik';
+import { Formik, Field, Form, ErrorMessage} from 'formik';
 import axios from 'axios';
 import CountryOptions from '../options/CountryOptions';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import {Typography, MenuItem,InputLabel,Grid,Select,FormControlLabel,NativeSelect,TextField}from '@mui/material';
+import React from 'react';
+import Checkbox from '@mui/material/Checkbox';
 
 function ClientVerification({showForms,setShowForms,setShowFormsisVerified,setIsVerified,clientRegistryData,setClientRegistryData}){
   const initialValues = {
@@ -13,7 +15,7 @@ function ClientVerification({showForms,setShowForms,setShowFormsisVerified,setIs
     selectKenya: 'KE',
   };
 
-  const handleChangeKenya = (event) => {
+  const handleChange = (event) => {
     const { name, checked } = event.target;
     
     Formik.values.setFieldValue(name, checked ? 'KE' : ''); // Update selectKenya value based on checkbox state
@@ -80,53 +82,53 @@ function ClientVerification({showForms,setShowForms,setShowFormsisVerified,setIs
   };
 
   return (
-    <Box sx={{ width: '100%',textAlign: 'center'  }}>
-        <Typography sx={{ mt: 2, mb: 1 }}>
-           <b>Client Verification</b>
-          </Typography>
-      <Formik initialValues={initialValues} validate={validateForm} onSubmit={handleSubmit}>
-        <Form>
-          <div className="mb-4">
-            <label htmlFor="IdentifierType">Identifier Type:</label>
-            <p/>
-            <Field as="select" id="IdentifierType" name="IdentifierType">
-              <option value="">Select an option</option>
-              <option value="birth_certificate">Birth Certificate</option>
-              <option value="national-id">ID Number</option>
-              <option value="passport">Passport</option>
-            </Field>
-            <ErrorMessage name="IdentifierType" component="div" className="text-red-500" />
-            <br />
-          </div>
-          <p />
-          <div className="mb-4">
-            <label htmlFor="identifierNumber">Identifier Number:</label>
-            <p/>
-            <Field type="text" id="identifierNumber" name="identifierNumber" />
-            <ErrorMessage name="identifierNumber" component="div" className="text-red-500" />
-            <br />
-          </div>
+    <React.Fragment>
+      <fieldset style={{ width: '90%' }}>
+        <legend>Client Verification</legend>
+           <Grid container spacing={3}>
 
-          <p/>
-          <CountryOptions/>
-  
-            <label>
-              <Field type="checkbox" 
-              name="selectKenya" 
-              id="selectKenya" 
-              onChange={(event) => handleChangeKenya(event)}/>
-              select Kenya
-            </label>
-          
+          <Grid item xs={12} sm={6}>
+          <InputLabel id="IdentifierType">Identifier Type</InputLabel>
+          <NativeSelect
+              required
+              labelId="IdentifierType"
+              id="IdentifierType"
+              value={initialValues.IdentifierType}
+              label="IdentifierType"
+              onChange={handleChange}
+            >
+              <option value=''>Select Identifier</option>
+              <option value='birth_certificate'>Birth certificate</option>
+              <option value='national-id'>National Id</option>
+              <option value='passport'>Passport</option>
+            </NativeSelect>
+            </Grid>
       
-          <p/>
-          <button type="submit">Submit</button>
-          <p />
-          <button type="reset">Reset</button>
-        </Form>
-      </Formik>
-    </Box>
 
+          <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                id="identifierNumber"
+                name="identifierNumber"
+                label="identifierNumber"
+                fullWidth
+                autoComplete="identifier Number"
+                variant="standard"
+              />
+            </Grid>
+        
+          <Grid item xs={12} sm={6}>
+          <CountryOptions/>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+          <FormControlLabel control={<Checkbox defaultChecked />} label="Kenya" />
+          </Grid>
+          
+        </Grid>
+        </fieldset>
+      </React.Fragment>
+          
   );
 }
 

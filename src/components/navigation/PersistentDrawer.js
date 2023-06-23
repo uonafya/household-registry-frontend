@@ -20,8 +20,9 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Home from '../../pages/Home';
 import HorizontalLinearStepper from '../forms/MultistepForm';
+import Checkout from '../../Tests/Checkout';
 
-const drawerWidth = 240;
+const drawerWidth = 400;
 
 
 const handleClickItem = (text) => {
@@ -159,7 +160,7 @@ export default function PersistentDrawerLeft() {
       {/* The main content of the page */}
       <Main open={open}>
         <DrawerHeader />
-        <HorizontalLinearStepper/>
+        <Checkout/>
       </Main>
     </Box>
   );

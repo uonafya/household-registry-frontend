@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import {Card,TextField,Paper, Typography, Box, Grid} from '@mui/material';
 
 function ContactForm() {
   const initialValues = {
@@ -22,37 +23,41 @@ function ContactForm() {
   };
 
   return (
-    <div>
-      <fieldset style={{ width: '75%' }}>
-        <legend>Person Contacts</legend>
-        <div className="flex items-center justify-center h-screen">
-          <div className="bg-white p-6 rounded shadow-lg">
-      <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validateForm}>
-        <Form>
-          <div>
-            <label htmlFor="primary_phone">Primary Phone:</label>
-            <Field type="text" id="primary_phone" name="primary_phone" />
-            <ErrorMessage name="primary_phone" component="div" className="error-message" />
-          </div>
-          <p/>
-          <div>
-            <label htmlFor="secondary_phone">Secondary Phone:</label>
-            <Field type="text" id="secondary_phone" name="secondary_phone" />
-            <ErrorMessage name="secondary_phone" component="div" className="error-message" />
-          </div>
-          <p/>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <Field type="email" id="email" name="email" />
-            <ErrorMessage name="email" component="div" className="error-message" />
-          </div>
-          <p/>
-        </Form>
-      </Formik>
-      </div>
-        </div>
-      </fieldset>
-    </div>
+    <React.Fragment>
+    <fieldset style={{ width: '90%' }}>
+      <legend>Contact Information</legend>
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            required
+            id="primaryPhone"
+            name="contact.primaryPhone"
+            label="Primary Phone"
+            fullWidth
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            id="secondaryPhone"
+            name="contact.secondaryPhone"
+            label="Secondary Phone"
+            fullWidth
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            id="emailAddress"
+            name="contact.emailAddress"
+            label="Email Address"
+            fullWidth
+            variant="standard"
+          />
+        </Grid>
+      </Grid>
+    </fieldset>
+  </React.Fragment>
   );
 }
 

@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import {TextField,Button,MenuItem,FormControl,Checkbox,InputLabel,Select,FormControlLabel,Grid} from '@mui/material';
 
 function Demographics({householdRegistryData,setHouseholdRegistryData}) {
   const initialValues = {
@@ -54,88 +55,296 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
   };
 
   return (
-    <div>
-      <fieldset style={{ width: '75%' }}>
-        <legend>Person Details</legend>
-        <div className="flex items-center justify-center h-screen">
-          <div className="bg-white p-6 rounded shadow-lg">
-    <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validateForm}>
-      <Form>
-        <div>
-          <label htmlFor="firstName">First Name:</label>
-          <Field type="text" id="firstName" name="firstName" onChange={handleChange}/>
-          <ErrorMessage name="firstName" component="div" className="error" />
-        </div>
-        <p/>
-        <div>
-          <label htmlFor="middleName">Middle Name:</label>
-          <Field type="text" id="middleName" name="middleName" onChange={handleChange}/>
-          <ErrorMessage name="middleName" component="div" className="error" />
-        </div>
-        <p/>
-        <div>
-          <label htmlFor="lastName">Last Name:</label>
-          <Field type="text" id="lastName" name="lastName" onChange={handleChange}/>
-          <ErrorMessage name="lastName" component="div" className="error" />
-        </div>
-        <p/>
-        <div>
-          <label htmlFor="dateOfBirth">Date of Birth:</label>
-          <Field type="date" id="dateOfBirth" name="dateOfBirth" onChange={handleChange}/>
-          <ErrorMessage name="dateOfBirth" component="div" className="error" />
-        </div>
-        <p/>
-        <div>
-          <label htmlFor="gender">Gender:</label>
-          <Field as="select" id="gender" name="gender" onChange={handleChange}>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </Field>
-          <ErrorMessage name="gender" component="div" className="error" />
-        </div>
-        <p/>
-        <div>
-          <label htmlFor="country">Country:</label>
-          <Field type="text" id="country" name="country" onChange={handleChange}/>
-          <ErrorMessage name="country" component="div" className="error" />
-        </div>
-        <p/>
-        <div>
-          <label htmlFor="countyOfBirth">County of Birth:</label>
-          <Field type="text" id="countyOfBirth" name="countyOfBirth" onChange={handleChange}/>
-          <ErrorMessage name="countyOfBirth" component="div" className="error" />
-        </div>
-        <p/>
-        <div>
-          <label htmlFor="residence.county">County of Residence:</label>
-          <Field type="text" id="residence.county" name="residence.county" onChange={handleChange}/>
-          <ErrorMessage name="residence.county" component="div" className="error" />
-        </div>
-        <p/>
-        <div>
-          <label htmlFor="residence.sub_county">Sub County:</label>
-          <Field type="text" id="residence.sub_county" name="residence.sub_county" onChange={handleChange}/>
-          <ErrorMessage name="residence.sub_county" component="div" className="error" />
-        </div>
-        <p/>
-        <div>
-          <label htmlFor="residence.ward">Ward:</label>
-          <Field type="text" id="residence.ward" name="residence.ward" onChange={handleChange}/>
-          <ErrorMessage name="residence.ward" component="div" className="error" />
-        </div>
-        <p/>
-        <div>
-          <label htmlFor="residence.village">Village:</label>
-          <Field type="text" id="residence.village" name="residence.village" onChange={handleChange}/>
-          <ErrorMessage name="residence.village" component="div" className="error" />
-        </div>
-
-      </Form>
-    </Formik>
-        </div>
-        </div>
+    <React.Fragment>
+      <fieldset style={{ width: '90%' }}>
+        <legend>Client Verification</legend>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="clientNumber"
+              name="clientNumber"
+              label="Client Number"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="firstName"
+              name="firstName"
+              label="First Name"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              id="middleName"
+              name="middleName"
+              label="Middle Name"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="lastName"
+              name="lastName"
+              label="Last Name"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="dateOfBirth"
+              name="dateOfBirth"
+              label="Date of Birth"
+              fullWidth
+              type="date"
+              variant="standard"
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormControl required>
+              <InputLabel id="maritalStatus-label">Marital Status</InputLabel>
+              <Select
+                labelId="maritalStatus-label"
+                id="maritalStatus"
+                name="maritalStatus"
+                label="Marital Status"
+                fullWidth
+                variant="standard"
+              >
+                <MenuItem value="Married Polygamous">Married Polygamous</MenuItem>
+                <MenuItem value="Married Monogamous">Married Monogamous</MenuItem>
+                <MenuItem value="Single">Single</MenuItem>
+                {/* Add more options here */}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormControl required>
+              <InputLabel id="gender-label">Gender</InputLabel>
+              <Select
+                labelId="gender-label"
+                id="gender"
+                name="gender"
+                label="Gender"
+                fullWidth
+                variant="standard"
+              >
+                <MenuItem value="male">Male</MenuItem>
+                <MenuItem value="female">Female</MenuItem>
+                {/* Add more options here */}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormControl required>
+              <InputLabel id="occupation-label">Occupation</InputLabel>
+              <Select
+                labelId="occupation-label"
+                id="occupation"
+                name="occupation"
+                label="Occupation"
+                fullWidth
+                variant="standard"
+              >
+                <MenuItem value="1. GOVERNMENT EMPLOYEE">1. GOVERNMENT EMPLOYEE</MenuItem>
+                <MenuItem value="2. NGO EMPLOYEE">2. NGO EMPLOYEE</MenuItem>
+                <MenuItem value="3. PRIVATE SECTOR EMPLOYEE">3. PRIVATE SECTOR EMPLOYEE</MenuItem>
+                {/* Add more options here */}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormControl required>
+              <InputLabel id="religion-label">Religion</InputLabel>
+              <Select
+                labelId="religion-label"
+                id="religion"
+                name="religion"
+                label="Religion"
+                fullWidth
+                variant="standard"
+              >
+                <MenuItem value="Christian">Christian</MenuItem>
+                <MenuItem value="Muslim">Muslim</MenuItem>
+                {/* Add more options here */}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormControl required>
+              <InputLabel id="educationLevel-label">Education Level</InputLabel>
+              <Select
+                labelId="educationLevel-label"
+                id="educationLevel"
+                name="educationLevel"
+                label="Education Level"
+                fullWidth
+                variant="standard"
+              >
+                <MenuItem value="Secondary">Secondary</MenuItem>
+                <MenuItem value="Tertiary">Tertiary</MenuItem>
+                {/* Add more options here */}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormControl required>
+              <InputLabel id="country-label">Country</InputLabel>
+              <Select
+                labelId="country-label"
+                id="country"
+                name="country"
+                label="Country"
+                fullWidth
+                variant="standard"
+              >
+                <MenuItem value="KE">Kenya</MenuItem>
+                <MenuItem value="US">United States</MenuItem>
+                {/* Add more options here */}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormControl required>
+              <InputLabel id="countyOfBirth-label">County of Birth</InputLabel>
+              <Select
+                labelId="countyOfBirth-label"
+                id="countyOfBirth"
+                name="countyOfBirth"
+                label="County of Birth"
+                fullWidth
+                variant="standard"
+              >
+                <MenuItem value="001">County 1</MenuItem>
+                <MenuItem value="002">County 2</MenuItem>
+                {/* Add more options here */}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Is Alive"
+              name="isAlive"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="originFacilityKmflCode"
+              name="originFacilityKmflCode"
+              label="Origin Facility Kmfl Code"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Is on ART"
+              name="isOnART"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="nascopCCCNumber"
+              name="nascopCCCNumber"
+              label="Nascop CCC Number"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <fieldset>
+              <legend>Residence</legend>
+              <Grid container spacing={3}>
+                <Grid item xs={12} sm={6}>
+                  <FormControl required>
+                    <InputLabel id="county-label">County</InputLabel>
+                    <Select
+                      labelId="county-label"
+                      id="county"
+                      name="residence.county"
+                      label="County"
+                      fullWidth
+                      variant="standard"
+                    >
+                      <MenuItem value="001">County 1</MenuItem>
+                      <MenuItem value="002">County 2</MenuItem>
+                      {/* Add more options here */}
+                    </Select>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    id="subCounty"
+                    name="residence.subCounty"
+                    label="Sub County"
+                    fullWidth
+                    variant="standard"
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    id="ward"
+                    name="residence.ward"
+                    label="Ward"
+                    fullWidth
+                    variant="standard"
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    id="village"
+                    name="residence.village"
+                    label="Village"
+                    fullWidth
+                    variant="standard"
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    id="landMark"
+                    name="residence.landMark"
+                    label="Landmark"
+                    fullWidth
+                    variant="standard"
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    id="address"
+                    name="residence.address"
+                    label="Address"
+                    fullWidth
+                    variant="standard"
+                  />
+                </Grid>
+              </Grid>
+            </fieldset>
+          </Grid>
+        </Grid>
       </fieldset>
-    </div>
+      <Button variant="contained" color="primary" type="submit">
+        Submit
+      </Button>
+    </React.Fragment>
   );
 }
 

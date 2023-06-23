@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import {Card,TextField,Paper, Typography, Box, Grid} from '@mui/material';
 
 function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
   const initialValues = {
@@ -32,43 +33,71 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
   };
 
   return (
-    <div>
-      <fieldset style={{ width: '75%' }}>
-        <legend>Next of Kin Details</legend>
-        <div className="flex items-center justify-center h-screen">
-          <div className="bg-white p-6 rounded shadow-lg">
-    <           Formik initialValues={initialValues} onSubmit={handleSubmit}>
-                  <Form>
-                    <label htmlFor="name">Name</label>
-                    <Field type="text" id="name" name="name" />
-                    <ErrorMessage name="name" component="div" />
-                    <p/>
-                    <label htmlFor="relationship">Relationship</label>
-                    <Field type="text" id="relationship" name="relationship" />
-                    <ErrorMessage name="relationship" component="div" />
-                    <p/>
-                    <label htmlFor="residence">Residence</label>
-                    <Field type="text" id="residence" name="residence" />
-                    <ErrorMessage name="residence" component="div" />
-                    <p/>
-                    <label htmlFor="primary_phone">Primary Phone</label>
-                    <Field type="text" id="primary_phone" name="contact.primary_phone" />
-                    <ErrorMessage name="contact.primary_phone" component="div" />
-                    <p/>
-                    <label htmlFor="secondary_phone">Secondary Phone</label>
-                    <Field type="text" id="secondary_phone" name="contact.secondary_phone" />
-                    <ErrorMessage name="contact.secondary_phone" component="div" />
-                    <p/>
-                    <label htmlFor="email">Email</label>
-                    <Field type="text" id="email" name="contact.email" />
-                    <ErrorMessage name="contact.email" component="div" />
-                    <p/>
-                  </Form>
-                </Formik>
-      </div>
-      </div>
+    <React.Fragment>
+      <fieldset style={{ width: '90%' }}>
+        <legend>Next of Kin</legend>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="kinName"
+              name="nextOfKins[0].name"
+              label="Name"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="kinRelationship"
+              name="nextOfKins[0].relationship"
+              label="Relationship"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="kinResidence"
+              name="nextOfKins[0].residence"
+              label="Residence"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="kinPrimaryPhone"
+              name="nextOfKins[0].contact.primaryPhone"
+              label="Primary Phone"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              id="kinSecondaryPhone"
+              name="nextOfKins[0].contact.secondaryPhone"
+              label="Secondary Phone"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              id="kinEmailAddress"
+              name="nextOfKins[0].contact.emailAddress"
+              label="Email Address"
+              fullWidth
+              variant="standard"
+            />
+          </Grid>
+        </Grid>
       </fieldset>
-      </div>
+    </React.Fragment>
 
   );
 }

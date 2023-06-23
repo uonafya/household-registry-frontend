@@ -4,7 +4,7 @@ module.exports = {
   mode: 'jit',
   // Remove unused styles, enable shipping smaller file to production
   purge: ['./src/**/*.{js,jsx}', './public/index.html'],
-  content: [],
+  content: ['./src/**/*.{js,jsx}', './public/index.html'],
   theme: {
     extend: {},
   },
