@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import {TextField,Button,MenuItem,FormControl,Checkbox,InputLabel,Select,FormControlLabel,Grid} from '@mui/material';
+import {TextField,Button,MenuItem,FormControl,Checkbox,NativeSelect,InputLabel,Select,FormControlLabel,Grid} from '@mui/material';
 
 function Demographics({householdRegistryData,setHouseholdRegistryData}) {
   const initialValues = {
@@ -56,8 +56,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
 
   return (
     <React.Fragment>
-      <fieldset style={{ width: '90%' }}>
-        <legend>Client Verification</legend>
+     
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -114,123 +113,116 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl required>
-              <InputLabel id="maritalStatus-label">Marital Status</InputLabel>
-              <Select
-                labelId="maritalStatus-label"
+              <InputLabel htmlFor="maritalStatus">Marital Status</InputLabel>
+              <NativeSelect
                 id="maritalStatus"
                 name="maritalStatus"
                 label="Marital Status"
                 fullWidth
                 variant="standard"
               >
-                <MenuItem value="Married Polygamous">Married Polygamous</MenuItem>
-                <MenuItem value="Married Monogamous">Married Monogamous</MenuItem>
-                <MenuItem value="Single">Single</MenuItem>
+                <option value="Married Polygamous">Married Polygamous</option>
+                <option value="Married Monogamous">Married Monogamous</option>
+                <option value="Single">Single</option>
                 {/* Add more options here */}
-              </Select>
+              </NativeSelect>
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl required>
-              <InputLabel id="gender-label">Gender</InputLabel>
-              <Select
-                labelId="gender-label"
+              <InputLabel htmlFor="gender">Gender</InputLabel>
+              <NativeSelect
                 id="gender"
                 name="gender"
                 label="Gender"
                 fullWidth
                 variant="standard"
               >
-                <MenuItem value="male">Male</MenuItem>
-                <MenuItem value="female">Female</MenuItem>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
                 {/* Add more options here */}
-              </Select>
+              </NativeSelect>
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl required>
-              <InputLabel id="occupation-label">Occupation</InputLabel>
-              <Select
-                labelId="occupation-label"
+              <InputLabel htmlFor="occupation">Occupation</InputLabel>
+              <NativeSelect
                 id="occupation"
                 name="occupation"
                 label="Occupation"
                 fullWidth
                 variant="standard"
               >
-                <MenuItem value="1. GOVERNMENT EMPLOYEE">1. GOVERNMENT EMPLOYEE</MenuItem>
-                <MenuItem value="2. NGO EMPLOYEE">2. NGO EMPLOYEE</MenuItem>
-                <MenuItem value="3. PRIVATE SECTOR EMPLOYEE">3. PRIVATE SECTOR EMPLOYEE</MenuItem>
+                <option value="1. GOVERNMENT EMPLOYEE">1. GOVERNMENT EMPLOYEE</option>
+                <option value="2. NGO EMPLOYEE">2. NGO EMPLOYEE</option>
+                <option value="3. PRIVATE SECTOR EMPLOYEE">3. PRIVATE SECTOR EMPLOYEE</option>
                 {/* Add more options here */}
-              </Select>
+              </NativeSelect>
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl required>
-              <InputLabel id="religion-label">Religion</InputLabel>
-              <Select
-                labelId="religion-label"
+              <InputLabel htmlFor="religion">Religion</InputLabel>
+              <NativeSelect
                 id="religion"
                 name="religion"
                 label="Religion"
                 fullWidth
                 variant="standard"
               >
-                <MenuItem value="Christian">Christian</MenuItem>
-                <MenuItem value="Muslim">Muslim</MenuItem>
+                <option value="Christian">Christian</option>
+                <option value="Muslim">Muslim</option>
                 {/* Add more options here */}
-              </Select>
+              </NativeSelect>
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl required>
-              <InputLabel id="educationLevel-label">Education Level</InputLabel>
-              <Select
-                labelId="educationLevel-label"
+              <InputLabel htmlFor="educationLevel">Education Level</InputLabel>
+              <NativeSelect
                 id="educationLevel"
                 name="educationLevel"
                 label="Education Level"
                 fullWidth
                 variant="standard"
               >
-                <MenuItem value="Secondary">Secondary</MenuItem>
-                <MenuItem value="Tertiary">Tertiary</MenuItem>
+                <option value="Secondary">Secondary</option>
+                <option value="Tertiary">Tertiary</option>
                 {/* Add more options here */}
-              </Select>
+              </NativeSelect>
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl required>
-              <InputLabel id="country-label">Country</InputLabel>
-              <Select
-                labelId="country-label"
+              <InputLabel htmlFor="country">Country</InputLabel>
+              <NativeSelect
                 id="country"
                 name="country"
                 label="Country"
                 fullWidth
                 variant="standard"
               >
-                <MenuItem value="KE">Kenya</MenuItem>
-                <MenuItem value="US">United States</MenuItem>
+                <option value="KE">Kenya</option>
+                <option value="US">United States</option>
                 {/* Add more options here */}
-              </Select>
+              </NativeSelect>
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl required>
-              <InputLabel id="countyOfBirth-label">County of Birth</InputLabel>
-              <Select
-                labelId="countyOfBirth-label"
+              <InputLabel htmlFor="countyOfBirth">County of Birth</InputLabel>
+              <NativeSelect
                 id="countyOfBirth"
                 name="countyOfBirth"
                 label="County of Birth"
                 fullWidth
                 variant="standard"
               >
-                <MenuItem value="001">County 1</MenuItem>
-                <MenuItem value="002">County 2</MenuItem>
+                <option value="001">County 1</option>
+                <option value="002">County 2</option>
                 {/* Add more options here */}
-              </Select>
+              </NativeSelect>
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -340,7 +332,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
             </fieldset>
           </Grid>
         </Grid>
-      </fieldset>
+    
       <Button variant="contained" color="primary" type="submit">
         Submit
       </Button>

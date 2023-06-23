@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import {Card,TextField,Paper, Typography, Box, Grid} from '@mui/material';
 
-function ContactForm() {
+function Contact() {
   const initialValues = {
     primary_phone: '1234567890',
     secondary_phone: '9876543210',
@@ -61,4 +61,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export default Contact;

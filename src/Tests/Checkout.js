@@ -24,7 +24,7 @@ function Copyright() {
 
 
 // const steps = ['Client verification', 'ID Numbers', 'Demographics','address','Next of kin'];
-const steps = ['Household details', 'Household address', 'Household Head'];
+const steps = ['Household details', 'Household address', 'Register Household Head','Demographics','Contacts','Next of Kin','Identity Numbers','Post to Registry' ];
 // const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 function getStepContent(step) {
@@ -81,11 +81,11 @@ export default function Checkout() {
         </Toolbar>
       </AppBar> */}
 
-      <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
-        <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+      <Container component="main" sx={{ mb: 4 }}>
+  <Paper variant="outlined" sx={{ my: 'auto', p: 'auto' }}>
             {/* The heading */}
           <Typography component="h1" variant="h4" align="center">
-            Checkout
+            Household Registration
           </Typography>
 
            {/* The stepper */}
