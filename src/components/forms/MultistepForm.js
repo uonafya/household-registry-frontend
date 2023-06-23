@@ -16,7 +16,7 @@ const PersonDetails = lazy(() => import('../../pages/PersonDetails'));
 // const steps = ['Client verification', 'ID Numbers', 'Demographics','address','Next of sKin'];
 const steps = ['Household details', 'Household address', 'Household Heads'];
 
-export default function HorizontalLinearStepper() {
+export default function MultistepForm() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   let DynamicComponent;

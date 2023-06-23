@@ -1,4 +1,5 @@
-import * as React from 'react';
+import {useState} from 'react';
+import React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -21,25 +22,13 @@ import MailIcon from '@mui/icons-material/Mail';
 import Home from '../../pages/Home';
 import HorizontalLinearStepper from '../forms/MultistepForm';
 import Checkout from '../../Tests/Checkout';
+import HouseHoldRegistration from '../../pages/HouseHoldRegistration';
+import PersonDetails from '../../pages/PersonDetails';
+import MultistepForm from '../forms/MultistepForm';
+import {Link} from '@mui/material';
+import AllHouseHolds from '../forms/AllHouseHolds';
 
 const drawerWidth = 400;
-
-
-const handleClickItem = (text) => {
-  // Logic specific to each button
-  if (text === 'Dashboard') {
-    console.log('Dashboard button clicked');
-    // Add your Dashboard button logic here
-  } else if (text === 'Persons') {
-    console.log('Persons button clicked');
-    // Add your Persons button logic here
-  } else if (text === 'Users') {
-    console.log('Users button clicked');
-    // Add your Users button logic here
-  }
-}
-
-
 
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -88,6 +77,28 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function PersistentDrawerLeft() {
+
+  const [RenderedComponent, setRenderedComponent] = useState(null);
+
+  const handleClickItem = (text) => {
+    // Logic specific to each button
+    if (text === 'Dashboard') {
+      console.log('Dashboard button clicked');
+      // Add your Dashboard button logic here
+      setRenderedComponent(<Home />);
+    } else if (text === 'Households') {
+      console.log('Household button clicked');
+      // Add your Households button logic here
+      setRenderedComponent(<AllHouseHolds />);
+    } else if (text === 'Users') {
+      console.log('Users button clicked');
+      // Add your Users button logic here
+      setRenderedComponent(<Checkout />);
+    } else {
+      setRenderedComponent(null);
+    }
+  };
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -103,7 +114,7 @@ export default function PersistentDrawerLeft() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       {/* The Top Nav bar */}
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{ bgcolor: '#078080' }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -128,6 +139,7 @@ export default function PersistentDrawerLeft() {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
+            backgroundColor: '#f8f5f2',
           },
         }}
         variant="persistent"
@@ -144,7 +156,7 @@ export default function PersistentDrawerLeft() {
         <Divider />
         {/* The second list of items on the sidebar-persons */}
         <List>
-          {['Dashboard', 'Persons', 'Users'].map((text, index) => (
+          {['Dashboard','Households','Users'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton onClick={() => handleClickItem(text)}>
                 <ListItemIcon>
@@ -158,9 +170,9 @@ export default function PersistentDrawerLeft() {
       </Drawer>
 
       {/* The main content of the page */}
-      <Main open={open}>
+      <Main open={open} >
         <DrawerHeader />
-        <Checkout/>
+        {RenderedComponent}
       </Main>
     </Box>
   );

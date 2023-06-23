@@ -24,7 +24,7 @@ function Copyright() {
 
 
 // const steps = ['Client verification', 'ID Numbers', 'Demographics','address','Next of kin'];
-const steps = ['Household details', 'Household address', 'Register Household Head','Demographics','Contacts','Next of Kin','Identity Numbers','Post to Registry' ];
+const steps = ['Household details', 'Household address', 'Household Head','Demographics','Contacts','Next of Kin','Id Numbers','Save' ];
 // const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 function getStepContent(step) {
@@ -63,36 +63,21 @@ export default function Checkout() {
 
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      {/* <AppBar
-        position="absolute"
-        color="default"
-        elevation={0}
-        sx={{
-          position: 'relative',
-          borderBottom: (t) => `1px solid ${t.palette.divider}`,
-        }}
-      >
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Company name
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
-
-      <Container component="main" sx={{ mb: 4 }}>
-  <Paper variant="outlined" sx={{ my: 'auto', p: 'auto' }}>
-            {/* The heading */}
-          <Typography component="h1" variant="h4" align="center">
+    // <ThemeProvider theme={defaultTheme}>
+    //   <CssBaseline />
+     
+      <Container component="main" sx={{ mb: 4 ,width: '100%'}}>
+         <Typography component="h3" variant="h5" align="center">
             Household Registration
           </Typography>
-
+  <Paper variant="outlined" sx={{ my: 'auto', p: 'auto' }}>
+            {/* The heading */}
+         
            {/* The stepper */}
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
+              <Step key={label} >
+                <StepLabel >{label}</StepLabel>
               </Step>
             ))}
           </Stepper>
@@ -121,7 +106,7 @@ export default function Checkout() {
                 <Button
                   variant="contained"
                   onClick={handleNext}
-                  sx={{ mt: 3, ml: 1 }}
+                  sx={{ mt: 3, ml: 1 , bgcolor: '#f45d48'}}
                 >
                   {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
                 </Button>
@@ -129,8 +114,8 @@ export default function Checkout() {
             </React.Fragment>
           )}
         </Paper>
-        <Copyright />
+        {/* <Copyright /> */}
       </Container>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }

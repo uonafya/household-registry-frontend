@@ -1,6 +1,5 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import {Card,TextField,Paper, Typography, Box, Grid} from '@mui/material';
+import {TextField,Grid} from '@mui/material';
 
 function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
   const initialValues = {
@@ -34,9 +33,9 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
 
   return (
     <React.Fragment>
-      <fieldset style={{ width: '90%' }}>
+      
         <legend>Next of Kin</legend>
-        <Grid container spacing={3}>
+        <Grid container spacing={3}sx ={{width:'100%'}}>
           <Grid item xs={12} sm={6}>
             <TextField
               required
@@ -96,7 +95,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
             />
           </Grid>
         </Grid>
-      </fieldset>
+    
     </React.Fragment>
 
   );

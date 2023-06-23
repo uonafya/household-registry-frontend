@@ -1,5 +1,4 @@
-import React, { lazy, Suspense } from 'react';
-
+import React from 'react';
 import HouseHoldDetails from '../components/forms/HouseHoldDetails';
 import HouseHoldAddress from '../components/forms/HouseHoldAddress';
 import Demographics from '../components/forms/Demographics';
@@ -39,6 +38,7 @@ function HouseHoldRegistration(activeStep){
           break;
         case 7:
           DynamicComponent = PostToRegistry;
+          break
         default:
           DynamicComponent = () => null;
           
