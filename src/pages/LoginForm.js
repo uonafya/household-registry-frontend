@@ -90,6 +90,7 @@ const LoginForm = () => {
 
           <Box
           sx={{
+            p:7,
             flex: '70%',
             backgroundColor: 'black',
             }}
@@ -98,38 +99,32 @@ const LoginForm = () => {
      {/* Login Form box */}
         <Box
           sx={{
+            p:7,
             flex: '30%',
             display: 'flex',
             alignItems: 'center',
           }}
         >
-          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon color='blue'/>
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Login in
-          </Typography>
-          <p/> */}
+         
 
           {/* The login form */}
         <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validateForm}>
           <Form>
-            <div className="mb-4">
-              <label htmlFor="username" className="block">Username</label>
-                <Field
-                as={TextField}
-                margin="normal"
+
+          <Grid item xs={12} sm={6}>
+              <TextField
                 required
-                fullWidth
                 id="username"
                 name="username"
-                autoComplete="username"
-                autoFocus
+                label="username"
+                fullWidth
+                autoComplete="user Name"
+                variant="outlined"
               />
               <ErrorMessage name="username" component="div" className="text-red-500" />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="password" className="block">Password</label>
+            </Grid>
+              
+            <Grid item xs={12} sm={6}>
                 <Field
                 as={TextField}
                 margin="normal"
@@ -142,7 +137,9 @@ const LoginForm = () => {
                 autoFocus
               />
               <ErrorMessage name="password" component="div" className="text-red-500" />
-            </div>
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
             <Button
                 type="submit"
                 fullWidth
@@ -151,23 +148,19 @@ const LoginForm = () => {
               >
                 Log in
               </Button>
+              </Grid>
+
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
+                
               </Grid>
             </Form>
           </Formik>
-          <Typography variant="body2" color="text.secondary" sx={{ mt: 5 }}>
-            Place any additional content here
-          </Typography>
+         
         </Box>
     
   </div>
