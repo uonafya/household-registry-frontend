@@ -39,7 +39,7 @@ function HouseHoldAddress() {
             label="County"
             fullWidth
             autoComplete="county of residence"
-            variant="standard"
+            variant="outlined"
           />
         </Grid>
 
@@ -51,7 +51,7 @@ function HouseHoldAddress() {
             label="sub County"
             fullWidth
             autoComplete="sub county of residence"
-            variant="standard"
+            variant="outlined"
           />
         </Grid>
 
@@ -63,7 +63,7 @@ function HouseHoldAddress() {
             label="Constituency"
             fullWidth
             autoComplete="constituency of residence"
-            variant="standard"
+            variant="outlined"
           />
         </Grid>
 
@@ -75,7 +75,7 @@ function HouseHoldAddress() {
             label="Ward"
             fullWidth
             autoComplete="Ward of residence"
-            variant="standard"
+            variant="outlined"
           />
         </Grid>
 
@@ -87,7 +87,7 @@ function HouseHoldAddress() {
             label="Village"
             fullWidth
             autoComplete="Village of residence"
-            variant="standard"
+            variant="outlined"
           />
         </Grid>
             </Grid>

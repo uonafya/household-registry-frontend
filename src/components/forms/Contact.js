@@ -33,7 +33,7 @@ function Contact() {
             name="contact.primaryPhone"
             label="Primary Phone"
             fullWidth
-            variant="standard"
+            variant="outlined"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -42,7 +42,7 @@ function Contact() {
             name="contact.secondaryPhone"
             label="Secondary Phone"
             fullWidth
-            variant="standard"
+            variant="outlined"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -51,7 +51,7 @@ function Contact() {
             name="contact.emailAddress"
             label="Email Address"
             fullWidth
-            variant="standard"
+            variant="outlined"
           />
         </Grid>
       </Grid>

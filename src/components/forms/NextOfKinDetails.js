@@ -43,7 +43,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               name="nextOfKins[0].name"
               label="Name"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -53,7 +53,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               name="nextOfKins[0].relationship"
               label="Relationship"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -63,7 +63,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               name="nextOfKins[0].residence"
               label="Residence"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -73,7 +73,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               name="nextOfKins[0].contact.primaryPhone"
               label="Primary Phone"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -82,7 +82,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               name="nextOfKins[0].contact.secondaryPhone"
               label="Secondary Phone"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -91,7 +91,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               name="nextOfKins[0].contact.emailAddress"
               label="Email Address"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
         </Grid>

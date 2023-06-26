@@ -58,7 +58,7 @@ function HouseHoldDetails() {
             label="Household Name"
             fullWidth
             autoComplete="household name"
-            variant="standard"
+            variant="outlined"
           />
     </Grid>
 
@@ -70,7 +70,7 @@ function HouseHoldDetails() {
             label="Household Name"
             fullWidth
             autoComplete="household name"
-            variant="standard"
+            variant="outlined"
           />
     </Grid>
 
@@ -82,7 +82,7 @@ function HouseHoldDetails() {
             label="Household Type"
             fullWidth
             autoComplete="household type"
-            variant="standard"
+            variant="outlined"
           />
     </Grid>
     

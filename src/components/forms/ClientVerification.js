@@ -114,7 +114,7 @@ function ClientVerification({showForms,setShowForms,setShowFormsisVerified,setIs
                 label="identifierNumber"
                 fullWidth
                 autoComplete="identifier Number"
-                variant="standard"
+                variant="outlined"
               />
             </Grid>
         

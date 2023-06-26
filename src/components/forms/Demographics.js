@@ -64,7 +64,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
               name="clientNumber"
               label="Client Number"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -74,7 +74,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
               name="firstName"
               label="First Name"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -83,7 +83,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
               name="middleName"
               label="Middle Name"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -93,7 +93,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
               name="lastName"
               label="Last Name"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -104,7 +104,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
               label="Date of Birth"
               fullWidth
               type="date"
-              variant="standard"
+              variant="outlined"
               InputLabelProps={{
                 shrink: true,
               }}
@@ -118,7 +118,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                 name="maritalStatus"
                 label="Marital Status"
                 fullWidth
-                variant="standard"
+                variant="outlined"
               >
                 <option value="Married Polygamous">Married Polygamous</option>
                 <option value="Married Monogamous">Married Monogamous</option>
@@ -135,7 +135,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                 name="gender"
                 label="Gender"
                 fullWidth
-                variant="standard"
+                variant="outlined"
               >
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -151,7 +151,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                 name="occupation"
                 label="Occupation"
                 fullWidth
-                variant="standard"
+                variant="outlined"
               >
                 <option value="1. GOVERNMENT EMPLOYEE">1. GOVERNMENT EMPLOYEE</option>
                 <option value="2. NGO EMPLOYEE">2. NGO EMPLOYEE</option>
@@ -168,7 +168,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                 name="religion"
                 label="Religion"
                 fullWidth
-                variant="standard"
+                variant="outlined"
               >
                 <option value="Christian">Christian</option>
                 <option value="Muslim">Muslim</option>
@@ -184,7 +184,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                 name="educationLevel"
                 label="Education Level"
                 fullWidth
-                variant="standard"
+                variant="outlined"
               >
                 <option value="Secondary">Secondary</option>
                 <option value="Tertiary">Tertiary</option>
@@ -200,7 +200,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                 name="country"
                 label="Country"
                 fullWidth
-                variant="standard"
+                variant="outlined"
               >
                 <option value="KE">Kenya</option>
                 <option value="US">United States</option>
@@ -216,7 +216,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                 name="countyOfBirth"
                 label="County of Birth"
                 fullWidth
-                variant="standard"
+                variant="outlined"
               >
                 <option value="001">County 1</option>
                 <option value="002">County 2</option>
@@ -238,7 +238,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
               name="originFacilityKmflCode"
               label="Origin Facility Kmfl Code"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -255,7 +255,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
               name="nascopCCCNumber"
               label="Nascop CCC Number"
               fullWidth
-              variant="standard"
+              variant="outlined"
             />
           </Grid>
           <Grid item xs={12}>
@@ -271,7 +271,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                       name="residence.county"
                       label="County"
                       fullWidth
-                      variant="standard"
+                      variant="outlined"
                     >
                       <MenuItem value="001">County 1</MenuItem>
                       <MenuItem value="002">County 2</MenuItem>
@@ -286,7 +286,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                     name="residence.subCounty"
                     label="Sub County"
                     fullWidth
-                    variant="standard"
+                    variant="outlined"
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -296,7 +296,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                     name="residence.ward"
                     label="Ward"
                     fullWidth
-                    variant="standard"
+                    variant="outlined"
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -306,7 +306,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                     name="residence.village"
                     label="Village"
                     fullWidth
-                    variant="standard"
+                    variant="outlined"
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -315,7 +315,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                     name="residence.landMark"
                     label="Landmark"
                     fullWidth
-                    variant="standard"
+                    variant="outlined"
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -324,7 +324,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                     name="residence.address"
                     label="Address"
                     fullWidth
-                    variant="standard"
+                    variant="outlined"
                   />
                 </Grid>
               </Grid>
