@@ -9,6 +9,7 @@ import HouseHoldAddress from '../components/forms/HouseHoldAddress';
 import HouseHoldDetails from '../components/forms/HouseHoldDetails';
 import HouseHoldRegistration from '../pages/HouseHoldRegistration';
 
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
