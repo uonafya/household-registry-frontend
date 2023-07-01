@@ -1,6 +1,12 @@
 import axios from "axios";
 
 
+export const fetchFormValues = () => {
+  return {
+    type: 'FETCH_FORM_VALUES',
+  };
+};
+
 export const submitHouseholdForm = (values) => {
   return async (dispatch) => {
     try {
@@ -17,22 +23,24 @@ export const submitHouseholdForm = (values) => {
 };
 
 
-export const submitClientVerification = (values) => {
+export const submitClientVerification = ({country,identifier_type,identifier_number}) => {
   return async (dispatch) => {
     try {
 
       //obtain token from local storage react js
       const token = window.localStorage.getItem('token');
       console.log("token here.."+token)
+      console.log({country,identifier_type,identifier_number})
+  
 
-      const url = `https://dhpstagingapi.health.go.ke/partners/registry/search/${values.country}/${values.identifier_type}/${values.identifier_number}`;
+      const url = `https://dhpstagingapi.health.go.ke/partners/registry/search/${country}/${identifier_type}/${identifier_number}`;
 
 
       // send axios post request using OAuth2.0 with token stored in local storage after log in?"
       // Perform the API request here
-      const response = await axios.post(url, {
+      const response = await axios.get(url, {
         headers: {
-          Authorization: `OAuth2.0 ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
 

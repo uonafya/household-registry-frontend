@@ -1,72 +1,45 @@
-// Client Verification
-import { Formik, Field, Form, ErrorMessage} from 'formik';
-import axios from 'axios';
-import CountryOptions from '../options/CountryOptions';
-import Box from '@mui/material/Box';
-import {Typography, MenuItem,InputLabel,Grid,Select,FormControlLabel,NativeSelect,TextField}from '@mui/material';
-import React from 'react';
+// Client Verificatio
+import {InputLabel,Grid,FormControlLabel, NativeSelect,Button}from '@mui/material';
+import {TextField} from '@mui/material';
+import { Field } from 'formik';
+
+import React,{useRef, useEffect} from 'react';
 import Checkbox from '@mui/material/Checkbox';
-import { ImportContacts } from '@material-ui/icons';
 
-function ClientVerification({showForms,setShowForms,setShowFormsisVerified,setIsVerified,clientRegistryData,setClientRegistryData}){
-  const initialValues = {
-    country: '',
-    IdentifierType: '',
-    identifierNumber: '',
-    selectKenya: 'KE',
-  };
+import { updateHousehold,submitClientVerification } from '../../stateManagement/actions/householdFormAction';
+import { useFormik } from 'formik'
+import { useDispatch } from 'react-redux';
 
-  const handleChange = (event) => {
-    const { name, checked } = event.target;
-    
-    Formik.values.setFieldValue(name, checked ? 'KE' : ''); // Update selectKenya value based on checkbox state
-  };
 
-  console.log(localStorage.getItem('token'));
+// "//An uncontrolled form that does not rerender onChange?"
+function ClientVerification(){
+  
+  const dispatch =useDispatch();
 
-    //sample edpoint:  https://httpstat.us/200
-    // test edpoint: https://afyakenyaapi.health.go.ke/partners/registry/search/KE
-    
-  const searchEndpoint = 'https://dhpstagingapi.health.go.ke/partners/registry/search';
+  //  const formValues = useSelector((state) => state.householdState);
 
-  const handleSubmit = async (values) => {
-    const searchData = {
-      selectKenya: values.selectKenya,
-      IdentifierType: values.IdentifierType,
-      identifierNumber: values.identifierNumber,
+ 
+      
+		const handleSubmit = (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const country = formData.get('country');
+      const identifier_type = formData.get('identification_type');
+      const identifier_number = formData.get('identification_number');
+      // Use the input value for further processing
+      console.log(country,identifier_number,identifier_type)
+      dispatch(submitClientVerification({country,identifier_type,identifier_number}));
+      console.log("action called....")
     };
-    console.log("here 2");
 
-    try {
-      console.log(values);
-      // Make the request to search for the identifierNumber
+  
+  useEffect(()=>{
+         console.log('rendered here...')
 
-      const token = localStorage.getItem('token'); // Retrieve the token from local storage
-      console.log(token);
-
-      // https://afyakenyaapi.health.go.ke/partners/registry/search/KE/birth-certificate/35541176
-      const response = await axios.get(`${searchEndpoint}/${searchData.selectKenya}/${searchData.IdentifierType}/${searchData.identifierNumber}`, {
-        headers: {
-          Authorization: `OAuth2.0 ${token}`,
-        },
-      });
-      // Handle the response
-      console.log(response.data);
-
-      // Check if the status code is 200
-    if (response.status === 200) {
-      console.log("Request successful");
-      setIsVerified(true);
-      setShowForms(true);
-      setClientRegistryData(response.data);
-    } else {
-      console.log("Request failed with status code: " + response.status);
-    }
-    } catch (error) {
-      // Handle the error
-      console.error(error);
-    }
-  };
+  });
+  
+  
+  
 
   const validateForm = (values) => {
     const errors = {};
@@ -84,19 +57,47 @@ function ClientVerification({showForms,setShowForms,setShowFormsisVerified,setIs
 
   return (
     <React.Fragment>
-      <fieldset style={{ width: '90%' }}>
-        <legend>Client Verification</legend>
-           <Grid container spacing={3}>
+      <form onSubmit={handleSubmit}>
+     
+           <Grid container spacing={2}>
 
-          <Grid item xs={12} sm={6}>
-          <InputLabel id="IdentifierType">Identifier Type</InputLabel>
+           <Grid item xs={12} sm={6}>
+
+          <InputLabel id='IdentifierType'>Select Country</InputLabel>
+          <div className='w-full flex flex-col items-start justify-start gap-1 mb-3'>
           <NativeSelect
               required
-              labelId="IdentifierType"
-              id="IdentifierType"
-              value={initialValues.IdentifierType}
-              label="IdentifierType"
-              onChange={handleChange}
+              id='Country'
+              name='country'
+             
+              label='Country'
+             
+            >
+              <option value=''>Select Country</option>
+              <option value='KE'>Kenya</option>
+              <option value='UG'>Uganda</option>
+              <option value='TZ'>Tanzania</option>
+            </NativeSelect>
+            </div>
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+
+          <FormControlLabel control={<Checkbox value={'KE'} defaultChecked />} label='Kenya' />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+          <InputLabel id='IdentifierType'>Identifier Type</InputLabel>
+          <NativeSelect
+              required
+              
+              id='IdentifierType'
+            
+              // ref={identifierTypeRef}
+              name='identification_type'
+            
+              label='IdentifierType'
+              
             >
               <option value=''>Select Identifier</option>
               <option value='birth_certificate'>Birth certificate</option>
@@ -108,29 +109,34 @@ function ClientVerification({showForms,setShowForms,setShowFormsisVerified,setIs
 
           <Grid item xs={12} sm={6}>
               <TextField
+              
                 required
-                id="identifierNumber"
-                name="identifierNumber"
-                label="identifierNumber"
-                fullWidth
-                autoComplete="identifier Number"
-                variant="outlined"
+                id='identifierNumber'
+                label='identifierNumber'
+               
+                name='identification_number'
+              
+                autoComplete='identifier Number'
+               
+                variant='outlined'
+                className='flex-none w-full bg-gray-50 rounded p-2 flex-grow border-2 placeholder-gray-500 border-gray-200 focus:shadow-none focus:bg-white focus:border-black outline-none'
               />
             </Grid>
         
-          <Grid item xs={12} sm={6}>
-          <CountryOptions/>
-          </Grid>
+         
 
           <Grid item xs={12} sm={6}>
-          <FormControlLabel control={<Checkbox defaultChecked />} label="Kenya" />
+          <Button variant='outlined' type='submit'> Search Client</Button>
           </Grid>
           
         </Grid>
-        </fieldset>
+        </form>
       </React.Fragment>
           
   );
 }
 
 export default ClientVerification;
+
+
+
