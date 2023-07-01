@@ -42,7 +42,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               id="kinName"
               name="nextOfKins[0].name"
               label="Name"
-              fullWidth
+              
               variant="outlined"
             />
           </Grid>
@@ -52,7 +52,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               id="kinRelationship"
               name="nextOfKins[0].relationship"
               label="Relationship"
-              fullWidth
+              
               variant="outlined"
             />
           </Grid>
@@ -62,7 +62,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               id="kinResidence"
               name="nextOfKins[0].residence"
               label="Residence"
-              fullWidth
+              
               variant="outlined"
             />
           </Grid>
@@ -72,7 +72,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               id="kinPrimaryPhone"
               name="nextOfKins[0].contact.primaryPhone"
               label="Primary Phone"
-              fullWidth
+              
               variant="outlined"
             />
           </Grid>
@@ -81,7 +81,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               id="kinSecondaryPhone"
               name="nextOfKins[0].contact.secondaryPhone"
               label="Secondary Phone"
-              fullWidth
+              
               variant="outlined"
             />
           </Grid>
@@ -90,7 +90,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
               id="kinEmailAddress"
               name="nextOfKins[0].contact.emailAddress"
               label="Email Address"
-              fullWidth
+              
               variant="outlined"
             />
           </Grid>

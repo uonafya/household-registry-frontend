@@ -55,7 +55,7 @@ const MigrateHousehold = () => {
             id="householdId"
             name="householdId"
             label="Household ID"
-            fullWidth
+            
             autoComplete="household ID"
             variant="outlined"
             value={householdId}
@@ -68,7 +68,7 @@ const MigrateHousehold = () => {
             id="householdName"
             name="householdName"
             label="Household Name"
-            fullWidth
+            
             autoComplete="household name"
             variant="outlined"
             value={householdName}
@@ -81,7 +81,7 @@ const MigrateHousehold = () => {
             id="oldResidenceId"
             name="oldResidenceId"
             label="Old Residence ID"
-            fullWidth
+            
             autoComplete="old residence ID"
             variant="outlined"
             value={oldResidenceId}
@@ -94,7 +94,7 @@ const MigrateHousehold = () => {
             id="newAreaName"
             name="newAreaName"
             label="New Area Name"
-            fullWidth
+            
             autoComplete="new area name"
             variant="outlined"
             value={newAreaName}
@@ -107,7 +107,7 @@ const MigrateHousehold = () => {
             id="newAreaCode"
             name="newAreaCode"
             label="New Area Code"
-            fullWidth
+            
             autoComplete="new area code"
             variant="outlined"
             value={newAreaCode}
@@ -115,14 +115,14 @@ const MigrateHousehold = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl fullWidth variant="outlined" required>
+          <FormControl  variant="outlined" required>
             <InputLabel id="reasonForMigration-label">Reason for Migration</InputLabel>
             <NativeSelect
               id="reasonForMigration"
               name="reasonForMigration"
               value={reasonForMigration}
               onChange={handleReasonForMigrationChange}
-              labelId="reasonForMigration-label"
+              
             >
               <MenuItem value="">Select a reason</MenuItem>
               <MenuItem value="Relocation test">Relocation test</MenuItem>
@@ -135,7 +135,7 @@ const MigrateHousehold = () => {
             id="initiatedByChvId"
             name="initiatedByChvId"
             label="Initiated by CHV ID"
-            fullWidth
+            
             autoComplete="initiated by CHV ID"
             variant="outlined"
             value={initiatedByChvId}
@@ -148,7 +148,7 @@ const MigrateHousehold = () => {
             id="dateOfMigration"
             name="dateOfMigration"
             label="Date of Migration"
-            fullWidth
+            
             autoComplete="date of migration"
             variant="outlined"
             value={dateOfMigration}

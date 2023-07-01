@@ -117,7 +117,7 @@ const LoginForm = () => {
                 id="username"
                 name="username"
                 label="username"
-                fullWidth
+                
                 autoComplete="user Name"
                 variant="outlined"
               />
@@ -129,7 +129,7 @@ const LoginForm = () => {
                 as={TextField}
                 margin="normal"
                 required
-                fullWidth
+                
                 id="password"
                 name="password"
                 type="password" 
@@ -142,7 +142,7 @@ const LoginForm = () => {
               <Grid item xs={12} sm={6}>
             <Button
                 type="submit"
-                fullWidth
+                
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >

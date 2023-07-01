@@ -32,7 +32,7 @@ function Contact() {
             id="primaryPhone"
             name="contact.primaryPhone"
             label="Primary Phone"
-            fullWidth
+            
             variant="outlined"
           />
         </Grid>
@@ -41,7 +41,7 @@ function Contact() {
             id="secondaryPhone"
             name="contact.secondaryPhone"
             label="Secondary Phone"
-            fullWidth
+            
             variant="outlined"
           />
         </Grid>
@@ -50,7 +50,7 @@ function Contact() {
             id="emailAddress"
             name="contact.emailAddress"
             label="Email Address"
-            fullWidth
+            
             variant="outlined"
           />
         </Grid>

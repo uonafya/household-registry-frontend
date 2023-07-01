@@ -20,21 +20,21 @@ const MuteHousehold = () => {
             id="householdId"
             name="householdId"
             label="Household ID"
-            fullWidth
+            
             autoComplete="household ID"
             variant="outlined"
           />
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <FormControl fullWidth variant="outlined" required>
+          <FormControl  variant="outlined" required>
             <InputLabel id="reasonForMuting-label">Reason for Muting</InputLabel>
             <NativeSelect
               id="reasonForMuting"
               name="reasonForMuting"
               value={reasonForMuting}
               onChange={handleReasonForMutingChange}
-              labelId="reasonForMuting-label"
+              
             >
               <option value="">Select a reason</option>
               <option value="An entire household moves to a new geographical area/locality.">

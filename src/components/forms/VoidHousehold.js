@@ -20,21 +20,21 @@ const VoidHousehold = () => {
             id="householdId"
             name="householdId"
             label="Household ID"
-            fullWidth
+            
             autoComplete="household ID"
             variant="outlined"
           />
         </Grid>
 
         <Grid item xs={12} sm={6}>
-          <FormControl fullWidth variant="outlined" required>
+          <FormControl  variant="outlined" required>
             <InputLabel id="reasonForVoiding-label">Reason for Voiding</InputLabel>
             <NativeSelect
               id="reasonForVoiding"
               name="reasonForVoiding"
               value={reasonForVoiding}
               onChange={handleReasonForVoidingChange}
-              labelId="reasonForVoiding-label"
+              
             >
               <option value="">Select a reason</option>
               <option value="Incase of a duplicate, Merging the records can be used as a corrective measure after validation.">

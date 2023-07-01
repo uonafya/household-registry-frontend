@@ -1,94 +1,80 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import axios from 'axios';
-import {TextField, Typography, Grid} from '@mui/material';
-import React from 'react';
+import { Formik, Form, Field } from 'formik';
+import { Grid} from '@mui/material';
+import { useDispatch} from 'react-redux';
+import { useEffect } from 'react';
+import { fetchFormValues } from '../../stateManagement/actions/householdFormAction';
 
-function HouseHoldDetails() {
-  const initialValues = {
-    household_name: '',
-    household_identifier: '',
-    household_type: {
-      household_type_name: ''
-    }
-  };
+const initialValues = {
+  householdName: '',
+  householdType: '',
+};
 
-  const handleSubmit = async (values, { setSubmitting }) => {
-    try {
-      console.log(values);
-      // Make the request to submit the form data
-      const response = await axios.post('https://example.com/api/households', values);
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-    setSubmitting(false);
-  };
+const HouseHoldDetails = () => {
 
-  const validateForm = (values) => {
-    const errors = {};
+  const dispatch = useDispatch();
 
-    if (!values.household_name) {
-      errors.household_name = 'Household name is required';
-    }
+  useEffect(() => {
+    // Dispatch an action to fetch the data from Redux store
+  const formValues = dispatch(fetchFormValues());
+  }, [dispatch]);
 
-    if (!values.household_identifier) {
-      errors.household_identifier = 'Household identifier is required';
-    }
-
-    if (!values.household_type.household_type_name) {
-      errors.household_type = 'Household type is required';
-    }
-
-    return errors;
+  const handleSubmit = (values) => {
+    // Handle form submission
+    console.log(values);
+    console.log("Redux");
+   
   };
 
   return (
-    
-     
-    <React.Fragment>
-    <Typography variant="h6" gutterBottom>
-      Household address
-    </Typography>
-    <Grid container spacing={3}>
-    <Grid item xs={12} sm={6}>
-    <TextField
-            required
-            id="householdName"
-            name="householdName"
-            label="Household Name"
-            fullWidth
-            autoComplete="household name"
-            variant="outlined"
-          />
-    </Grid>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Form>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <Field
+              type="text"
+              name="householdName"
+              required
+              id="householdName"
+              label="Household Name"
+              
+              autoComplete="household name"
+              variant="outlined"
+            />
+          </Grid>
 
-    <Grid item xs={12} sm={6}>
-    <TextField
-            required
-            id="householdName"
-            name="householdName"
-            label="Household Name"
-            fullWidth
-            autoComplete="household name"
-            variant="outlined"
-          />
-    </Grid>
+          <Grid item xs={12} sm={6}>
+            <Field
+              type="text"
+              name="householdType"
+              required
+              id="householdType"
+              label="Household Type"
+              
+              autoComplete="household type"
+              variant="outlined"
+            />
+          </Grid>
 
-    <Grid item xs={12} sm={6}>
-    <TextField
-            required
-            id="householdType"
-            name="householdType"
-            label="Household Type"
-            fullWidth
-            autoComplete="household type"
-            variant="outlined"
-          />
-    </Grid>
-    
-    </Grid>
-    </React.Fragment>
+          <Grid item xs={12} sm={6}>
+            <Field
+              type="text"
+              name="householdType"
+              required
+              id="householdType"
+              label="Household Type"
+              
+              autoComplete="household type"
+              variant="outlined"
+            />
+          </Grid>
+
+          {/* Add more fields */}
+        </Grid>
+
+        <button type="submit">Submit</button>
+      </Form>
+    </Formik>
   );
-}
+};
 
 export default HouseHoldDetails;
