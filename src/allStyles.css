@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: 'Roboto';
+}
+.form-container {
+    padding: 30px;
+    max-width: 600px;
+    border: 1px solid #eee;
+}
+h2.form-title {
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 30px;
+}
+section.form-group {
+    margin: 30px 0;
+    padding: 30px;
+    background-color: #efefef;
+}
+.section-info {
+    margin-bottom: 30px;
+}
+.section-info h2.section-title {
+    font-size: 15px;
+    color: #16a085;
+}
+.section-info p.section-description {
+    font-size: 13px;
+    color: #777;
+}
+form {
+    width: 100%;
+    font-size: 14px;
+}
+.form-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+.input-group {
+    width: 100%;
+}
+.input-group label {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #999;
+    letter-spacing: .7px;
+    margin-bottom: 12px;
+}
+.input-group input,
+.input-group select,
+.input-group textarea  {
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    border-bottom: 3px solid #aaa;
+}
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    border-bottom: 3px solid #2980b9;
+}
+.input-group .radio {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 10px;
+}
+.input-group .radio input {
+    width: 16px;
+    height: 16px;
+}
+.input-group .radio span {
+    color: #222;
+}
+.form-row button {
+    width: 100%;
+    color: #fff;
+    outline: none;
+    border: none;
+    padding: 15px 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .7px;
+    transition: all .6s;
+}
+.form-row .button-1 {
+    background-color: #2980b9;
+}
+.form-row .button-1:hover {
+    background-color: #16a085;
+}
+.form-row .button-2 {
+    background-color: #34495e;
+}
+.form-row .button-2:hover {
+    background-color: #2c3e50;
+}
+.login-container {
+    width: 800px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background-color: #efefef;
+}
+.login-container > * {
+    width: calc(50% - 50px);
+}
+.login-container form {
+    margin: 50px;
+}
+.login-container .arms {
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-container .arms img {
+    width: 60%;
+    max-width: 200px;
+}

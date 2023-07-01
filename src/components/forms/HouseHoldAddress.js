@@ -1,5 +1,3 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import {Card,TextField,Paper, Typography, Box, Grid} from '@mui/material';
 import React from 'react';
 
 function HouseHoldAddress() {
@@ -27,70 +25,64 @@ function HouseHoldAddress() {
 
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Household address
-      </Typography>
-      <Grid container spacing={3}>
-      <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="county"
-            name="county"
-            label="County"
-            
-            autoComplete="county of residence"
-            variant="outlined"
-          />
-        </Grid>
+      <section class="form-group">
+                <div class="section-info">
+                    <h2 class="section-title">Household address</h2>
+                    <p class="section-description">
+                        Enter the current address of the household.
+                    </p>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>County *</label>
+                        <select>
+                            <option value="Nairobi">Nairobi</option>
+                            <option value="Kiambu">Kiambu </option>
+                        </select>
+                    </div>
+                </div>
 
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="subCounty"
-            name="subCounty"
-            label="sub County"
-            
-            autoComplete="sub county of residence"
-            variant="outlined"
-          />
-        </Grid>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>County *</label>
+                        <select>
+                            <option value="Nairobi">Nairobi</option>
+                            <option value="Kiambu">Kiambu </option>
+                        </select>
+                    </div>
+                </div>
 
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="constituency"
-            name="constituency"
-            label="Constituency"
-            
-            autoComplete="constituency of residence"
-            variant="outlined"
-          />
-        </Grid>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Sub County *</label>
+                        <select>
+                            <option value="Starehe">Starehe</option>
+                            <option value="Kamukunji">Kamukunji </option>
+                        </select>
+                    </div>
+                </div>
 
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="ward"
-            name="ward"
-            label="Ward"
-            
-            autoComplete="Ward of residence"
-            variant="outlined"
-          />
-        </Grid>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Constituency *</label>
+                        <select>
+                            <option value="Starehe">Starehe</option>
+                            <option value="Kamukunji">Kamukunji </option>
+                        </select>
+                    </div>
+                </div>
 
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="village"
-            name="village"
-            label="Village"
-            
-            autoComplete="Village of residence"
-            variant="outlined"
-          />
-        </Grid>
-            </Grid>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Ward *</label>
+                        <select>
+                            <option value="Ngara">Ngara</option>
+                            <option value="Pangani">Pangani </option>
+                        </select>
+                    </div>
+                </div>
+
+            </section>
     </React.Fragment>
     
       

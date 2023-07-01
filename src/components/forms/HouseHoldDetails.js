@@ -1,8 +1,7 @@
-import { Formik, Form, Field } from 'formik';
-import { Grid} from '@mui/material';
 import { useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 import { fetchFormValues } from '../../stateManagement/actions/householdFormAction';
+
 
 const initialValues = {
   householdName: '',
@@ -26,54 +25,36 @@ const HouseHoldDetails = () => {
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      <Form>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-            <Field
-              type="text"
-              name="householdName"
-              required
-              id="householdName"
-              label="Household Name"
-              
-              autoComplete="household name"
-              variant="outlined"
-            />
-          </Grid>
 
-          <Grid item xs={12} sm={6}>
-            <Field
-              type="text"
-              name="householdType"
-              required
-              id="householdType"
-              label="Household Type"
-              
-              autoComplete="household type"
-              variant="outlined"
-            />
-          </Grid>
+        <section className="form-group">
+          
+          <div className="section-info">
+            <h2 className="section-title">Household details</h2>
+            <p className="section-description">
+              Fill in the household details.
+            </p>
+          </div>
 
-          <Grid item xs={12} sm={6}>
-            <Field
-              type="text"
-              name="householdType"
-              required
-              id="householdType"
-              label="Household Type"
-              
-              autoComplete="household type"
-              variant="outlined"
-            />
-          </Grid>
+          <div className="form-row">
+            <div className="input-group">
+              <label>Household Name *</label>
+              <input type="text" />
+            </div>
+          </div>
 
-          {/* Add more fields */}
-        </Grid>
-
-        <button type="submit">Submit</button>
-      </Form>
-    </Formik>
+          <div className="form-row">
+            <div className="input-group">
+              <label>Household Type *</label>
+              <select>
+              <option value="">Select Household Type</option>
+                <option value="">Single person household</option>
+                <option value="">Family</option>
+                <option value="">Child headed household</option>
+              </select>
+            </div>
+          </div>
+          
+        </section> 
   );
 };
 

@@ -26,7 +26,9 @@ function Contact() {
     <fieldset style={{ width: '90%' }}>
       <legend>Contact Information</legend>
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
+
+      <div className="form-row">
+      <div className="input-group">
           <TextField
             required
             id="primaryPhone"
@@ -35,7 +37,9 @@ function Contact() {
             
             variant="outlined"
           />
-        </Grid>
+        
+        </div>
+        </div>
         <Grid item xs={12} sm={6}>
           <TextField
             id="secondaryPhone"
