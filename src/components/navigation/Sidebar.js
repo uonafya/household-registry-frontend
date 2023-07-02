@@ -20,28 +20,23 @@ import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
 
 const categories = [
   {
-    id: 'Build',
+    id: 'Household Managment',
     children: [
       {
         id: 'Authentication',
         icon: <PeopleIcon />,
         active: true,
       },
-      { id: 'Database', icon: <DnsRoundedIcon /> },
-      { id: 'Storage', icon: <PermMediaOutlinedIcon /> },
-      { id: 'Hosting', icon: <PublicIcon /> },
-      { id: 'Functions', icon: <SettingsEthernetIcon /> },
-      {
-        id: 'Machine learning',
-        icon: <SettingsInputComponentIcon />,
-      },
+      { id: 'Dashboard', icon: <DnsRoundedIcon /> },
+      { id: 'Households', icon: <PermMediaOutlinedIcon /> },
+      { id: 'GIS', icon: <PublicIcon /> },
     ],
   },
   {
-    id: 'Quality',
+    id: 'App Management',
     children: [
-      { id: 'Analytics', icon: <SettingsIcon /> },
-      { id: 'Performance', icon: <TimerIcon /> },
+      { id: 'App settings', icon: <SettingsIcon /> },
+      { id: 'Users', icon: <TimerIcon /> },
       { id: 'Test Lab', icon: <PhonelinkSetupIcon /> },
     ],
   },
@@ -63,20 +58,26 @@ const itemCategory = {
 };
 
 export default function Sidebar(props) {
-  const { ...other } = props;
+  const { handleClick,...other } = props;
+
+  const handleItemClick = (childId) => {
+    const text = childId;
+    handleClick(text);
+  };
 
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff' }}>
-          Paperbase
+          
         </ListItem>
+
         <ListItem sx={{ ...item, ...itemCategory }}>
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
-          <ListItemText>Project Overview</ListItemText>
-        </ListItem>
+          </ListItem>
+        
         {categories.map(({ id, children }) => (
           <Box key={id} sx={{ bgcolor: '#101F33' }}>
             <ListItem sx={{ py: 2, px: 3 }}>
@@ -84,7 +85,7 @@ export default function Sidebar(props) {
             </ListItem>
             {children.map(({ id: childId, icon, active }) => (
               <ListItem disablePadding key={childId}>
-                <ListItemButton selected={active} sx={item}>
+                <ListItemButton  sx={item} onClick={() => handleItemClick(childId)}>
                   <ListItemIcon>{icon}</ListItemIcon>
                   <ListItemText>{childId}</ListItemText>
                 </ListItemButton>

@@ -79,7 +79,7 @@ function Header(props) {
           <Grid container alignItems="center" spacing={1}>
             <Grid item xs>
               <Typography color="inherit" variant="h5" component="h1">
-                Authentication
+                Household Management
               </Typography>
             </Grid>
             <Grid item>
@@ -104,10 +104,10 @@ function Header(props) {
       </AppBar>
       <AppBar component="div" position="static" elevation={0} sx={{ zIndex: 0 }}>
         <Tabs value={0} textColor="inherit">
-          <Tab label="Users" />
-          <Tab label="Sign-in method" />
-          <Tab label="Templates" />
-          <Tab label="Usage" />
+          <Tab label="Household Member" />
+          <Tab label="Void Household" />
+          <Tab label="Mute Household" />
+          <Tab label="Migrate Household" />
         </Tabs>
       </AppBar>
     </React.Fragment>

@@ -18,18 +18,9 @@ const PersonDetails = ({ activeStep }) => {
       DynamicComponent = Demographics;
       break;
     case 2:
-      DynamicComponent = ContactForm;
-      break;
-    case 3:
-      DynamicComponent = NextOfKinDetails;
-      break;
-    case 4:
-      DynamicComponent = IdentityNumbers;
-      break;
-      case 5:
       DynamicComponent = PostToRegistry;
       break;
-    default:
+      default:
       DynamicComponent = () => null;
   }
 

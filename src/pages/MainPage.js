@@ -8,6 +8,10 @@ import Link from '@mui/material/Link';
 import Header from '../components/navigation/Header';
 import Sidebar from '../components/navigation/Sidebar';
 import MainContent from '../components/navigation/MainContent';
+import HouseHoldAddress from '../components/forms/HouseHoldAddress';
+import HouseHoldRegistration from './HouseHoldRegistration'
+import AllHouseHolds from '../components/forms/AllHouseHolds';
+
 
 function Copyright() {
   return (
@@ -167,6 +171,41 @@ theme = {
 const drawerWidth = 256;
 
 export default function Mainpage() {
+  // Define logic for navigating the components
+  const [RenderedComponent, setRenderedComponent] = React.useState(null);
+
+  const handleItemClick = (text) => {
+    // Logic specific to each button
+    if (text === 'Dashboard') {
+      console.log('Dashboard button clicked');
+      // Add your Dashboard button logic here
+      // setRenderedComponent(<Home />);
+    } else if (text === 'Households') {
+      console.log('Household button clicked');
+      // Add your Households button logic here
+      setRenderedComponent(<AllHouseHolds />);
+    }else if (text === 'GIS') {
+      console.log('GIS button clicked');
+      // Add your Households button logic here
+      setRenderedComponent(<AllHouseHolds />);
+    }
+    else if (text === 'Users') {
+      console.log('Users button clicked');
+      // Add your Users button logic here
+      // setRenderedComponent(<Checkout />);
+    } else if (text === 'App settings') {
+      console.log('App settings button clicked');
+      // Add your Users button logic here
+      // setRenderedComponent(<Checkout />);
+    } else if (text === 'Test Lab') {
+      console.log('Test tab button clicked');
+      // Add your Users button logic here
+      // setRenderedComponent(<Checkout />);
+    } 
+    else {
+      setRenderedComponent(null);
+    }
+  };
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up('sm'));
 
@@ -188,18 +227,20 @@ export default function Mainpage() {
               variant="temporary"
               open={mobileOpen}
               onClose={handleDrawerToggle}
+              handleClick={handleItemClick}
             />
           )}
 
           <Sidebar
             PaperProps={{ style: { width: drawerWidth } }}
             sx={{ display: { sm: 'block', xs: 'none' } }}
+            handleClick={handleItemClick}
           />
         </Box>
         <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           <Header onDrawerToggle={handleDrawerToggle} />
           <Box component="main" sx={{ flex: 1, py: 6, px: 4, bgcolor: '#eaeff1' }}>
-            <MainContent />
+          {RenderedComponent}
           </Box>
           <Box component="footer" sx={{ p: 2, bgcolor: '#eaeff1' }}>
             <Copyright />
