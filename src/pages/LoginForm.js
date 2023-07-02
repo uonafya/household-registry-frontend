@@ -1,23 +1,10 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import moh from '../images/moh.png';
-import { blue } from '@mui/material/colors';
-import Home from './Home';
+import '../allStyles.css'
+import '../images/arms.png'
+
 
 
 
@@ -85,87 +72,37 @@ const LoginForm = () => {
 
   return (
   
-    
-  <div  style={{ display: 'flex', height: '100vh' }}>
+    <div className="login-container">
+  <div className="arms"><img src="arms.png" alt="" /></div>
+  <form>
+    <section className="form-group">
+      <div className="section-info">
+        <h2 className="section-title">Login</h2>
+        <p className="section-description">
+          This is the section description.
+        </p>
+      </div>
+      <div className="form-row">
+        <div className="input-group">
+          <label>Username *</label>
+          <input type="text" />
+        </div>
+      </div>
+      <div className="form-row">
+        <div className="input-group">
+          <label>Password *</label>
+          <input type="password" />
+        </div>
+      </div>
+    </section>
 
-          <Box
-          sx={{
-            p:7,
-            flex: '70%',
-            backgroundColor: 'black',
-            }}
-        />
+    <div className="form-row buttons">
+      <button className="button-1">Login</button>
+    </div>
+    <img src="arms.png" alt=""/>
+  </form>
+</div>
 
-     {/* Login Form box */}
-        <Box
-          sx={{
-            p:7,
-            flex: '30%',
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-         
-
-          {/* The login form */}
-        <Formik initialValues={initialValues} onSubmit={handleSubmit} validate={validateForm}>
-          <Form>
-
-          <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="username"
-                name="username"
-                label="username"
-                
-                autoComplete="user Name"
-                variant="outlined"
-              />
-              <ErrorMessage name="username" component="div" className="text-red-500" />
-            </Grid>
-              
-            <Grid item xs={12} sm={6}>
-                <Field
-                as={TextField}
-                margin="normal"
-                required
-                
-                id="password"
-                name="password"
-                type="password" 
-                autoComplete="current-password"
-                autoFocus
-              />
-              <ErrorMessage name="password" component="div" className="text-red-500" />
-              </Grid>
-
-              <Grid item xs={12} sm={6}>
-            <Button
-                type="submit"
-                
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Log in
-              </Button>
-              </Grid>
-
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                
-              </Grid>
-            </Form>
-          </Formik>
-         
-        </Box>
-    
-  </div>
-        
-  
   );
 };
 

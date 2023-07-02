@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextField,Grid} from '@mui/material';
+
 
 function Contact() {
   const initialValues = {
@@ -22,45 +22,32 @@ function Contact() {
   };
 
   return (
-    <React.Fragment>
-    <fieldset style={{ width: '90%' }}>
-      <legend>Contact Information</legend>
-      <Grid container spacing={3}>
-
+  
+    <section className="form-group">
       <div className="form-row">
       <div className="input-group">
-          <TextField
-            required
-            id="primaryPhone"
-            name="contact.primaryPhone"
-            label="Primary Phone"
-            
-            variant="outlined"
-          />
-        
+        <label>Primary Phone *</label>
+        <input type="text" required />
+      </div>
+    </div>
+    
+      <div className="form-row">
+        <div className="input-group">
+          <label>Secondary Phone</label>
+          <input type="text" />
         </div>
+      </div>
+   
+    
+      <div className="form-row">
+        <div className="input-group">
+          <label>Email Address</label>
+          <input type="email" />
         </div>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            id="secondaryPhone"
-            name="contact.secondaryPhone"
-            label="Secondary Phone"
-            
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            id="emailAddress"
-            name="contact.emailAddress"
-            label="Email Address"
-            
-            variant="outlined"
-          />
-        </Grid>
-      </Grid>
-    </fieldset>
-  </React.Fragment>
+      </div>
+      </section>
+ 
+
   );
 }
 

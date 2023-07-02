@@ -32,71 +32,55 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
   };
 
   return (
-    <React.Fragment>
-      
-        <legend>Next of Kin</legend>
-        <Grid container spacing={3}sx ={{width:'100%'}}>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              required
-              id="kinName"
-              name="nextOfKins[0].name"
-              label="Name"
-              
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              required
-              id="kinRelationship"
-              name="nextOfKins[0].relationship"
-              label="Relationship"
-              
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              required
-              id="kinResidence"
-              name="nextOfKins[0].residence"
-              label="Residence"
-              
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              required
-              id="kinPrimaryPhone"
-              name="nextOfKins[0].contact.primaryPhone"
-              label="Primary Phone"
-              
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              id="kinSecondaryPhone"
-              name="nextOfKins[0].contact.secondaryPhone"
-              label="Secondary Phone"
-              
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              id="kinEmailAddress"
-              name="nextOfKins[0].contact.emailAddress"
-              label="Email Address"
-              
-              variant="outlined"
-            />
-          </Grid>
-        </Grid>
-    
-    </React.Fragment>
+    <section className="form-group">
+    <div className="form-row">
+      <div className="input-group">
+        <label>Name *</label>
+        <input type="text" required />
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>Relationship *</label>
+        <input type="text" required />
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>Residence *</label>
+        <input type="text" required />
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>Primary Phone *</label>
+        <input type="text" required />
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>Secondary Phone</label>
+        <input type="text" />
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>Email Address</label>
+        <input type="email" />
+      </div>
+    </div>
+  
+    </section>
 
   );
 }

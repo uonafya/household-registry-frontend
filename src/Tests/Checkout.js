@@ -1,10 +1,6 @@
 import * as React from 'react';
-import { CssBaseline, AppBar, Box, Container, Toolbar, Paper, Stepper, Step, StepLabel, Button, Link, Typography } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import AddressForm from './AddressForm';
-import PaymentForm from './PaymentForm';
+import { Box, Container, Paper, Stepper, Step, StepLabel, Button, Link, Typography } from '@mui/material';
 import Review from './Review';
-import { lazy, Suspense } from 'react';
 import HouseHoldAddress from '../components/forms/HouseHoldAddress';
 import HouseHoldDetails from '../components/forms/HouseHoldDetails';
 import HouseHoldRegistration from '../pages/HouseHoldRegistration';
@@ -25,7 +21,7 @@ function Copyright() {
 
 
 // const steps = ['Client verification', 'ID Numbers', 'Demographics','address','Next of kin'];
-const steps = ['Household details', 'Household address', 'Household Head','Demographics','Contacts','Next of Kin','Id Numbers','Save' ];
+const steps = ['Household details', 'Household address', 'Household Head','Demographics','Contacts','Next of Kin','Save' ];
 // const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 function getStepContent(step) {
@@ -41,8 +37,6 @@ function getStepContent(step) {
   }
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
 
 export default function Checkout() {
   // let DynamicComponent;

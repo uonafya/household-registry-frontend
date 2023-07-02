@@ -34,12 +34,9 @@ function HouseHoldRegistration(activeStep){
           DynamicComponent = NextOfKinDetails;
           break;
         case 6:
-          DynamicComponent = IdentityNumbers;
-          break;
-        case 7:
           DynamicComponent = PostToRegistry;
-          break
-        default:
+          break;
+          default:
           DynamicComponent = () => null;
           
       }

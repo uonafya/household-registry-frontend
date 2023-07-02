@@ -24,16 +24,16 @@ function HouseHoldAddress() {
   };
 
   return (
-    <React.Fragment>
-      <section class="form-group">
-                <div class="section-info">
-                    <h2 class="section-title">Household address</h2>
-                    <p class="section-description">
+    <div className="form-container">
+        <section className="form-group">
+                <div className="section-info">
+                    <h2 className="section-title">Household address</h2>
+                    <p className="section-description">
                         Enter the current address of the household.
                     </p>
                 </div>
-                <div class="form-row">
-                    <div class="input-group">
+                <div className="form-row">
+                    <div className="input-group">
                         <label>County *</label>
                         <select>
                             <option value="Nairobi">Nairobi</option>
@@ -42,8 +42,8 @@ function HouseHoldAddress() {
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="input-group">
+                <div className="form-row">
+                    <div className="input-group">
                         <label>County *</label>
                         <select>
                             <option value="Nairobi">Nairobi</option>
@@ -52,8 +52,8 @@ function HouseHoldAddress() {
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="input-group">
+                <div className="form-row">
+                    <div className="input-group">
                         <label>Sub County *</label>
                         <select>
                             <option value="Starehe">Starehe</option>
@@ -62,8 +62,8 @@ function HouseHoldAddress() {
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="input-group">
+                <div className="form-row">
+                    <div className="input-group">
                         <label>Constituency *</label>
                         <select>
                             <option value="Starehe">Starehe</option>
@@ -72,8 +72,8 @@ function HouseHoldAddress() {
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="input-group">
+                <div className="form-row">
+                    <div className="input-group">
                         <label>Ward *</label>
                         <select>
                             <option value="Ngara">Ngara</option>
@@ -83,7 +83,9 @@ function HouseHoldAddress() {
                 </div>
 
             </section>
-    </React.Fragment>
+    </div>
+      
+
     
       
   );
