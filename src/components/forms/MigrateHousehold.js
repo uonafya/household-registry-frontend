@@ -46,116 +46,132 @@ const MigrateHousehold = () => {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Household Migration
-      </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="householdId"
-            name="householdId"
-            label="Household ID"
-            
-            autoComplete="household ID"
-            variant="outlined"
-            value={householdId}
-            onChange={handleHouseholdIdChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="householdName"
-            name="householdName"
-            label="Household Name"
-            
-            autoComplete="household name"
-            variant="outlined"
-            value={householdName}
-            onChange={handleHouseholdNameChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="oldResidenceId"
-            name="oldResidenceId"
-            label="Old Residence ID"
-            
-            autoComplete="old residence ID"
-            variant="outlined"
-            value={oldResidenceId}
-            onChange={handleOldResidenceIdChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="newAreaName"
-            name="newAreaName"
-            label="New Area Name"
-            
-            autoComplete="new area name"
-            variant="outlined"
-            value={newAreaName}
-            onChange={handleNewAreaNameChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="newAreaCode"
-            name="newAreaCode"
-            label="New Area Code"
-            
-            autoComplete="new area code"
-            variant="outlined"
-            value={newAreaCode}
-            onChange={handleNewAreaCodeChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <FormControl  variant="outlined" required>
-            <InputLabel id="reasonForMigration-label">Reason for Migration</InputLabel>
-            <NativeSelect
-              id="reasonForMigration"
-              name="reasonForMigration"
-              value={reasonForMigration}
-              onChange={handleReasonForMigrationChange}
-              
-            >
-              <MenuItem value="">Select a reason</MenuItem>
-              <MenuItem value="Relocation test">Relocation test</MenuItem>
-            </NativeSelect>
-          </FormControl>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="initiatedByChvId"
-            name="initiatedByChvId"
-            label="Initiated by CHV ID"
-            
-            autoComplete="initiated by CHV ID"
-            variant="outlined"
-            value={initiatedByChvId}
-            onChange={handleInitiatedByChvIdChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="dateOfMigration"
-            name="dateOfMigration"
-            label="Date of Migration"
-            
-            autoComplete="date of migration"
-            variant="outlined"
-            value={dateOfMigration}
-            onChange={handleDateOfMigrationChange}
-          />
-        </Grid>
-      </Grid>
+  Household Migration
+</Typography>
+
+<div class="form-container">
+    <div className="form-row">
+      <div className="input-group">
+        <label>Household ID *</label>
+        <input
+          type="text"
+          id="householdId"
+          name="householdId"
+          autoComplete="household ID"
+          value={householdId}
+          onChange={handleHouseholdIdChange}
+        />
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>Household Name *</label>
+        <input
+          type="text"
+          id="householdName"
+          name="householdName"
+          autoComplete="household name"
+          value={householdName}
+          onChange={handleHouseholdNameChange}
+        />
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>Old Residence ID *</label>
+        <input
+          type="text"
+          id="oldResidenceId"
+          name="oldResidenceId"
+          autoComplete="old residence ID"
+          value={oldResidenceId}
+          onChange={handleOldResidenceIdChange}
+        />
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>New Area Name *</label>
+        <input
+          type="text"
+          id="newAreaName"
+          name="newAreaName"
+          autoComplete="new area name"
+          value={newAreaName}
+          onChange={handleNewAreaNameChange}
+        />
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>New Area Code *</label>
+        <input
+          type="text"
+          id="newAreaCode"
+          name="newAreaCode"
+          autoComplete="new area code"
+          value={newAreaCode}
+          onChange={handleNewAreaCodeChange}
+        />
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>Reason for Migration *</label>
+        <select
+          id="reasonForMigration"
+          name="reasonForMigration"
+          value={reasonForMigration}
+          onChange={handleReasonForMigrationChange}
+        >
+          <option value="">Select a reason</option>
+          <option value="Relocation test">Relocation test</option>
+        </select>
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>Initiated by CHV ID *</label>
+        <input
+          type="text"
+          id="initiatedByChvId"
+          name="initiatedByChvId"
+          autoComplete="initiated by CHV ID"
+          value={initiatedByChvId}
+          onChange={handleInitiatedByChvIdChange}
+        />
+      </div>
+    </div>
+  
+  
+    <div className="form-row">
+      <div className="input-group">
+        <label>Date of Migration *</label>
+        <input
+          type="text"
+          id="dateOfMigration"
+          name="dateOfMigration"
+          autoComplete="date of migration"
+          value={dateOfMigration}
+          onChange={handleDateOfMigrationChange}
+        />
+      </div>
+    </div>
+  
+    </div>
+
     </React.Fragment>
   );
 };

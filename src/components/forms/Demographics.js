@@ -208,10 +208,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
           </div>
         
         
-          <fieldset>
-            <legend>Residence</legend>
-            
-             
+          
                 <div className="form-row">
                   <div className="input-group">
                     <label>County</label>
@@ -261,9 +258,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                     <input type="text" />
                   </div>
                 </div>
-              
             
-          </fieldset>
                    
         </section>
   

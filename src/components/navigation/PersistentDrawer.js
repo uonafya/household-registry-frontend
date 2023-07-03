@@ -21,7 +21,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Home from '../../pages/Home';
 import HorizontalLinearStepper from '../forms/MultistepForm';
-import Checkout from '../../Tests/Checkout';
+import HouseholdRegistrationStepper from '../../Tests/HouseholdRegistrationStepper';
 import HouseHoldRegistration from '../../pages/HouseHoldRegistration';
 import PersonDetails from '../../pages/PersonDetails';
 import MultistepForm from '../forms/MultistepForm';
@@ -93,7 +93,7 @@ export default function PersistentDrawerLeft() {
     } else if (text === 'Users') {
       console.log('Users button clicked');
       // Add your Users button logic here
-      setRenderedComponent(<Checkout />);
+      setRenderedComponent(<HouseholdRegistrationStepper />);
     } else {
       setRenderedComponent(null);
     }

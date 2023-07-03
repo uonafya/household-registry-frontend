@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 const axios = require('axios');
+
 
 // console.log(formValues.household_persons[0].identification.identification_type)
   
@@ -15,7 +17,7 @@ const axios = require('axios');
 
 //   dispatch(updateHousehold(parentField, name, value));
 // };
-
+export const formValues = useSelector((state) => state.householdState);
 
 export const HandleInputChange = (parentField, name, value) => {
     const dispatch = useDispatch();

@@ -73,8 +73,9 @@ function generateRandomName() {
   };
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{ height: 400, width: '100%',backgroundColor:'#eaeff1' }}>
       <DataGrid
+        sx={{bgcolor: '#eaeff1'}}
         autoHeight {...data} 
         rows={rows} columns={columns}
         onCellDoubleClick={handleRowDoubleClick}

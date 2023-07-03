@@ -7,7 +7,8 @@ import HouseHoldRegistration from "./pages/HouseHoldRegistration";
 import PersistentDrawerLeft from "./components/navigation/PersistentDrawer";
 import MyComponent from "./Test";
 import HorizontalLinearStepper from "./components/forms/MultistepForm";
-import Checkout from "./Tests/Checkout";
+import HouseholdRegistrationStepper from "./Tests/HouseholdRegistrationStepper";
+import Mainpage from "./pages/MainPage";
 
 
 export default function App() {
@@ -22,8 +23,9 @@ export default function App() {
         </Route>
         <Route path="/LoginForm" element={<LoginForm/>}/>
         <Route path="/PersistentDrawer" element={<PersistentDrawerLeft/>}/>
-        <Route path="/test" element={<Checkout/>}/>
+        <Route path="/test" element={<HouseholdRegistrationStepper/>}/>
         <Route path="/stepper" element={<HorizontalLinearStepper/>}/>
+        <Route path="/main" element={<Mainpage/>}/>
       </Routes>
     </BrowserRouter>
   );
