@@ -1,41 +1,14 @@
 import * as React from 'react';
-import { Box, Container, Paper, Stepper, Step, StepLabel, Button, Link, Typography } from '@mui/material';
-import Review from './Review';
-import HouseHoldAddress from '../components/forms/HouseHoldAddress';
-import HouseHoldDetails from '../components/forms/HouseHoldDetails';
+import { Box, Container, Paper, Stepper, Step, StepLabel, Button, Typography } from '@mui/material';
 import HouseHoldRegistration from '../pages/HouseHoldRegistration';
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 
 // const steps = ['Client verification', 'ID Numbers', 'Demographics','address','Next of kin'];
 const steps = ['Household details', 'Household address', 'Household Head','Demographics','Contacts','Next of Kin','Save' ];
 // const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <HouseHoldAddress />;
-    case 1:
-      return <HouseHoldDetails />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
 
 
 export default function HouseholdRegistrationStepper() {

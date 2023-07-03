@@ -3,29 +3,12 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
-import Header from '../components/navigation/HouseholdManagementHeader';
 import Sidebar from '../components/navigation/Sidebar';
-import MainContent from '../components/navigation/MainContent';
-import HouseHoldAddress from '../components/forms/HouseHoldAddress';
-import HouseHoldRegistration from './HouseHoldRegistration'
 import AllHouseHolds from '../components/forms/AllHouseHolds';
 import HouseholdMainPage from '../components/forms/HouseholdMainPage';
 import CreateHouseholdMainPage from '../components/forms/CreateHouseholdMainPage';
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Ministry of Health © '}
-      <Link color="inherit" href="https://mui.com/">
-        Household Registry
-      </Link>{' '}
-      {new Date().getFullYear()}.
-    </Typography>
-  );
-}
 
 let theme = createTheme({
   palette: {

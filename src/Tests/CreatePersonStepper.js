@@ -1,21 +1,6 @@
 import * as React from 'react';
-import { Box, Container, Paper, Stepper, Step, StepLabel, Button, Link, Typography } from '@mui/material';
-import Review from './Review';
+import { Box, Container, Paper, Stepper, Step, StepLabel, Button,Typography } from '@mui/material';
 import PersonDetails from '../pages/PersonDetails';
-
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 
 // const steps = ['Client verification', 'ID Numbers', 'Demographics','address','Next of kin'];

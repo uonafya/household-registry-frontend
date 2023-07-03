@@ -4,7 +4,6 @@ import HouseHoldAddress from '../components/forms/HouseHoldAddress';
 import Demographics from '../components/forms/Demographics';
 import Contact from '../components/forms/Contact';
 import NextOfKinDetails from '../components/forms/NextOfKinDetails';
-import IdentityNumbers from '../components/forms/IdentityNumbers';
 import PostToRegistry from '../components/forms/PostToRegistry';
 import ClientVerification from '../components/forms/ClientVerification';
 

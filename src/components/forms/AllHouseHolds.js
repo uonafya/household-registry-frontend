@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { DataGrid}from '@mui/x-data-grid';
 import { Dialog, DialogTitle, DialogContent, Typography } from '@mui/material';
-import { Button, ListItemText, ListItem, List, Divider, AppBar, Toolbar, IconButton, Slide } from '@mui/material';
-import IndividualHousehold from './IndividualHousehold';
+import { Button, AppBar, Toolbar, IconButton, Slide } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import HouseholdOperations from './HouseholdOperations';
 

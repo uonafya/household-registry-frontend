@@ -5,8 +5,6 @@ import LoginForm from "./pages/LoginForm";
 import Layout from "./components/Layout";
 import HouseHoldRegistration from "./pages/HouseHoldRegistration";
 import PersistentDrawerLeft from "./components/navigation/PersistentDrawer";
-import MyComponent from "./Test";
-import HorizontalLinearStepper from "./components/forms/MultistepForm";
 import HouseholdRegistrationStepper from "./Tests/HouseholdRegistrationStepper";
 import Mainpage from "./pages/MainPage";
 
@@ -24,7 +22,6 @@ export default function App() {
         <Route path="/LoginForm" element={<LoginForm/>}/>
         <Route path="/PersistentDrawer" element={<PersistentDrawerLeft/>}/>
         <Route path="/test" element={<HouseholdRegistrationStepper/>}/>
-        <Route path="/stepper" element={<HorizontalLinearStepper/>}/>
         <Route path="/main" element={<Mainpage/>}/>
       </Routes>
     </BrowserRouter>

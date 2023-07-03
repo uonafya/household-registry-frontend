@@ -1,45 +1,18 @@
 // Client Verification
 import { useSelector } from 'react-redux';
-import React,{useRef, useEffect} from 'react';
-import Checkbox from '@mui/material/Checkbox';
-import { updateHousehold,submitClientVerification } from '../../stateManagement/actions/householdFormAction';
-import { useDispatch } from 'react-redux';
+import { submitClientVerification } from '../../stateManagement/actions/householdFormAction';
+import React from 'react';
+
 
 
 // "//An uncontrolled form that does not rerender onChange?"
 function ClientVerification(){
   
-  const dispatch =useDispatch();
+ 
 
   const formValues = useSelector((state) => state.householdState);
 
  
-      
-		const handleSubmit = (e) => {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      const country = formData.get('country');
-      const identifier_type = formData.get('identification_type');
-      const identifier_number = formData.get('identification_number');
-      // Use the input value for further processing
-      console.log(country,identifier_number,identifier_type)
-      dispatch(submitClientVerification({country,identifier_type,identifier_number}));
-      console.log("action called....")
-    };
-
-  
-  useEffect(()=>{
-         console.log('rendered here...')
-         const country = formValues.household_persons[0].identification.identification_type;
-          const IdentifierType = formValues.household_persons[0].identification.identification_type;
-          const identifierNumber = formValues.household_persons[0].identification.identification_type;
-        
-         console.log(formValues)
-
-  });
-  
-  
-  
 
   const validateForm = (values) => {
     const errors = {};

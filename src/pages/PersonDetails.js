@@ -1,10 +1,8 @@
 import React from 'react';
 import ClientVerification from '../components/forms/ClientVerification';
-import IdentityNumbers from '../components/forms/IdentityNumbers';
 import Demographics from '../components/forms/Demographics';
-import NextOfKinDetails from '../components/forms/NextOfKinDetails';
 import PostToRegistry from '../components/forms/PostToRegistry';
-import ContactForm from '../components/forms/Contact';
+
 
 
 const PersonDetails = ({ activeStep }) => {

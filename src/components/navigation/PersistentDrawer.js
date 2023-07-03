@@ -20,12 +20,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Home from '../../pages/Home';
-import HorizontalLinearStepper from '../forms/MultistepForm';
 import HouseholdRegistrationStepper from '../../Tests/HouseholdRegistrationStepper';
-import HouseHoldRegistration from '../../pages/HouseHoldRegistration';
-import PersonDetails from '../../pages/PersonDetails';
-import MultistepForm from '../forms/MultistepForm';
-import {Link} from '@mui/material';
+
 import AllHouseHolds from '../forms/AllHouseHolds';
 
 const drawerWidth = 400;
