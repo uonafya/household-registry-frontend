@@ -14,11 +14,13 @@ import Tabs from '@mui/material/Tabs';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { TabContext, TabList } from '@mui/lab';
 
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
 function Header(props) {
   const { onDrawerToggle } = props;
+  
 
   return (
     <React.Fragment>
@@ -79,7 +81,7 @@ function Header(props) {
           <Grid container alignItems="center" spacing={1}>
             <Grid item xs>
               <Typography color="inherit" variant="h5" component="h1">
-                Household Management
+                Household Create
               </Typography>
             </Grid>
             <Grid item>
@@ -103,12 +105,18 @@ function Header(props) {
         </Toolbar>
       </AppBar>
       <AppBar component="div" position="static" elevation={0} sx={{ zIndex: 0 }}>
-        <Tabs value={0} textColor="inherit">
-          <Tab label="Household Member" />
-          <Tab label="Void Household" />
-          <Tab label="Mute Household" />
-          <Tab label="Migrate Household" />
-        </Tabs>
+      {/* <TabContext value={props.value}>
+       <TabList value={props.value} onChange={props.handleChange}  textColor="inherit">
+         <Tab label="All Households" value="1" />
+         <Tab label="Add Member" value="2" />
+         <Tab label="Void Household" value="3" />
+         <Tab label="Mute Household" value="4" />
+         <Tab label="Migrate Household" value="5" />
+       </TabList>
+       </TabContext> */}
+    
+     {/* */}
+
       </AppBar>
     </React.Fragment>
   );

@@ -5,20 +5,22 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import Header from '../components/navigation/Header';
+import Header from '../components/navigation/HouseholdManagementHeader';
 import Sidebar from '../components/navigation/Sidebar';
 import MainContent from '../components/navigation/MainContent';
 import HouseHoldAddress from '../components/forms/HouseHoldAddress';
 import HouseHoldRegistration from './HouseHoldRegistration'
 import AllHouseHolds from '../components/forms/AllHouseHolds';
+import HouseholdMainPage from '../components/forms/HouseholdMainPage';
+import CreateHouseholdMainPage from '../components/forms/CreateHouseholdMainPage';
 
 
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
+      {'Ministry of Health © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Household Registry
       </Link>{' '}
       {new Date().getFullYear()}.
     </Typography>
@@ -180,11 +182,16 @@ export default function Mainpage() {
       console.log('Dashboard button clicked');
       // Add your Dashboard button logic here
       // setRenderedComponent(<Home />);
-    } else if (text === 'Households') {
+    } else if (text === 'All Households') {
       console.log('Household button clicked');
       // Add your Households button logic here
-      setRenderedComponent(<AllHouseHolds />);
-    }else if (text === 'GIS') {
+      setRenderedComponent(<HouseholdMainPage onDrawerToggle={handleDrawerToggle}/>);
+    }else if (text === 'Create Household') {
+      console.log(' create Household button clicked');
+      // Add your Households button logic here
+      setRenderedComponent(<CreateHouseholdMainPage onDrawerToggle={handleDrawerToggle}/>);
+    }
+    else if (text === 'GIS') {
       console.log('GIS button clicked');
       // Add your Households button logic here
       setRenderedComponent(<AllHouseHolds />);
@@ -192,15 +199,15 @@ export default function Mainpage() {
     else if (text === 'Users') {
       console.log('Users button clicked');
       // Add your Users button logic here
-      // setRenderedComponent(<Checkout />);
+      // setRenderedComponent(<HouseholdRegistrationStepper />);
     } else if (text === 'App settings') {
       console.log('App settings button clicked');
       // Add your Users button logic here
-      // setRenderedComponent(<Checkout />);
+      // setRenderedComponent(<HouseholdRegistrationStepper />);
     } else if (text === 'Test Lab') {
       console.log('Test tab button clicked');
       // Add your Users button logic here
-      // setRenderedComponent(<Checkout />);
+      // setRenderedComponent(<HouseholdRegistrationStepper />);
     } 
     else {
       setRenderedComponent(null);
@@ -237,15 +244,31 @@ export default function Mainpage() {
             handleClick={handleItemClick}
           />
         </Box>
-        <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+
+        {RenderedComponent}
+        
+        {/* <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           <Header onDrawerToggle={handleDrawerToggle} />
           <Box component="main" sx={{ flex: 1, py: 6, px: 4, bgcolor: '#eaeff1' }}>
           {RenderedComponent}
           </Box>
           <Box component="footer" sx={{ p: 2, bgcolor: '#eaeff1' }}>
-            <Copyright />
+             <Copyright /> 
           </Box>
-        </Box>
+        </Box> */}
+
+        {/* */}
+
+        {/* <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+          <Header onDrawerToggle={handleDrawerToggle} />
+          <Box component="main" sx={{ flex: 1, py: 6, px: 4, bgcolor: '#eaeff1' }}>
+          {RenderedComponent}
+          </Box>
+          <Box component="footer" sx={{ p: 2, bgcolor: '#eaeff1' }}>
+             <Copyright /> 
+          </Box>
+        </Box> */}
+
       </Box>
     </ThemeProvider>
   );
