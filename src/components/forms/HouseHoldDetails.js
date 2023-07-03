@@ -46,7 +46,7 @@ const HouseHoldDetails = () => {
             <div className="input-group">
               <label>Household Type *</label>
               <select>
-              <option value="">Select Household Type</option>
+              <option value="" >Select Household Type</option>
                 <option value="">Single person household</option>
                 <option value="">Family</option>
                 <option value="">Child headed household</option>

@@ -37,7 +37,7 @@ function Header(props) {
               </IconButton>
             </Grid>
             <Grid item xs />
-            <Grid item>
+            {/* <Grid item>
               <Link
                 href="/"
                 variant="body2"
@@ -53,7 +53,7 @@ function Header(props) {
               >
                 Go to docs
               </Link>
-            </Grid>
+            </Grid> */}
             <Grid item>
               <Tooltip title="Alerts • No alerts">
                 <IconButton color="inherit">
@@ -83,7 +83,7 @@ function Header(props) {
                 Household Management
               </Typography>
             </Grid>
-            <Grid item>
+            {/* <Grid item>
               <Button
                 sx={{ borderColor: lightColor }}
                 variant="outlined"
@@ -92,14 +92,14 @@ function Header(props) {
               >
                 Web setup
               </Button>
-            </Grid>
-            <Grid item>
+            </Grid> */}
+            {/* <Grid item>
               <Tooltip title="Help">
                 <IconButton color="inherit">
                   <HelpIcon />
                 </IconButton>
               </Tooltip>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Toolbar>
       </AppBar>
@@ -107,10 +107,11 @@ function Header(props) {
       <TabContext value={props.value}>
        <TabList value={props.value} onChange={props.handleChange}  textColor="inherit">
          <Tab label="All Households" value="1" />
-         <Tab label="Add Member" value="2" />
-         <Tab label="Void Household" value="3" />
-         <Tab label="Mute Household" value="4" />
-         <Tab label="Migrate Household" value="5" />
+         <Tab label="Household Summary" value="2" />
+         <Tab label="Add Member" value="3" />
+         <Tab label="Void Household" value="4" />
+         <Tab label="Mute Household" value="5" />
+         <Tab label="Migrate Household" value="6" />
        </TabList>
        </TabContext>
     

@@ -37,7 +37,7 @@ function Header(props) {
             </Grid>
             <Grid item xs />
             <Grid item>
-              <Link
+              {/* <Link
                 href="/"
                 variant="body2"
                 sx={{
@@ -51,15 +51,15 @@ function Header(props) {
                 target="_blank"
               >
                 Go to docs
-              </Link>
+              </Link> */}
             </Grid>
-            <Grid item>
+            {/* <Grid item>
               <Tooltip title="Alerts • No alerts">
                 <IconButton color="inherit">
                   <NotificationsIcon />
                 </IconButton>
               </Tooltip>
-            </Grid>
+            </Grid> */}
             <Grid item>
               <IconButton color="inherit" sx={{ p: 0.5 }}>
                 <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
@@ -82,7 +82,7 @@ function Header(props) {
                 Household Create
               </Typography>
             </Grid>
-            <Grid item>
+            {/* <Grid item>
               <Button
                 sx={{ borderColor: lightColor }}
                 variant="outlined"
@@ -91,14 +91,14 @@ function Header(props) {
               >
                 Web setup
               </Button>
-            </Grid>
-            <Grid item>
+            </Grid> */}
+            {/* <Grid item>
               <Tooltip title="Help">
                 <IconButton color="inherit">
                   <HelpIcon />
                 </IconButton>
               </Tooltip>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Toolbar>
       </AppBar>

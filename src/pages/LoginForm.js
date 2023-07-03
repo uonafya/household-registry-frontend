@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../allStyles.css'
 import '../images/arms.png'
+import arms from '../images/arms.png'
 
 
 
@@ -99,7 +100,7 @@ const LoginForm = () => {
     <div className="form-row buttons">
       <button className="button-1">Login</button>
     </div>
-    <img src="arms.png" alt=""/>
+    <img src={arms} alt=""/>
   </form>
 </div>
 

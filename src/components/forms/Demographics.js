@@ -216,7 +216,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                   <div className="input-group">
                     <label>County</label>
                     <select>
-                    <option value=""> </option>
+                    <option value="" > </option>
                       <option value="001">Nairobi</option>
                       <option value="002">Kiambu</option>
                     </select>
@@ -228,7 +228,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                   <div className="input-group">
                     <label>Sub County</label>
                     <select>
-                    <option value=""> </option>
+                    <option value="" > </option>
                       <option value="001">Kamukunji</option>
                       <option value="002">Ngara</option>
                     </select>
@@ -240,7 +240,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                   <div className="input-group">
                     <label>Ward</label>
                     <select>
-                    <option value=""> </option>
+                    <option value="" > </option>
                       <option value="001">CBD</option>
                       <option value="002">Shauri Moyo</option>
                     </select>

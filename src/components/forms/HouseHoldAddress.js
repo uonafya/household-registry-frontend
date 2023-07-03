@@ -36,16 +36,7 @@ function HouseHoldAddress() {
                     <div className="input-group">
                         <label>County *</label>
                         <select>
-                            <option value="Nairobi">Nairobi</option>
-                            <option value="Kiambu">Kiambu </option>
-                        </select>
-                    </div>
-                </div>
-
-                <div className="form-row">
-                    <div className="input-group">
-                        <label>County *</label>
-                        <select>
+                            <option value="" >Select County</option>
                             <option value="Nairobi">Nairobi</option>
                             <option value="Kiambu">Kiambu </option>
                         </select>
@@ -56,6 +47,7 @@ function HouseHoldAddress() {
                     <div className="input-group">
                         <label>Sub County *</label>
                         <select>
+                            <option value="" > Select Sub county</option>
                             <option value="Starehe">Starehe</option>
                             <option value="Kamukunji">Kamukunji </option>
                         </select>
@@ -66,6 +58,7 @@ function HouseHoldAddress() {
                     <div className="input-group">
                         <label>Constituency *</label>
                         <select>
+                            <option value="" > Select Constituency</option>
                             <option value="Starehe">Starehe</option>
                             <option value="Kamukunji">Kamukunji </option>
                         </select>
@@ -76,6 +69,7 @@ function HouseHoldAddress() {
                     <div className="input-group">
                         <label>Ward *</label>
                         <select>
+                            <option value="" >Select Ward</option>
                             <option value="Ngara">Ngara</option>
                             <option value="Pangani">Pangani </option>
                         </select>
