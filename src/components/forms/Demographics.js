@@ -54,6 +54,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
   };
 
   return (
+    <div class="form-container">
     <section className="form-group">
     
       
@@ -101,6 +102,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
           <div className="input-group">
             <label>Marital Status *</label>
             <select>
+            <option value=" "> </option>
               <option value="Married Polygamous">Married Polygamous</option>
               <option value="Married Monogamous">Married Monogamous</option>
               <option value="Single">Single</option>
@@ -113,6 +115,8 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
           <div className="input-group">
             <label>Gender *</label>
             <select>
+            <option value=" "> </option>
+            <option value="intersex">Intersex</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -213,8 +217,9 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
                   <div className="input-group">
                     <label>County</label>
                     <select>
-                      <option value="001">County 1</option>
-                      <option value="002">County 2</option>
+                    <option value=""> </option>
+                      <option value="001">Nairobi</option>
+                      <option value="002">Kiambu</option>
                     </select>
                   </div>
                 </div>
@@ -222,16 +227,24 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
              
                 <div className="form-row">
                   <div className="input-group">
-                    <label>Sub County *</label>
-                    <input type="text" />
+                    <label>Sub County</label>
+                    <select>
+                    <option value=""> </option>
+                      <option value="001">Kamukunji</option>
+                      <option value="002">Ngara</option>
+                    </select>
                   </div>
                 </div>
               
              
                 <div className="form-row">
                   <div className="input-group">
-                    <label>Ward *</label>
-                    <input type="text" />
+                    <label>Ward</label>
+                    <select>
+                    <option value=""> </option>
+                      <option value="001">CBD</option>
+                      <option value="002">Shauri Moyo</option>
+                    </select>
                   </div>
                 </div>
               
@@ -261,6 +274,7 @@ function Demographics({householdRegistryData,setHouseholdRegistryData}) {
             
                    
         </section>
+        </div>
   
   );
 }

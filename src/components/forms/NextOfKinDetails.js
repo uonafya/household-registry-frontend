@@ -32,6 +32,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
   };
 
   return (
+    <div className="form-container">
     <section className="form-group">
     <div className="form-row">
       <div className="input-group">
@@ -81,7 +82,7 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
     </div>
   
     </section>
-
+</div>
   );
 }
 

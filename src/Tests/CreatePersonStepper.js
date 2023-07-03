@@ -90,7 +90,7 @@ export default function CreatePersonStepper() {
                   onClick={handleNext}
                   sx={{ mt: 3, ml: 1 , bgcolor: '#f45d48'}}
                 >
-                  {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                 </Button>
               </Box>
             </React.Fragment>

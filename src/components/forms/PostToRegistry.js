@@ -74,41 +74,13 @@ function PostToRegistry(clientRegistryData, householdRegistryData) {
       }
     }
     return (
-      <div>
-     
-        <legend>Post to Registry/Create Person</legend>
-        <div className="flex items-center justify-center h-screen">
-          <div className="bg-white p-6 rounded shadow-lg">
-            <Formik initialValues={initialValuesClientRegistry} onSubmit={handleSubmitClientRegistry}>
-              <Form>
-                    <button
-                    type="button"
-                    id="post-registrations"
-                    className="mr-5 ml-5"
-                            >
-                    <img src={ok} alt="OK" className="mr-2" />
-                    Post to Registry
-            </button>
-              </Form>
-              </Formik>
-              <p/>
-      <Formik initialValues={initialValuesLocalRegistry} onSubmit={handleSubmitLocalRegistry}>
-          <Form>
-              <button
-                  type="submit"
-                  id="createPatientBtn"
-                  className="mr-5 ml-5"
-                  disabled={postedToRegistry}
-                      >
-                  <img src={ok} alt="OK" className="mr-2" />
-                  Create Patient
-              </button>
-            </Form>
-        </Formik>
-      
-    </div>
-        </div>
-    
+      <div className="form-container">
+
+              <div class="form-row buttons">
+                <button class="button-1"><img src={ok} alt="OK" className="mr-2" /> Post To Registry</button>
+                <button class="button-2"><img src={ok} alt="OK" className="mr-2" /> Create Prson</button>
+            </div>
+
     </div>
     );
   }

@@ -57,6 +57,7 @@ function ClientVerification(){
 
   return (
     <React.Fragment>
+       <div className="form-container">
        <section className="form-group">
           <div className="section-info">
             <h2 className="section-title">Client Verification</h2>
@@ -97,6 +98,7 @@ function ClientVerification(){
           </div>
 
         </section> 
+        </div>
       </React.Fragment>
           
   );

@@ -25,7 +25,7 @@ const HouseHoldDetails = () => {
   };
 
   return (
-
+    <div className="form-container">
         <section className="form-group">
           
           <div className="section-info">
@@ -55,6 +55,7 @@ const HouseHoldDetails = () => {
           </div>
           
         </section> 
+        </div>
   );
 };
 

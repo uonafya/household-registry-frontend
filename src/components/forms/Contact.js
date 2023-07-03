@@ -22,7 +22,7 @@ function Contact() {
   };
 
   return (
-  
+    <div className="form-container">
     <section className="form-group">
       <div className="form-row">
       <div className="input-group">
@@ -46,6 +46,7 @@ function Contact() {
         </div>
       </div>
       </section>
+      </div>
  
 
   );
