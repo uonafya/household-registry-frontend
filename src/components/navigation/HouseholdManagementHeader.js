@@ -15,11 +15,12 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { TabContext, TabList } from '@mui/lab';
 
+
 const lightColor = 'rgba(255, 255, 255, 0.7)';
 
-function Header(props) {
+function HouseholdManagementHeader(props) {
   const { onDrawerToggle } = props;
-  
+  const {householdSelected} = props;
 
   return (
     <React.Fragment>
@@ -106,12 +107,12 @@ function Header(props) {
       <AppBar component="div" position="static" elevation={0} sx={{ zIndex: 0 }}>
       <TabContext value={props.value}>
        <TabList value={props.value} onChange={props.handleChange}  textColor="inherit">
-         <Tab label="All Households" value="1" />
-         <Tab label="Household Summary" value="2" />
-         <Tab label="Add Member" value="3" />
-         <Tab label="Void Household" value="4" />
-         <Tab label="Mute Household" value="5" />
-         <Tab label="Migrate Household" value="6" />
+         <Tab label="All Households" value="1" disabled={householdSelected}/>
+        <Tab label="Household Summary" value="2" disabled={householdSelected} />
+       <Tab label="Add Member" value="3" disabled={householdSelected}/>
+       <Tab label="Void Household" value="4" disabled={householdSelected}/>
+       <Tab label="Mute Household" value="5" disabled={householdSelected}/>
+       <Tab label="Migrate Household" value="6" disabled={householdSelected}/>      
        </TabList>
        </TabContext>
     
@@ -122,8 +123,8 @@ function Header(props) {
   );
 }
 
-Header.propTypes = {
+HouseholdManagementHeader.propTypes = {
   onDrawerToggle: PropTypes.func.isRequired,
 };
 
-export default Header;
+export default HouseholdManagementHeader;

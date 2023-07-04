@@ -11,7 +11,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AllHouseHolds() {
+export default function AllHouseHolds(props) {
   const { data } = {
     dataSet: 'Commodity',
     rowLength: 100,
@@ -61,10 +61,17 @@ function generateRandomName() {
 
   const [selectedRowData, setSelectedRowData] = React.useState(null);
   const [open, setOpen] = React.useState(false);
+  const {setHousehouldSummary} = props;
+  const {setHouseholdSelected} = props;
+ 
 
   const handleRowDoubleClick = (params) => {
     setSelectedRowData(params.row);
     setOpen(true);
+    setHousehouldSummary(params.row);
+    setHouseholdSelected(true)
+    
+    
   };
 
   const handleClose = () => {
@@ -80,7 +87,7 @@ function generateRandomName() {
         onCellDoubleClick={handleRowDoubleClick}
       />
 
-      {/* <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Row Data</DialogTitle>
         <DialogContent>
           {selectedRowData && (
@@ -93,8 +100,8 @@ function generateRandomName() {
             </>
           )}
         </DialogContent>
-      </Dialog> */}
-      <Dialog
+      </Dialog>
+      {/* <Dialog
         fullScreen
         open={open}
         onClose={handleClose}
@@ -136,7 +143,7 @@ function generateRandomName() {
           <HouseholdOperations/>
         </DialogContent>
       
-      </Dialog>
+      </Dialog> */}
     </div>
   );
 }
