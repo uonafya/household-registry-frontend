@@ -16,7 +16,17 @@ function NextOfKinDetails({householdRegistryData,setHouseholdRegistryData}) {
     <div className="form-row">
       <div className="input-group">
         <label>Relationship *</label>
-        <input type="text" required />
+        <select name="nextOfKinRelationship">
+                            <option value=""></option>
+                            <option value="Partner">Parent</option>
+                            <option value="Spouse">Spouse</option>           
+                            <option value="Sibling">Sibling</option>
+                            <option value="Child">Child</option>
+                            <option value="Aunt">Grandparent</option>                            
+                            <option value="Guardian">Guardian</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Co-worker">Co-worker</option>  
+                        </select>
       </div>
     </div>
   

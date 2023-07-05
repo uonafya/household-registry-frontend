@@ -61,17 +61,12 @@ function generateRandomName() {
 
   const [selectedRowData, setSelectedRowData] = React.useState(null);
   const [open, setOpen] = React.useState(false);
-  const {setHousehouldSummary} = props;
-  const {setHouseholdSelected} = props;
- 
 
   const handleRowDoubleClick = (params) => {
     setSelectedRowData(params.row);
     setOpen(true);
-    setHousehouldSummary(params.row);
-    setHouseholdSelected(true)
-    
-    
+    props.setHouseholdSelected(params.row);
+    props.setHouseholdSelected(false)
   };
 
   const handleClose = () => {

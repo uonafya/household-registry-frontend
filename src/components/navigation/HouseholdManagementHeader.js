@@ -21,6 +21,7 @@ const lightColor = 'rgba(255, 255, 255, 0.7)';
 function HouseholdManagementHeader(props) {
   const { onDrawerToggle } = props;
   const {householdSelected} = props;
+  let _color = '';
 
   return (
     <React.Fragment>
@@ -106,8 +107,9 @@ function HouseholdManagementHeader(props) {
       </AppBar>
       <AppBar component="div" position="static" elevation={0} sx={{ zIndex: 0 }}>
       <TabContext value={props.value}>
-       <TabList value={props.value} onChange={props.handleChange}  textColor="inherit">
-         <Tab label="All Households" value="1" disabled={householdSelected}/>
+       <TabList value={props.value} onChange={props.handleChange}  textColor="">
+         <Tab label="All Households" value="1" />
+         {console.log(householdSelected)}
         <Tab label="Household Summary" value="2" disabled={householdSelected} />
        <Tab label="Add Member" value="3" disabled={householdSelected}/>
        <Tab label="Void Household" value="4" disabled={householdSelected}/>
