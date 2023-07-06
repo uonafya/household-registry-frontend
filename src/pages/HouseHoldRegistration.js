@@ -16,10 +16,10 @@ function HouseHoldRegistration(activeStep){
 
       switch (activeStep.activeStep) {
         case 0:
-          DynamicComponent = HouseHoldAddress;
+          DynamicComponent = HouseHoldDetails;
           break;
         case 1:
-          DynamicComponent = HouseHoldDetails;
+          DynamicComponent = HouseHoldAddress;
           break;
           case 2:  
           DynamicComponent = ClientVerification;

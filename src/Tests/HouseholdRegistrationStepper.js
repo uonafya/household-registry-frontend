@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box, Container, Paper, Stepper, Step, StepLabel, Button, Typography } from '@mui/material';
 import HouseHoldRegistration from '../pages/HouseHoldRegistration';
+import React,{ useState,useContext} from 'react';
 
 
 
@@ -15,7 +15,7 @@ export default function HouseholdRegistrationStepper() {
   // let DynamicComponent;
   // DynamicComponent = HouseHoldRegistration;
   
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);

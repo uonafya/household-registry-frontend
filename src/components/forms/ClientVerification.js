@@ -1,5 +1,5 @@
 // Client Verification
-import React from 'react';
+import React,{useEffect} from 'react';
 import axios from 'axios';
 import { useFormik } from 'formik';
 
@@ -9,6 +9,9 @@ import { useFormik } from 'formik';
 function ClientVerification(){
   
   const handleSubmit=(values)=>{
+    sessionStorage.setItem('clientVerificationSessionValues', JSON.stringify(values));
+
+    
       const { country, identifierType, identifierNumber } = values;
       console.log("form values" + values)
       const url = `/api/client/search/${country}/${identifierType}/${identifierNumber}`;
@@ -28,13 +31,13 @@ function ClientVerification(){
         initialValues: {
           country: '',
           identifierType: '',
-          identifierNumber: ''
+          identifierNumber: '',
         },
         validate: values => {
           const errors = {};
 
           if (!values.identifierType) {
-            errors.IdentifierType = 'Identifier Type is required';
+            errors.identifierType = 'Identifier Type is required';
           }
 
           if (!values.identifierNumber) {
@@ -45,6 +48,18 @@ function ClientVerification(){
         },
         onSubmit: handleSubmit
       });
+
+      useEffect(() => {
+        // Check if there are values in session storage
+        const savedFormValues = sessionStorage.getItem('clientVerificationSessionValues');
+    
+        if (savedFormValues) {
+          const parsedFormValues = JSON.parse(savedFormValues);
+    
+          // Set the form values from session storage
+          formik.setValues(parsedFormValues);
+        }
+      }, []); // Run the effect only once on the initial render
 
 
 

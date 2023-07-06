@@ -1,59 +1,51 @@
 import React,{useState} from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { HouseholdContext } from '../../stateManagement/HouseholdContext';
 
-function Demographics({householdRegistryData,setHouseholdRegistryData}) {
+function Demographics() {
   const initialValues = {
-    firstName: '',
-    middleName: '',
-    lastName: '',
-    dateOfBirth: '',
-    gender: '',
-    country: ' ',
-    countyOfBirth: ' ',
-    residence: {
-      county: ' ',
-      sub_county: '',
-      ward: '',
-      village: '',
-    },
-  };
+  firstName: '',
+  middleName: '',
+  lastName: '',
+  dateOfBirth: '',
+  maritalStatus: '',
+  gender: '',
+  occupation: '',
+  religion: '',
+  educationLevel: '',
+  country: '',
+  countyOfBirth: '',
+  county: '',
+  subCounty: '',
+  ward: '',
+  village: '',
+  landmark: '',
+  address: '',
+};
 
-  const [formValues, setFormValues] = useState(initialValues);
+const validationSchema = Yup.object({
+  firstName: Yup.string().required('First Name is required'),
+  lastName: Yup.string().required('Last Name is required'),
+  dateOfBirth: Yup.date().required('Date of Birth is required'),
+  maritalStatus: Yup.string().required('Marital Status is required'),
+  gender: Yup.string().required('Gender is required'),
+  occupation: Yup.string().required('Occupation is required'),
+  religion: Yup.string().required('Religion is required'),
+  educationLevel: Yup.string().required('Education Level is required'),
+  country: Yup.string().required('Country is required'),
+  countyOfBirth: Yup.string().required('County of Birth is required'),
+  county: Yup.string().required('County is required'),
+  subCounty: Yup.string().required('Sub County is required'),
+  ward: Yup.string().required('Ward is required'),
+  village: Yup.string().required('Village is required'),
+});
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
-  };
-  const handleSubmit = async (values) => {
-
-    try {
-       // Append form values to householdRegistryData object
-          setHouseholdRegistryData(householdRegistryData => ({
-            ...householdRegistryData,
-            values
-          }));
-
-          console.log(values);
-
-     
-    } catch (error) {
-      // Handle the error
-      console.error(error);
-    }
-  };
-
-  const validateForm = (values) => {
-    const errors = {};
-
-    // Add validation logic if needed
-
-    return errors;
-  };
+  
 
   return (
     <div class="form-container">
+      {console.log("rendered here")}
               <h2 class="section-title">Demographics</h2>
         <section className="form-group">
               <div class="section-info">
