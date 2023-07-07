@@ -36,12 +36,14 @@ const HouseHoldAddress = () => {
     const savedFormValues = sessionStorage.getItem('householdAddressSessionValues');
 
     if (savedFormValues) {
-      const parsedFormValues = JSON.parse(savedFormValues);
-
-      // Set the form values from session storage
-      formik.setValues(parsedFormValues);
-    }
-  }, []); // Run the effect only once on the initial render
+        try {
+          const parsedValues = JSON.parse(savedFormValues);
+          formik.setValues(parsedValues);
+        } catch (error) {
+          console.error('Error parsing stored values:', error);
+        }
+      }
+    }, [formik.setValues]); // Run the effect only once on the initial render
 
   return (
     <div className="form-container">

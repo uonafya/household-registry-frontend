@@ -11,7 +11,7 @@ function ClientVerification(){
   const handleSubmit=(values)=>{
     sessionStorage.setItem('clientVerificationSessionValues', JSON.stringify(values));
 
-    
+
       const { country, identifierType, identifierNumber } = values;
       console.log("form values" + values)
       const url = `/api/client/search/${country}/${identifierType}/${identifierNumber}`;
@@ -52,14 +52,15 @@ function ClientVerification(){
       useEffect(() => {
         // Check if there are values in session storage
         const savedFormValues = sessionStorage.getItem('clientVerificationSessionValues');
-    
         if (savedFormValues) {
-          const parsedFormValues = JSON.parse(savedFormValues);
-    
-          // Set the form values from session storage
-          formik.setValues(parsedFormValues);
+          try {
+            const parsedValues = JSON.parse(savedFormValues);
+            formik.setValues(parsedValues);
+          } catch (error) {
+            console.error('Error parsing stored values:', error);
+          }
         }
-      }, []); // Run the effect only once on the initial render
+      }, [formik.setValues]); // Run the effect only once on the initial render
 
 
 

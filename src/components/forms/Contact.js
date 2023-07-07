@@ -30,12 +30,14 @@ const { values, errors, touched, handleChange, handleBlur, handleSubmit } = form
         const savedFormValues = sessionStorage.getItem('contactsSessionValues');
 
         if (savedFormValues) {
-          const parsedFormValues = JSON.parse(savedFormValues);
-
-          // Set the form values from session storage
-          formik.setValues(parsedFormValues);
+          try {
+            const parsedValues = JSON.parse(savedFormValues);
+            formik.setValues(parsedValues);
+          } catch (error) {
+            console.error('Error parsing stored values:', error);
+          }
         }
-      }, []); // Run the effect only once on the initial render
+      }, [formik.setValues]); // Run the effect only once on the initial render
 
 return (
   <div className="form-container">

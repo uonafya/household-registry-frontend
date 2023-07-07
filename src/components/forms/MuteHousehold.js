@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useFormik } from 'formik';
 import { Typography } from '@mui/material';
 
@@ -11,7 +11,7 @@ const MuteHousehold = () => {
   const handleFormSubmit = (values) => {
     console.log(values);
     // Handle form submission logic here
-    sessionStorage.setItem('voidHouseholdSessionValues', JSON.stringify(values));
+    sessionStorage.setItem('muteHouseholdSessionValues', JSON.stringify(values));
   };
 
   const formik = useFormik({
@@ -28,6 +28,19 @@ const MuteHousehold = () => {
     handleChange,
     handleSubmit: formikHandleSubmit,
   } = formik;
+
+  useEffect(() => {
+    // Check if values exist in sessionStorage
+    const storedValues = sessionStorage.getItem('muteHouseholdSessionValues');
+    if (storedValues) {
+      try {
+        const parsedValues = JSON.parse(storedValues);
+        formik.setValues(parsedValues);
+      } catch (error) {
+        console.error('Error parsing stored values:', error);
+      }
+    }
+  }, [formik.setValues]); // Run the effect only once on the initial render
 
   return (
     <React.Fragment>

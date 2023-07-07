@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-const axios = require('axios');
+import axios from 'axios';
 
 
 // console.log(formValues.household_persons[0].identification.identification_type)
@@ -17,7 +17,7 @@ const axios = require('axios');
 
 //   dispatch(updateHousehold(parentField, name, value));
 // };
-export const formValues = useSelector((state) => state.householdState);
+// export const formValues = useSelector((state) => state.householdState);
 
 export const HandleInputChange = (parentField, name, value) => {
     const dispatch = useDispatch();
@@ -56,5 +56,19 @@ axios.post(url, {
 } 
 
 
+// Generic function to Post data through axios
 
+export const genericPostFunction=(url,values)=>{
+
+  console.log("form values" + values)
+
+  axios.post({url}, values)
+  .then((response) => {
+    console.log('POST request successful');
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error('Error making POST request:', error);
+  });
+};
   

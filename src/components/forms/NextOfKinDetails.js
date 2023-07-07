@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -38,6 +38,19 @@ const NextOfKinDetails = ({ householdRegistryData, setHouseholdRegistryData }) =
     handleSubmit,
   } = formik;
 
+  useEffect(() => {
+    // Check if values exist in sessionStorage
+    const storedValues = sessionStorage.getItem('nextOfKinSessionValues');
+    if (storedValues) {
+      try {
+        const parsedValues = JSON.parse(storedValues);
+        formik.setValues(parsedValues);
+      } catch (error) {
+        console.error('Error parsing stored values:', error);
+      }
+    }
+  }, [formik.setValues]); // Run the effect only once on the initial render
+  
   return (
     <div className="form-container">
       <section className="form-group">
