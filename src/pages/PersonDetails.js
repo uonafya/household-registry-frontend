@@ -2,7 +2,7 @@ import React from 'react';
 import ClientVerification from '../components/forms/ClientVerification';
 import Demographics from '../components/forms/Demographics';
 import PostToRegistry from '../components/forms/PostToRegistry';
-import TextMobileStepper from '../components/forms/MobileStepper';
+import CreateHouseholdStepper from '../components/navigation/CreateHouseholdStepper';
 
 
 
@@ -20,7 +20,7 @@ const PersonDetails = ({ activeStep }) => {
       DynamicComponent = PostToRegistry;
       break;
       case 3:
-      DynamicComponent = TextMobileStepper;
+      DynamicComponent = CreateHouseholdStepper;
       break;
       default:
       DynamicComponent = () => null;

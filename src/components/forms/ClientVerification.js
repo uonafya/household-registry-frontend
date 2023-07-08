@@ -9,9 +9,7 @@ import { useFormik } from 'formik';
 function ClientVerification(props){
   
   const handleSubmit=(values)=>{
-    sessionStorage.setItem('clientVerificationSessionValues', JSON.stringify(values));
-
-
+    
       const { country, identifierType, identifierNumber } = values;
       console.log("form values" + values)
       const url = `/api/client/search/${country}/${identifierType}/${identifierNumber}`;
@@ -60,7 +58,7 @@ function ClientVerification(props){
             console.error('Error parsing stored values:', error);
           }
         }
-      }, [formik.setValues]); // Run the effect only once on the initial render
+      }, [formik.setValues]); 
 
 
       const handleChange = (e) => {

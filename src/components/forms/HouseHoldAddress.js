@@ -39,7 +39,7 @@ const HouseHoldAddress = (props) => {
           console.error('Error parsing stored values:', error);
         }
       }
-    }, [formik.setValues]); // Run the effect only once on the initial render
+    }, [formik.setValues]); 
 
     const handleChange = (e) => {
       const { name, value } = e.target;
@@ -53,7 +53,7 @@ const HouseHoldAddress = (props) => {
       <section className="form-group">
         <div className="section-info">
           <h2 className="section-title">Household address</h2>
-          <p className="section-description">Enter the current address of the household.</p>
+         
         </div>
         <form >
           <div className="form-row">

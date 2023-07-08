@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@mui/material";
 import Header from "../navigation/CreateHouseholdHeader"
-import HouseholdRegistrationStepper from "../../Tests/HouseholdRegistrationStepper";
+import CreateHouseholdStepper from "../navigation/CreateHouseholdStepper";
 
 
 const CreateHouseholdMainPage=(props)=>{
@@ -25,7 +25,7 @@ const CreateHouseholdMainPage=(props)=>{
      <TabPanel value="4"><MuteHousehold/></TabPanel>
      <TabPanel value="5"><MigrateHousehold/></TabPanel>
      </TabContext> */}
-     <HouseholdRegistrationStepper/>
+     <CreateHouseholdStepper/>
     </Box>
     <Box component="footer" sx={{ p: 2, bgcolor: '#eaeff1' }}>
 

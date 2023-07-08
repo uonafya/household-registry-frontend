@@ -75,7 +75,7 @@ function PostToRegistry() {
             console.error('Error parsing stored values:', error);
           }
         }
-      }, []); // Run the effect only once on the initial render
+      }, []); 
 
     return (
       <div className="form-container">

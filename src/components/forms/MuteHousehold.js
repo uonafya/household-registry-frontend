@@ -40,7 +40,7 @@ const MuteHousehold = () => {
         console.error('Error parsing stored values:', error);
       }
     }
-  }, [formik.setValues]); // Run the effect only once on the initial render
+  }, [formik.setValues]); 
 
   return (
     <React.Fragment>

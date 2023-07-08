@@ -60,7 +60,7 @@ const validationSchema = Yup.object({
             console.error('Error parsing stored values:', error);
           }
         }
-      }, [formik.setValues]); // Run the effect only once on the initial render
+      }, [formik.setValues]); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -71,13 +71,12 @@ const validationSchema = Yup.object({
 
 
   return (
-    <div className="form-container">
-      {console.log("rendered here")}
-              <h2 className="section-title">Demographics</h2>
-              <section className="form-group">
-      <div className="section-info">
-        <p className="section-description">Person basic Details</p>
-      </div>
+      <div className="form-container">
+        <section className="form-group">
+        <div className="section-info">
+        <h2 className="section-title">Demographics</h2>
+         
+        </div>
 
       <div className="form-row">
         <div className="input-group">

@@ -4,10 +4,8 @@ import PersonDetails from "./pages/PersonDetails";
 import LoginForm from "./pages/LoginForm";
 import Layout from "./components/Layout";
 import HouseHoldRegistration from "./pages/HouseHoldRegistration";
-import PersistentDrawerLeft from "./components/navigation/PersistentDrawer";
-import HouseholdRegistrationStepper from "./Tests/HouseholdRegistrationStepper";
 import Mainpage from "./pages/MainPage";
-import TextMobileStepper from "./components/forms/MobileStepper";
+import CreateHouseholdStepper from "./components/navigation/CreateHouseholdStepper";
 
 
 export default function App() {
@@ -21,10 +19,8 @@ export default function App() {
           <Route path="HouseHoldRegistration" element={<HouseHoldRegistration/>}/>
         </Route>
         <Route path="/LoginForm" element={<LoginForm/>}/>
-        <Route path="/PersistentDrawer" element={<PersistentDrawerLeft/>}/>
-        <Route path="/test" element={<HouseholdRegistrationStepper/>}/>
         <Route path="/main" element={<Mainpage/>}/>
-        <Route path="/text" element={<TextMobileStepper/>}/>
+        <Route path="/text" element={<CreateHouseholdStepper/>}/>
       </Routes>
     </BrowserRouter>
   );

@@ -7,17 +7,17 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import HouseHoldAddress from './HouseHoldAddress';
-import HouseHoldDetails from './HouseHoldDetails';
-import ClientVerification from './ClientVerification';
-import Demographics from './Demographics';
-import Contact from './Contact';
-import NextOfKinDetails from './NextOfKinDetails';
-import PostToRegistry from './PostToRegistry';
+import HouseHoldAddress from '../forms/HouseHoldAddress';
+import HouseHoldDetails from '../forms/HouseHoldDetails';
+import ClientVerification from '../forms/ClientVerification';
+import Demographics from '../forms/Demographics';
+import Contact from '../forms/Contact';
+import NextOfKinDetails from '../forms/NextOfKinDetails';
+import PostToRegistry from '../forms/PostToRegistry';
 
 
 
-export default function TextMobileStepper() {
+export default function CreateHouseholdStepper() {
 
 
     const theme = useTheme();

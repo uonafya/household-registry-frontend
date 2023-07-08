@@ -3,9 +3,8 @@ import { Box } from "@mui/material";
 import HouseholdManagementHeader from "../navigation/HouseholdManagementHeader";
 import { TabPanel, TabContext } from "@mui/lab";
 import AllHouseHolds from "./AllHouseHolds";
-import CreatePersonStepper from "../../Tests/CreatePersonStepper";
 import HouseholdSummary from "./HouseholdSummary";
-// import AddMember from "./"
+import CreatePersonStepper from "../navigation/CreatePersonStepper";
 import VoidHousehold from "./VoidHousehold"
 import MuteHousehold from "./MuteHousehold"
 import MigrateHousehold from "./MigrateHousehold"
