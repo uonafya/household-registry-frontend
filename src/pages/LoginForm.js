@@ -73,22 +73,22 @@ const LoginForm = () => {
 
   return (
   
-    <div className="login-container">
-  <div className="arms"><img src="arms.png" alt="" /></div>
+  <div className="login-container">
+  <div className="arms"><img src={arms} alt="" /></div>
+  
   <form>
     <section className="form-group">
       <div className="section-info">
         <h2 className="section-title">Login</h2>
-        <p className="section-description">
-          This is the section description.
-        </p>
-      </div>
+     </div>
+
       <div className="form-row">
         <div className="input-group">
           <label>Username *</label>
           <input type="text" />
         </div>
       </div>
+      
       <div className="form-row">
         <div className="input-group">
           <label>Password *</label>
@@ -100,7 +100,7 @@ const LoginForm = () => {
     <div className="form-row buttons">
       <button className="button-1">Login</button>
     </div>
-    <img src={arms} alt=""/>
+    
   </form>
 </div>
 

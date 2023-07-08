@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { HouseholdContext } from '../../stateManagement/HouseholdContext';
 
-function Demographics() {
+function Demographics(props) {
   const initialValues = {
   firstName: '',
   middleName: '',

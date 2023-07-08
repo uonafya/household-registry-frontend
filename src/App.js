@@ -7,6 +7,7 @@ import HouseHoldRegistration from "./pages/HouseHoldRegistration";
 import PersistentDrawerLeft from "./components/navigation/PersistentDrawer";
 import HouseholdRegistrationStepper from "./Tests/HouseholdRegistrationStepper";
 import Mainpage from "./pages/MainPage";
+import TextMobileStepper from "./components/forms/MobileStepper";
 
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/PersistentDrawer" element={<PersistentDrawerLeft/>}/>
         <Route path="/test" element={<HouseholdRegistrationStepper/>}/>
         <Route path="/main" element={<Mainpage/>}/>
+        <Route path="/text" element={<TextMobileStepper/>}/>
       </Routes>
     </BrowserRouter>
   );

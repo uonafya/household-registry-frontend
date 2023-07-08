@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const NextOfKinDetails = ({ householdRegistryData, setHouseholdRegistryData }) => {
+const NextOfKinDetails = (props) => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
     nextOfKinRelationship: Yup.string().required('Relationship is required'),
@@ -22,25 +22,19 @@ const NextOfKinDetails = ({ householdRegistryData, setHouseholdRegistryData }) =
       emailAddress: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-      sessionStorage.setItem('nextOfKinSessionValues', JSON.stringify(values));
-      // Handle form submission logic here
-    },
+    
   });
 
   const {
     values,
     errors,
     touched,
-    handleChange,
     handleBlur,
-    handleSubmit,
-  } = formik;
+   } = formik;
 
   useEffect(() => {
     // Check if values exist in sessionStorage
-    const storedValues = sessionStorage.getItem('nextOfKinSessionValues');
+    const storedValues = sessionStorage.getItem(props.label);
     if (storedValues) {
       try {
         const parsedValues = JSON.parse(storedValues);
@@ -50,6 +44,13 @@ const NextOfKinDetails = ({ householdRegistryData, setHouseholdRegistryData }) =
       }
     }
   }, [formik.setValues]); // Run the effect only once on the initial render
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const newValues = { ...formik.values, [name]: value };
+    formik.handleChange(e);
+    props.setFormValues(newValues);
+  };
   
   return (
     <div className="form-container">
@@ -59,7 +60,7 @@ const NextOfKinDetails = ({ householdRegistryData, setHouseholdRegistryData }) =
           <p className="section-description">Household head Next of Kin details</p>
         </div>
         
-        <form onSubmit={handleSubmit}>
+        <form >
           <div className="form-row">
             <div className="input-group">
               <label>Name *</label>
@@ -161,7 +162,7 @@ const NextOfKinDetails = ({ householdRegistryData, setHouseholdRegistryData }) =
             </div>
           </div>
 
-          <button type="submit">Submit</button>
+          
         </form>
       </section>
     </div>

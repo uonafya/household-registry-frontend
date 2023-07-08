@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const HouseHoldAddress = () => {
+const HouseHoldAddress = (props) => {
   const initialValues = {
     county: '',
     subCounty: '',
@@ -33,7 +33,7 @@ const HouseHoldAddress = () => {
   useEffect(() => {
     // Check if there are values in session storage
     
-    const savedFormValues = sessionStorage.getItem('householdAddressSessionValues');
+    const savedFormValues = sessionStorage.getItem(props.label);
 
     if (savedFormValues) {
         try {
@@ -44,6 +44,13 @@ const HouseHoldAddress = () => {
         }
       }
     }, [formik.setValues]); // Run the effect only once on the initial render
+
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      const newValues = { ...formik.values, [name]: value };
+      formik.handleChange(e);
+      props.setFormValues(newValues);
+    };
 
   return (
     <div className="form-container">
@@ -59,7 +66,7 @@ const HouseHoldAddress = () => {
               <select
                 name="county"
                 value={formik.values.county}
-                onChange={formik.handleChange}
+                onChange={handleChange}
                 onBlur={formik.handleBlur}
               >
                 <option value="">Select County</option>
@@ -78,7 +85,7 @@ const HouseHoldAddress = () => {
               <select
                 name="subCounty"
                 value={formik.values.subCounty}
-                onChange={formik.handleChange}
+                onChange={handleChange}
                 onBlur={formik.handleBlur}
               >
                 <option value="">Select Sub county</option>
@@ -97,7 +104,7 @@ const HouseHoldAddress = () => {
               <select
                 name="constituency"
                 value={formik.values.constituency}
-                onChange={formik.handleChange}
+                onChange={handleChange}
                 onBlur={formik.handleBlur}
               >
                 <option value="">Select Constituency</option>
@@ -116,7 +123,7 @@ const HouseHoldAddress = () => {
               <select
                 name="ward"
                 value={formik.values.ward}
-                onChange={formik.handleChange}
+                onChange={handleChange}
                 onBlur={formik.handleBlur}
               >
                 <option value="">Select Ward</option>

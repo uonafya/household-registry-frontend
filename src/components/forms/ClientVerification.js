@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 
 
 // "//An uncontrolled form that does not rerender onChange?"
-function ClientVerification(){
+function ClientVerification(props){
   
   const handleSubmit=(values)=>{
     sessionStorage.setItem('clientVerificationSessionValues', JSON.stringify(values));
@@ -51,7 +51,7 @@ function ClientVerification(){
 
       useEffect(() => {
         // Check if there are values in session storage
-        const savedFormValues = sessionStorage.getItem('clientVerificationSessionValues');
+        const savedFormValues = sessionStorage.getItem(props.label);
         if (savedFormValues) {
           try {
             const parsedValues = JSON.parse(savedFormValues);
@@ -61,6 +61,14 @@ function ClientVerification(){
           }
         }
       }, [formik.setValues]); // Run the effect only once on the initial render
+
+
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        const newValues = { ...formik.values, [name]: value };
+        formik.handleChange(e);
+        props.setFormValues(newValues);
+      };
 
 
 
@@ -79,7 +87,7 @@ function ClientVerification(){
               <select
                 name="country"
                 value={formik.values.country}
-                onChange={formik.handleChange}
+                onChange={handleChange}
                 onBlur={formik.handleBlur}
               >
                 <option value="">Select Country</option>
@@ -96,7 +104,7 @@ function ClientVerification(){
               <select
                 name="identifierType"
                 value={formik.values.identifierType}
-                onChange={formik.handleChange}
+                onChange={handleChange}
                 onBlur={formik.handleBlur}
               >
                 <option value="">Select Identifier Type</option>
@@ -114,7 +122,7 @@ function ClientVerification(){
                 type="text"
                 name="identifierNumber"
                 value={formik.values.identifierNumber}
-                onChange={formik.handleChange}
+                onChange={handleChange}
                 onBlur={formik.handleBlur}
               />
             </div>

@@ -4,7 +4,7 @@ import PersonDetails from '../pages/PersonDetails';
 
 
 // const steps = ['Client verification', 'ID Numbers', 'Demographics','address','Next of kin'];
-const steps = ['Client Verification','Demographics','Save' ];
+const steps = ['Client Verification','Demographics','Save','Mobile' ];
 // const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 

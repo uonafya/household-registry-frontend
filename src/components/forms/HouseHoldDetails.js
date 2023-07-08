@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-const HouseHoldDetails = () => {
+const HouseHoldDetails = (props) => {
   const initialValues = {
     householdName: '',
     householdType: '',
@@ -13,24 +13,15 @@ const HouseHoldDetails = () => {
     householdType: Yup.string().required('Household Type is required'),
   });
 
-  const onSubmit = (values) => {
-    // Handle form submission
-    console.log(values);
-    console.log('Redux');
-
-    // Save form values in session storage
-    sessionStorage.setItem('householdDetailsSessionValues', JSON.stringify(values));
-  };
-
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit,
+   
   });
 
   useEffect(() => {
     // Check if values exist in sessionStorage
-    const storedValues = sessionStorage.getItem('householdDetailsSessionValues');
+    const storedValues = sessionStorage.getItem(props.label);
     if (storedValues) {
       try {
         const parsedValues = JSON.parse(storedValues);
@@ -40,6 +31,13 @@ const HouseHoldDetails = () => {
       }
     }
   }, [formik.setValues]); // Run the effect only once on the initial render
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const newValues = { ...formik.values, [name]: value };
+    formik.handleChange(e);
+    props.setFormValues(newValues);
+  };
 
   return (
     <div className="form-container">
@@ -51,7 +49,7 @@ const HouseHoldDetails = () => {
           </p>
         </div>
 
-        <form onSubmit={formik.handleSubmit}>
+        <form >
           <div className="form-row">
             <div className="input-group">
               <label htmlFor="householdName">Household Name *</label>
@@ -59,7 +57,7 @@ const HouseHoldDetails = () => {
                 type="text"
                 id="householdName"
                 name="householdName"
-                onChange={formik.handleChange}
+                onChange={handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.householdName}
               />
@@ -75,7 +73,7 @@ const HouseHoldDetails = () => {
               <select
                 id="householdType"
                 name="householdType"
-                onChange={formik.handleChange}
+                onChange={handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.householdType}
               >
@@ -90,7 +88,7 @@ const HouseHoldDetails = () => {
             </div>
           </div>
 
-          <button type="submit">Submit</button>
+          
         </form>
       </section>
     </div>
