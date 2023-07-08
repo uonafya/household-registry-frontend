@@ -17,23 +17,19 @@ const HouseHoldAddress = (props) => {
     ward: Yup.string().required('Ward is required'),
   });
 
-  const handleSubmit = (values) => {
-    console.log(values);
-    // Handle form submission logic here
-    sessionStorage.setItem('householdAddressSessionValues', JSON.stringify(values));
-  };
+  
 
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: handleSubmit,
+   
   });
 
   
   useEffect(() => {
     // Check if there are values in session storage
     
-    const savedFormValues = sessionStorage.getItem(props.label);
+    const savedFormValues = sessionStorage.getItem('Household Address');
 
     if (savedFormValues) {
         try {
@@ -59,7 +55,7 @@ const HouseHoldAddress = (props) => {
           <h2 className="section-title">Household address</h2>
           <p className="section-description">Enter the current address of the household.</p>
         </div>
-        <form onSubmit={formik.handleSubmit}>
+        <form >
           <div className="form-row">
             <div className="input-group">
               <label>County *</label>
@@ -136,11 +132,7 @@ const HouseHoldAddress = (props) => {
             </div>
           </div>
 
-          <div className="form-row buttons">
-            <button type="submit" className="button-1">
-              Submit
-            </button>
-          </div>
+          
         </form>
       </section>
     </div>

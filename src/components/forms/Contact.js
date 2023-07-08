@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
+
 const Contact = (props) => {
   
   const validationSchema = Yup.object().shape({
@@ -11,24 +12,21 @@ const Contact = (props) => {
 
   const formik = useFormik({
   initialValues: {
-      primary_phone: '1234567890',
-      secondary_phone: '9876543210',
-      email: 'john@example.com'
+      primary_phone: '',
+      secondary_phone: '',
+      email: ''
   },
   validationSchema,
-  onSubmit: (values) => {
-      // Handle form submission here
-      console.log(values);
-      sessionStorage.setItem('contactsSessionValues', JSON.stringify(values));
-  }
+
   });
 
-const { values, errors, touched, handleBlur, handleSubmit } = formik;
+const { values, errors, touched, handleBlur } = formik;
 
 
       useEffect(() => {
         // Check if there are values in session storage
-        const savedFormValues = sessionStorage.getItem(props.label);
+        const savedFormValues = sessionStorage.getItem('Contacts');
+       
 
         if (savedFormValues) {
           try {
@@ -55,7 +53,7 @@ const { values, errors, touched, handleBlur, handleSubmit } = formik;
               <p className="section-description">Enter person contacts.</p>
           </div>
 
-        <form onSubmit={handleSubmit}>
+        <form >
           <div className="form-row">
             <div className="input-group">
               <label>Primary Phone *</label>
@@ -105,7 +103,7 @@ const { values, errors, touched, handleBlur, handleSubmit } = formik;
             </div>
           </div>
 
-          <button type="submit">Submit</button>
+         
         </form>
       </section>
     </div>

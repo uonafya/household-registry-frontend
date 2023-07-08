@@ -51,7 +51,7 @@ function ClientVerification(props){
 
       useEffect(() => {
         // Check if there are values in session storage
-        const savedFormValues = sessionStorage.getItem(props.label);
+        const savedFormValues = sessionStorage.getItem('Client Verification');
         if (savedFormValues) {
           try {
             const parsedValues = JSON.parse(savedFormValues);

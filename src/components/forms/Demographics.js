@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { HouseholdContext } from '../../stateManagement/HouseholdContext';
@@ -41,210 +41,264 @@ const validationSchema = Yup.object({
   village: Yup.string().required('Village is required'),
 });
 
-  
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+
+  });
+
+    useEffect(() => {
+      // Check if there are values in session storage
+      
+      const savedFormValues = sessionStorage.getItem('Demographics');
+
+      if (savedFormValues) {
+          try {
+            const parsedValues = JSON.parse(savedFormValues);
+            formik.setValues(parsedValues);
+          } catch (error) {
+            console.error('Error parsing stored values:', error);
+          }
+        }
+      }, [formik.setValues]); // Run the effect only once on the initial render
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const newValues = { ...formik.values, [name]: value };
+    formik.handleChange(e);
+    props.setFormValues(newValues);
+  };
+
 
   return (
-    <div class="form-container">
+    <div className="form-container">
       {console.log("rendered here")}
-              <h2 class="section-title">Demographics</h2>
-        <section className="form-group">
-              <div class="section-info">
-                <p class="section-description">Person basic Details</p>
-              </div>
-              <div className="form-row">
-            <div className="input-group">
-              <label>First Name *</label>
-              <input type="text" />
-            </div>
-          </div>
-        
-        
-          <div className="form-row">
-            <div className="input-group">
-              <label>Middle Name</label>
-              <input type="text" />
-            </div>
-          </div>
-        
-        
-          <div className="form-row">
-            <div className="input-group">
-              <label>Last Name *</label>
-              <input type="text" />
-            </div>
-          </div>
-        
-        
-          <div className="form-row">
-            <div className="input-group">
-              <label>Date of Birth *</label>
-              <input type="date" />
-            </div>
-          </div>
-        
-        
-          <div className="form-row">
-            <div className="input-group">
-              <label>Marital Status *</label>
-              <select>
-              <option value=" "> </option>
-                <option value="Married Polygamous">Married Polygamous</option>
-                <option value="Married Monogamous">Married Monogamous</option>
-                <option value="Single">Single</option>
-              </select>
-            </div>
-          </div>
-        
-        
-          <div className="form-row">
-            <div className="input-group">
-              <label>Gender *</label>
-              <select>
-              <option value=" "> </option>
-              <option value="intersex">Intersex</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-            </div>
-          </div>
-        </section>
+              <h2 className="section-title">Demographics</h2>
+              <section className="form-group">
+      <div className="section-info">
+        <p className="section-description">Person basic Details</p>
+      </div>
+
+      <div className="form-row">
+        <div className="input-group">
+          <label htmlFor="firstName">First Name *</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            onChange={handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.firstName}
+          />
+          {formik.touched.firstName && formik.errors.firstName && (
+            <div className="error">{formik.errors.firstName}</div>
+          )}
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="input-group">
+          <label htmlFor="middleName">Middle Name</label>
+          <input
+            type="text"
+            id="middleName"
+            name="middleName"
+            onChange={handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.middleName}
+          />
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="input-group">
+          <label htmlFor="lastName">Last Name *</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            onChange={handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lastName}
+          />
+          {formik.touched.lastName && formik.errors.lastName && (
+            <div className="error">{formik.errors.lastName}</div>
+          )}
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="input-group">
+          <label htmlFor="dateOfBirth">Date of Birth *</label>
+          <input
+            type="date"
+            id="dateOfBirth"
+            name="dateOfBirth"
+            onChange={handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.dateOfBirth}
+          />
+          {formik.touched.dateOfBirth && formik.errors.dateOfBirth && (
+            <div className="error">{formik.errors.dateOfBirth}</div>
+          )}
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="input-group">
+          <label htmlFor="maritalStatus">Marital Status *</label>
+          <select
+            id="maritalStatus"
+            name="maritalStatus"
+            onChange={handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.maritalStatus}
+          >
+            <option value=""> </option>
+            <option value="Married Polygamous">Married Polygamous</option>
+            <option value="Married Monogamous">Married Monogamous</option>
+            <option value="Single">Single</option>
+          </select>
+          {formik.touched.maritalStatus && formik.errors.maritalStatus && (
+            <div className="error">{formik.errors.maritalStatus}</div>
+          )}
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="input-group">
+          <label htmlFor="gender">Gender *</label>
+          <select
+            id="gender"
+            name="gender"
+            onChange={handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.gender}
+          >
+            <option value=""> </option>
+            <option value="intersex">Intersex</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          {formik.touched.gender && formik.errors.gender && (
+            <div className="error">{formik.errors.gender}</div>
+          )}
+        </div>
+      </div>
+
+  </section>
 
 
-        <section className="form-group">
-        <div class="section-info">
-                <p class="section-description">Socio-economic</p>
+    <section className="form-group">
+        <div className="section-info">
+          <p className="section-description">Residence</p>
         </div>
+
         <div className="form-row">
           <div className="input-group">
-            <label>Occupation *</label>
-            <select>
-            <option value="">Select occupation</option>
-              <option value="GOVERNMENT EMPLOYEE">1. GOVERNMENT EMPLOYEE</option>
-              <option value="NGO EMPLOYEE">2. NGO EMPLOYEE</option>
-              <option value="PRIVATE SECTOR EMPLOYEE">3. PRIVATE SECTOR EMPLOYEE</option>
-              <option value="SELF EMPLOYED">4. SELF EMPLOYED</option>
-              <option value="PRIVATE SECTOR EMPLOYEE">5. STUDENT</option>
-            </select>
-          </div>
-        </div>
-      
-      
-        <div className="form-row">
-          <div className="input-group">
-            <label>Religion *</label>
-            <select>
-              <option value=" ">Select Religion</option>
-              <option value="Christian">Christian</option>
-              <option value="Muslim">Muslim</option>
-            </select>
-          </div>
-        </div>
-      
-      
-        <div className="form-row">
-          <div className="input-group">
-            <label>Education Level *</label>
-            <select>
-            <option value="">Select education level</option>
-            <option value="None">None</option>
-              <option value="Secondary">Secondary</option>
-              <option value="Tertiary">Tertiary</option>
-              <option value="University">University</option>
-            </select>
-          </div>
-        </div>
-       
-          <div className="form-row">
-            <div className="input-group">
-              <label>Country *</label>
-              <select>
+            <label htmlFor="county">County</label>
+            <select
+              id="county"
+              name="county"
+              onChange={handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.county}
+            >
               <option value=""> </option>
-                <option value="KE">Kenya</option>
-                <option value="US">United States</option>
-                <option value="UG">Uganda</option>
-              </select>
-            </div>
+              <option value="001">Nairobi</option>
+              <option value="002">Kiambu</option>
+            </select>
+            {formik.touched.county && formik.errors.county && (
+              <div className="error">{formik.errors.county}</div>
+            )}
           </div>
-        
-       
-          <div className="form-row">
-            <div className="input-group">
-              <label>County of Birth *</label>
-              <select>
-              <option value=""> </option>
-                <option value="001">Mombasa</option>
-                <option value="002">Kwale</option>
-              </select>
-            </div>
-          </div>
-        </section>
-
-
-          <section className="form-group">
-          <div class="section-info">
-                <p class="section-description">Residence</p>
         </div>
-             
-                <div className="form-row">
-                  <div className="input-group">
-                    <label>County</label>
-                    <select>
-                    <option value="" > </option>
-                      <option value="001">Nairobi</option>
-                      <option value="002">Kiambu</option>
-                    </select>
-                  </div>
-                </div>
-              
-             
-                <div className="form-row">
-                  <div className="input-group">
-                    <label>Sub County</label>
-                    <select>
-                    <option value="" > </option>
-                      <option value="001">Kamukunji</option>
-                      <option value="002">Ngara</option>
-                    </select>
-                  </div>
-                </div>
-              
-             
-                <div className="form-row">
-                  <div className="input-group">
-                    <label>Ward</label>
-                    <select>
-                    <option value="" > </option>
-                      <option value="001">CBD</option>
-                      <option value="002">Shauri Moyo</option>
-                    </select>
-                  </div>
-                </div>
-              
-             
-                <div className="form-row">
-                  <div className="input-group">
-                    <label>Village *</label>
-                    <input type="text" />
-                  </div>
-                </div>
-              
-             
-                <div className="form-row">
-                  <div className="input-group">
-                    <label>Landmark</label>
-                    <input type="text" />
-                  </div>
-                </div>
-              
-             
-                <div className="form-row">
-                  <div className="input-group">
-                    <label>Address</label>
-                    <input type="text" />
-                  </div>
-                </div>
-                       
-        </section>
+
+        <div className="form-row">
+          <div className="input-group">
+            <label htmlFor="subCounty">Sub County</label>
+            <select
+              id="subCounty"
+              name="subCounty"
+              onChange={handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.subCounty}
+            >
+              <option value=""> </option>
+              <option value="001">Kamukunji</option>
+              <option value="002">Ngara</option>
+            </select>
+            {formik.touched.subCounty && formik.errors.subCounty && (
+              <div className="error">{formik.errors.subCounty}</div>
+            )}
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="input-group">
+            <label htmlFor="ward">Ward</label>
+            <select
+              id="ward"
+              name="ward"
+              onChange={handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.ward}
+            >
+              <option value=""> </option>
+              <option value="001">CBD</option>
+              <option value="002">Shauri Moyo</option>
+            </select>
+            {formik.touched.ward && formik.errors.ward && (
+              <div className="error">{formik.errors.ward}</div>
+            )}
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="input-group">
+            <label htmlFor="village">Village *</label>
+            <input
+              type="text"
+              id="village"
+              name="village"
+              onChange={handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.village}
+            />
+            {formik.touched.village && formik.errors.village && (
+              <div className="error">{formik.errors.village}</div>
+            )}
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="input-group">
+            <label htmlFor="landmark">Landmark</label>
+            <input
+              type="text"
+              id="landmark"
+              name="landmark"
+              onChange={handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.landmark}
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="input-group">
+            <label htmlFor="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              onChange={handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.address}
+            />
+          </div>
+        </div>
+      </section>
         </div>
   
   );

@@ -34,7 +34,7 @@ const NextOfKinDetails = (props) => {
 
   useEffect(() => {
     // Check if values exist in sessionStorage
-    const storedValues = sessionStorage.getItem(props.label);
+    const storedValues = sessionStorage.getItem('Next of Kin');
     if (storedValues) {
       try {
         const parsedValues = JSON.parse(storedValues);

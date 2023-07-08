@@ -23,37 +23,37 @@ export default function TextMobileStepper() {
     const theme = useTheme();
     const [activeStep, setActiveStep] = React.useState(0);
     const [formValues, setFormValues] = React.useState({});
-    const [label, setlabel] = React.useState('');
+    const [sessionLabel, setSessionLabel] = React.useState('');
     
 
     const steps = [
         {
           label: 'Household Details',
-          component: <HouseHoldDetails label={label} setFormValues={setFormValues}/>,
+          component: <HouseHoldDetails setFormValues={setFormValues}/>,
         },
         {
           label: 'Household Address',
-          component: <HouseHoldAddress label={label} setFormValues={setFormValues}/>,
+          component: <HouseHoldAddress  setFormValues={setFormValues}/>,
         },
         {
           label: 'Client Verification',
-          component: <ClientVerification label={label} setFormValues={setFormValues}/>,
+          component: <ClientVerification  setFormValues={setFormValues}/>,
         },
         {
           label: 'Demographics',
-          component: <Demographics label={label} setFormValues={setFormValues}/>,
+          component: <Demographics label={sessionLabel} setFormValues={setFormValues}/>,
         },
         {
           label: 'Contacts',
-          component: <Contact label={label} setFormValues={setFormValues}/>,
+          component: <Contact label={sessionLabel} setFormValues={setFormValues}/>,
         },
         {
           label: 'Next of Kin',
-          component: <NextOfKinDetails label={label} setFormValues={setFormValues}/>,
+          component: <NextOfKinDetails label={sessionLabel} setFormValues={setFormValues}/>,
         },
         {
           label: 'Create Household',
-          component: <PostToRegistry label={label} setFormValues={setFormValues}/>,
+          component: <PostToRegistry label={sessionLabel} setFormValues={setFormValues}/>,
         },
       ];
 
@@ -62,6 +62,7 @@ export default function TextMobileStepper() {
 
   const handleNext = () => {
     const { label } = steps[activeStep];
+    setSessionLabel(label);
 
     // Get the form values from the current step's component
     const storeValues = formValues;
