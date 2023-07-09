@@ -167,7 +167,8 @@ const MigrateHousehold = () => {
                 onBlur={handleBlur}
               >
                 <option value="">Select a reason</option>
-                <option value="Relocation test">Relocation test</option>
+                <option value="Relocation test">Greener pastures</option>
+                <option value="Relocation test">Natural calamities</option>
               </select>
               {errors.reasonForMigration && touched.reasonForMigration && (
                 <div className="error">{errors.reasonForMigration}</div>
