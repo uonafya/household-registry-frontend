@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react';
+import React,{useEffect} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { HouseholdContext } from '../../stateManagement/HouseholdContext';
+
 
 function Demographics(props) {
   const initialValues = {

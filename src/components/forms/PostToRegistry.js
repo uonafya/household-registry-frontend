@@ -35,7 +35,7 @@ function PostToRegistry() {
           parsedValues[key] = parsedValue;
         });
 
-      const handlePostToRegistry=(storedValues)=>{
+      const handlePostHouseholdRegistry=(storedValues)=>{
      
         
         const householdData = {
@@ -94,12 +94,12 @@ function PostToRegistry() {
         };
 
 
-        const handlePostLocal=(values)=>{
+        const handlePostClientRegistry=(storedValues)=>{
 
           // const { country, identifierType, identifierNumber } = values;
-          console.log(values)
+          console.log(storedValues)
 
-          axios.post('/api/households', values)
+          axios.post('/api/households', storedValues)
           .then((response) => {
             console.log('POST request successful');
             console.log(response.data);
@@ -136,8 +136,8 @@ function PostToRegistry() {
       <div className="form-container">
 
               <div class="form-row buttons">
-                <button className="button-1" onClick={handlePostToRegistry}><img src={ok} alt="OK" className="mr-2" /> Post To Registry</button>
-                <button className="button-2" disabled={activateButton} onClick={handlePostLocal}><img src={ok} alt="OK" className="mr-2" /> Create Person</button>
+                <button className="button-1" onClick={handlePostHouseholdRegistry}><img src={ok} alt="OK" className="mr-2" /> Create Household</button>
+                <button className="button-2" disabled={activateButton} onClick={handlePostClientRegistry}><img src={ok} alt="OK" className="mr-2" />Post to client Registry</button>
             </div>
 
     </div>
