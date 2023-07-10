@@ -34,14 +34,22 @@ export default function AllHouseHolds(props) {
     { field: 'household_approved_by_id', headerName: 'Household Approved By ID', width: 200 },
     { field: 'household_registered_by_id', headerName: 'Household Registered By ID', width: 200 },
   ];
+  const handleRowDoubleClick = (params) => {
+    const selectedRowData = params.row;
+    props.setHouseholdSummary(selectedRowData);
+    props.setHouseholdSelected(true);
+    console.log(selectedRowData);
+  
+  };
 
   return (
-    <div style={{ height: 400, width: '100%', backgroundColor: '#eaeff1' }}>
+    <div style={{ height: 'auto', width: '100%', backgroundColor: '#eaeff1' }}>
       <DataGrid
         sx={{ bgcolor: '#eaeff1' }}
         autoHeight
         rows={households}
         columns={columns}
+        onCellDoubleClick={handleRowDoubleClick}
       />
     </div>
   );

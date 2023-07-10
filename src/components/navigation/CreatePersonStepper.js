@@ -67,19 +67,7 @@ export default function CreatePersonStepper() {
 
   return (
     <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
-      <Paper
-        square
-        elevation={0}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          height: 'auto',
-          pl: 2,
-          bgcolor: 'background.default',
-        }}
-      >
-        <Typography>{steps[activeStep].label}</Typography>
-      </Paper>
+     
       <Box sx={{ height: 'auto', maxWidth: 400, width: '100%', p: 2 }}>
         {steps[activeStep].component}
       </Box>

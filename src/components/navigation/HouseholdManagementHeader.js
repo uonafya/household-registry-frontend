@@ -110,11 +110,11 @@ function HouseholdManagementHeader(props) {
        <TabList value={props.value} onChange={props.handleChange}  textColor="">
          <Tab label="All Households" value="1" />
          {console.log(householdSelected)}
-        <Tab label="Household Summary" value="2" disabled={householdSelected} />
-       <Tab label="Add Member" value="3" disabled={householdSelected}/>
-       <Tab label="Void Household" value="4" disabled={householdSelected}/>
-       <Tab label="Mute Household" value="5" disabled={householdSelected}/>
-       <Tab label="Migrate Household" value="6" disabled={householdSelected}/>      
+        <Tab label="Household Summary" value="2"  />
+       {/* <Tab label="Add Member" value="3" />
+       <Tab label="Void Household" value="4" />
+       <Tab label="Mute Household" value="5" />
+       <Tab label="Migrate Household" value="6" />       */}
        </TabList>
        </TabContext>
     

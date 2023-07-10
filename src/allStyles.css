@@ -3,6 +3,9 @@
 body {
     font-family: 'Roboto';
 }
+.error {
+    color: red;
+  }
 .form-container {
     padding: 30px;
     max-width: 600px;
@@ -31,7 +34,7 @@ section.form-group {
 }
 form {
     width: 100%;
-    font-size: 14px;
+    font-size: 15px;
 }
 .form-row {
     width: 100%;
@@ -45,7 +48,7 @@ form {
 }
 .input-group label {
     display: block;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     text-transform: uppercase;
     color: #999;

@@ -22,7 +22,7 @@ const HouseHoldDetails = (props) => {
   useEffect(() => {
     // Check if values exist in sessionStorage
     const storedValues = sessionStorage.getItem('Household Details');
-    console.log(props.label)
+    
 
     if (storedValues) {
       try {
@@ -42,6 +42,7 @@ const HouseHoldDetails = (props) => {
   };
 
   return (
+  
     <div className="form-container">
       <section className="form-group">
         <div className="section-info">

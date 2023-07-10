@@ -43,11 +43,10 @@ const VoidHousehold = () => {
      
       <div className="form-container">
       <section className="form-group">
-        <div className="section-info">
-          
-          <p className="section-description">Void Household</p>
-          </div>
-
+      <div className="section-info">
+          <h2 className="section-title">Void household</h2>
+          <p className="section-description">Void household</p>
+        </div>
           <form onSubmit={formik.handleSubmit}>
             <div className="form-row">
               <div className="input-group">

@@ -14,7 +14,7 @@ const HouseholdMainPage=(props)=>{
 
     const [value, setValue] = React.useState(0);
     const [householdSelected, setHouseholdSelected]=React.useState(true);
-    const [househouldSummary, setHousehouldSummary]=React.useState(null);
+    const [householdSummary, setHouseholdSummary]=React.useState({});
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -27,8 +27,8 @@ const HouseholdMainPage=(props)=>{
     <Box component="main" sx={{ flex: 1, py: 6, px: 4, bgcolor: '#eaeff1' }}>
     <TabContext value={value}>
    
-    <TabPanel value="1"><AllHouseHolds setHousehouldSummary={setHousehouldSummary} setHouseholdSelected={setHouseholdSelected}/></TabPanel>
-     <TabPanel value="2"><HouseholdSummary househouldSummary={househouldSummary}/></TabPanel>
+    <TabPanel value="1"><AllHouseHolds setHouseholdSummary={setHouseholdSummary} setHouseholdSelected={setHouseholdSelected}/></TabPanel>
+     <TabPanel value="2"><HouseholdSummary householdSummary={householdSummary}/></TabPanel>
      <TabPanel value="3"><CreatePersonStepper/></TabPanel>
      <TabPanel value="4"><VoidHousehold/></TabPanel>
      <TabPanel value="5"><MuteHousehold/></TabPanel>

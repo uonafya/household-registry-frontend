@@ -8,22 +8,75 @@ import { useFormik } from 'formik';
 // "//An uncontrolled form that does not rerender onChange?"
 function ClientVerification(props){
   
-  const handleSubmit=(values)=>{
-    
-      const { country, identifierType, identifierNumber } = values;
-      console.log("form values" + values)
-      const url = `/api/client/search/${country}/${identifierType}/${identifierNumber}`;
-        axios.get(url)
+  const handleSubmit = (values) => {
+    const { country, identifierType, identifierNumber } = values;
+    console.log("form values", values);
+    const url = `/api/client/search/${country}/${identifierType}/${identifierNumber}`;
+  
+    axios.get(url)
       .then(response => {
-        // Handle the response data
-        console.log(response.data);
-      
+        if (response.status === 200) {
+          // Client found, show alert and proceed with edit
+          alert("Client found. Details populated. Proceed with edit");
+          const { client} = response.data;
+
+          const {
+            clientNumber,
+            firstName,
+            middleName,
+            lastName,
+            dateOfBirth,
+            maritalStatus,
+            gender,
+            occupation,
+            religion,
+            educationLevel,
+            country,
+            countyOfBirth,
+            isAlive,
+            originFacilityKmflCode,
+            isOnART,
+            nascopCCCNumber,
+            residence
+          } = client;
+          
+          // Store the extracted data in session storage
+          sessionStorage.setItem('Demographics', JSON.stringify({
+            clientNumber,
+            firstName,
+            middleName,
+            lastName,
+            dateOfBirth,
+            maritalStatus,
+            gender,
+            occupation,
+            religion,
+            educationLevel,
+            country,
+            countyOfBirth,
+            isAlive,
+            originFacilityKmflCode,
+            isOnART,
+            nascopCCCNumber,
+            residence
+          }));
+        sessionStorage.setItem('Client Verification', JSON.stringify(client.identifications[0]));
+        sessionStorage.setItem('Contact', JSON.stringify(client.contact));
+        sessionStorage.setItem('Next of Kin', JSON.stringify(client.nextOfKins[0]));
+
+          
+        } 
       })
       .catch(error => {
-        // Handle any errors
-        console.error(error);
-      });
+        if (error.response && error.response.status === 404) {
+          // Client not found, show alert to key in details to submit
+          alert("Client not found. Key in details to submit");
+        } else {
+          // Handle other errors
+          console.error("Error:", error);
         }
+      });  
+  };
 
       const formik = useFormik({
         initialValues: {

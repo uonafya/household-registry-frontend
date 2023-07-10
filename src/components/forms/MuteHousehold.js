@@ -62,11 +62,15 @@ const MuteHousehold = () => {
 
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Household Muting
-      </Typography>
-
+     
       <div className="form-container">
+
+      <section className="form-group">
+        <div className="section-info">
+          <h2 className="section-title">Migrate household</h2>
+          <p className="section-description">Migrate household</p>
+        </div>
+
         <form onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="input-group">
@@ -110,6 +114,7 @@ const MuteHousehold = () => {
 
           <button type="submit">Submit</button>
         </form>
+        </section>
       </div>
     </React.Fragment>
   );

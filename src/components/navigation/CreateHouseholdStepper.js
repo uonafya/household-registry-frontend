@@ -82,7 +82,7 @@ export default function CreateHouseholdStepper() {
 
   return (
     <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
-      <Paper
+      {/* <Paper
         square
         elevation={0}
         sx={{
@@ -94,7 +94,7 @@ export default function CreateHouseholdStepper() {
         }}
       >
         <Typography>{steps[activeStep].label}</Typography>
-      </Paper>
+      </Paper> */}
       <Box sx={{ height: 'auto', maxWidth: 400, width: '100%', p: 2 }}>
         {steps[activeStep].component}
       </Box>
